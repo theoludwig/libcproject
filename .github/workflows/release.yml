@@ -33,6 +33,8 @@ jobs:
       - name: 'Install Release Tools'
         run: 'npm install --save-dev semantic-release @commitlint/cli @commitlint/config-conventional @semantic-release/git @semantic-release/exec @saithodev/semantic-release-backmerge'
 
+      - run: 'rm --force package.json package-lock.json'
+
       - name: 'Release'
         run: 'npx semantic-release'
         env:
