@@ -5,7 +5,7 @@
 
 #include <stdbool.h>
 
-bool mathematics_get_is_equal(const float number1, const float number2);
+bool mathematics_equals(const float number1, const float number2);
 
 unsigned long long mathematics_absolute_value(const long long number);
 

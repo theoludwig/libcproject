@@ -102,7 +102,7 @@ char* string_reverse(const char* string);
  * @param string2
  * @return true if the strings are equals, false otherwise
  */
-bool string_get_is_equal(const char* string1, const char* string2);
+bool string_equals(const char* string1, const char* string2);
 
 /**
  * @brief Check if the string is a integer.

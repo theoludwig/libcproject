@@ -2,7 +2,7 @@
 
 #include <stdbool.h>
 
-bool mathematics_get_is_equal(const float number1, const float number2) {
+bool mathematics_equals(const float number1, const float number2) {
   return (number1 - number2) < MATHEMATICS_FLOAT_PRECISION;
 }
 
@@ -20,7 +20,7 @@ unsigned long long mathematics_pow(unsigned long long base, unsigned long long e
 float mathematics_root(float number, unsigned int nth_root) {
   float result = number;
   float previous_result = 0;
-  while (!mathematics_get_is_equal(result, previous_result)) {
+  while (!mathematics_equals(result, previous_result)) {
     result = (((nth_root - 1) * previous_result) + (number / mathematics_pow(result, nth_root - 1))) / nth_root;
     previous_result = result;
   }

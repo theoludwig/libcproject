@@ -25,7 +25,7 @@ void string_total_occurrences_of_character_test();
 
 void string_reverse_test();
 
-void string_get_is_equal_test();
+void string_equals_test();
 
 void string_get_is_integer_test();
 

@@ -19,7 +19,7 @@ void string_test() {
   string_capitalize_test();
   string_total_occurrences_of_character_test();
   string_reverse_test();
-  string_get_is_equal_test();
+  string_equals_test();
   string_get_is_integer_test();
   string_split_test();
   string_join_test();
@@ -102,13 +102,13 @@ void string_reverse_test() {
   assert(assert_string_equal(string, "dlrow olleh"));
 }
 
-void string_get_is_equal_test() {
+void string_equals_test() {
   char *string1 = "hello world";
   char *string2 = "dlrow olleh";
   char *string3 = "dlrow olleh";
-  assert(!string_get_is_equal(string1, string2));
-  assert(string_get_is_equal(string1, string1));
-  assert(string_get_is_equal(string2, string3));
+  assert(!string_equals(string1, string2));
+  assert(string_equals(string1, string1));
+  assert(string_equals(string2, string3));
 }
 
 void string_get_is_integer_test() {

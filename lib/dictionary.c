@@ -26,7 +26,7 @@ void dictionary_add(struct dictionary *dictionary, char *key, void *data) {
   }
   struct dictionary_item *item = NULL;
   for (size_t index = 0; index < dictionary->length && item == NULL; index++) {
-    if (string_get_is_equal(key, dictionary->items[index]->key)) {
+    if (string_equals(key, dictionary->items[index]->key)) {
       item = dictionary->items[index];
     }
   }
@@ -44,7 +44,7 @@ void dictionary_add(struct dictionary *dictionary, char *key, void *data) {
 void dictionary_remove(struct dictionary *dictionary, char *key) {
   bool found = false;
   for (size_t index = 0; index < dictionary->length && !found; index++) {
-    if (string_get_is_equal(key, dictionary->items[index]->key)) {
+    if (string_equals(key, dictionary->items[index]->key)) {
       free(dictionary->items[index]);
       dictionary->items[index] = dictionary->items[dictionary->length - 1];
       dictionary->length--;
@@ -56,7 +56,7 @@ void dictionary_remove(struct dictionary *dictionary, char *key) {
 struct dictionary_item *dictionary_get(struct dictionary *dictionary, char *key) {
   for (size_t index = 0; index < dictionary->length; index++) {
     struct dictionary_item *item = dictionary->items[index];
-    if (string_get_is_equal(key, item->key)) {
+    if (string_equals(key, item->key)) {
       return item;
     }
   }

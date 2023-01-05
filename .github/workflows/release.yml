@@ -1,0 +1,41 @@
+name: 'Release'
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  release:
+    runs-on: 'ubuntu-latest'
+    steps:
+      - uses: 'actions/checkout@v3.1.0'
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: 'Import GPG key'
+        uses: 'crazy-max/ghaction-import-gpg@v4'
+        with:
+          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+          git_user_signingkey: true
+          git_commit_gpgsign: true
+
+      - name: 'Install Build Tools'
+        run: 'apt-get install --yes build-essential gcc make clang-format'
+
+      - run: 'make set_version'
+
+      - name: 'Use Node.js'
+        uses: 'actions/setup-node@v3.1.0'
+        with:
+          node-version: 'lts/*'
+
+      - name: 'Install Release Tools'
+        run: 'npm install --global semantic-release @semantic-release/git @semantic-release/exec @saithodev/semantic-release-backmerge'
+
+      - name: 'Release'
+        run: 'semantic-release'
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GIT_COMMITTER_NAME: ${{ secrets.GIT_NAME }}
+          GIT_COMMITTER_EMAIL: ${{ secrets.GIT_EMAIL }}

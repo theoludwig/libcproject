@@ -142,7 +142,7 @@ char* string_reverse(const char* string) {
   return result;
 }
 
-bool string_get_is_equal(const char* string1, const char* string2) {
+bool string_equals(const char* string1, const char* string2) {
   size_t string1_length = string_get_length(string1);
   size_t string2_length = string_get_length(string2);
   bool is_equal = string1_length == string2_length;
