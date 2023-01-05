@@ -16,8 +16,7 @@
     [
       "@semantic-release/exec",
       {
-        "prepareCmd": "make set_version",
-        "publishCmd": "./bin/set_version.exe ${nextRelease.version}"
+        "prepareCmd": "make set_version && ./bin/set_version.exe ${nextRelease.version}"
       }
     ],
     [
