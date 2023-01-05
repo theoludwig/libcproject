@@ -21,7 +21,7 @@ jobs:
           git_commit_gpgsign: true
 
       - name: 'Install Build Tools'
-        run: 'apt-get install --yes build-essential gcc make clang-format'
+        run: 'sudo apt-get install --yes build-essential gcc make clang-format'
 
       - run: 'make set_version'
 
