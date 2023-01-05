@@ -31,10 +31,10 @@ jobs:
           node-version: 'lts/*'
 
       - name: 'Install Release Tools'
-        run: 'npm install --global semantic-release @commitlint/config-conventional @semantic-release/git @semantic-release/exec @saithodev/semantic-release-backmerge'
+        run: 'npm install --save-dev semantic-release @commitlint/cli @commitlint/config-conventional @semantic-release/git @semantic-release/exec @saithodev/semantic-release-backmerge'
 
       - name: 'Release'
-        run: 'semantic-release'
+        run: 'npx semantic-release'
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           GIT_COMMITTER_NAME: ${{ secrets.GIT_NAME }}
