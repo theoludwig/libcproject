@@ -12,6 +12,7 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
+          submodules: recursive
 
       - name: 'Import GPG key'
         uses: 'crazy-max/ghaction-import-gpg@v4'

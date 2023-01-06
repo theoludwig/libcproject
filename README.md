@@ -30,7 +30,7 @@ C is a low-level programming language and we often end up reinventing the wheel 
 - [GNU binutils](https://www.gnu.org/software/binutils/)
 - [GNU gcc](https://gcc.gnu.org/)
 - [GNU make](https://www.gnu.org/software/make/)
-- [clang-format](https://clang.llvm.org/docs/ClangFormat.html)
+- [ClangFormat](https://clang.llvm.org/docs/ClangFormat.html)
 - [Doxygen](https://www.doxygen.nl/)
 
 For example on GNU/Linux Ubuntu:
