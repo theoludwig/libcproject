@@ -21,9 +21,12 @@ jobs:
           git_commit_gpgsign: true
 
       - name: 'Install Build Tools'
-        run: 'sudo apt-get install --yes build-essential gcc make clang-format'
+        run: 'sudo apt-get install --yes build-essential gcc make clang-format doxygen doxygen-gui doxygen-doc graphviz'
 
       - run: 'make set_version'
+
+      - name: 'Generate Documentation'
+        run: 'make documentation'
 
       - name: 'Use Node.js'
         uses: 'actions/setup-node@v3.1.0'
@@ -31,7 +34,7 @@ jobs:
           node-version: 'lts/*'
 
       - name: 'Install Release Tools'
-        run: 'npm install --save-dev semantic-release @commitlint/cli @commitlint/config-conventional @semantic-release/git @semantic-release/exec @saithodev/semantic-release-backmerge'
+        run: 'npm install --save-dev semantic-release @commitlint/cli @commitlint/config-conventional @semantic-release/git @semantic-release/exec @saithodev/semantic-release-backmerge vercel'
 
       - run: 'rm --force package.json package-lock.json'
 
@@ -41,3 +44,10 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           GIT_COMMITTER_NAME: ${{ secrets.GIT_NAME }}
           GIT_COMMITTER_EMAIL: ${{ secrets.GIT_EMAIL }}
+
+      - name: 'Deploy to Vercel'
+        run: 'npx vercel ./documentation/html --token="${VERCEL_TOKEN}" --prod'
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}

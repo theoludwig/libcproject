@@ -29,11 +29,13 @@ C is a low-level programming language and we often end up reinventing the wheel 
 - [GNU gcc](https://gcc.gnu.org/)
 - [GNU make](https://www.gnu.org/software/make/)
 - [clang-format](https://clang.llvm.org/docs/ClangFormat.html)
+- [Doxygen](https://www.doxygen.nl/)
 
 For example on GNU/Linux Ubuntu:
 
 ```sh
 sudo apt-get install build-essential gcc make clang-format
+sudo apt-get install doxygen doxygen-gui doxygen-doc graphviz
 ```
 
 ## Usage
@@ -43,6 +45,7 @@ make # to compile
 make run # to run main
 make test # to run unit tests
 make lint # to lint the code
+make documentation # to generate the documentation
 make clean # to clean up
 
 nm ./build/libcproject.a # to see the symbols

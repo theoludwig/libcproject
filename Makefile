@@ -39,6 +39,10 @@ test: all	 ${TEST_SOURCES}
 lint:
 	clang-format --Werror --dry-run ${LIB_SOURCES} ${TEST_SOURCES} ${HEADER_FILES} ./main.c
 
+.PHONY: documentation
+documentation:
+	doxygen ./Doxyfile
+
 .PHONY: clean
 clean:
-	rm --recursive --force ./build ./bin *.out *.o *.exe *.a
+	rm --recursive --force ./build ./bin *.out *.o *.exe *.a documentation
