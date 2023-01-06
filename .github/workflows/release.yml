@@ -25,9 +25,6 @@ jobs:
 
       - run: 'make set_version'
 
-      - name: 'Generate Documentation'
-        run: 'make documentation'
-
       - name: 'Use Node.js'
         uses: 'actions/setup-node@v3.1.0'
         with:
@@ -44,6 +41,9 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           GIT_COMMITTER_NAME: ${{ secrets.GIT_NAME }}
           GIT_COMMITTER_EMAIL: ${{ secrets.GIT_EMAIL }}
+
+      - name: 'Generate Documentation'
+        run: 'make documentation'
 
       - name: 'Deploy to Vercel'
         run: 'npx vercel ./documentation/html --token="${VERCEL_TOKEN}" --prod'
