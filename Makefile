@@ -4,35 +4,37 @@ CC_FLAGS = -Wall -Wextra -Wfloat-equal -Wundef -Werror -std=c17 -pedantic -pedan
 LIB = ./build/${LIBRARY_NAME}.a
 LIB_CC_FLAGS = -L. -l:${LIB}
 LIB_SOURCES = $(wildcard lib/*.c)
+LIB_OBJECTS = $(patsubst %.c, %.o, $(LIB_SOURCES))
 TEST_SOURCES = $(wildcard test/*.c)
+TEST_OBJECTS = $(patsubst %.c, %.o, $(TEST_SOURCES))
 HEADER_FILES = $(wildcard lib/*.h) $(wildcard test/*.h) ./${LIBRARY_NAME}.h
 MAIN_EXECUTABLE = bin/main.exe
 SET_VERSION_EXECUTABLE = bin/set_version.exe
 TEST_EXECUTABLE = bin/test.exe
 
-.PHONY: all
-all: ${LIB_SOURCES}
-	mkdir --parents ./build
-	${CC} ${CC_FLAGS} -c ${LIB_SOURCES}
+build/%.o: %.c
+	mkdir --parents ./build/lib ./build/test
+	${CC} ${CC_FLAGS} -c $< -o $@
+
+${LIB}: $(addprefix build/, ${LIB_OBJECTS})
 	rm --force ${LIB}
-	ar -rcs ${LIB} *.o
-	rm --recursive --force *.o
+	ar -rcs ${LIB} $(addprefix build/, ${LIB_OBJECTS})
 
 .PHONY: run
-run: all ./main.c
+run: ${LIB} ./main.c
 	mkdir --parents ./bin
 	${CC} ${CC_FLAGS} -o ${MAIN_EXECUTABLE} ./main.c ${LIB_CC_FLAGS}
 	./${MAIN_EXECUTABLE} ${ARGS}
 
 .PHONY: set_version
-set_version: all ./set_version.c
+set_version: ${LIB} ./set_version.c
 	mkdir --parents ./bin
 	${CC} ${CC_FLAGS} -o ${SET_VERSION_EXECUTABLE} ./set_version.c ${LIB_CC_FLAGS}
 
 .PHONY: test
-test: all	 ${TEST_SOURCES}
+test: ${LIB} $(addprefix build/, ${TEST_OBJECTS})
 	mkdir --parents ./bin
-	${CC} ${CC_FLAGS} -o ${TEST_EXECUTABLE} ${TEST_SOURCES} ${LIB_CC_FLAGS}
+	${CC} ${CC_FLAGS} -o ${TEST_EXECUTABLE} $(addprefix build/, ${TEST_OBJECTS}) ${LIB_CC_FLAGS}
 	./${TEST_EXECUTABLE}
 
 .PHONY: lint
@@ -45,4 +47,4 @@ documentation:
 
 .PHONY: clean
 clean:
-	rm --recursive --force ./build ./bin *.out *.o *.exe *.a documentation
+	rm --recursive --force ./build ./bin ./documentation
