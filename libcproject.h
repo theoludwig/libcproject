@@ -1,6 +1,7 @@
 #ifndef __LIBCPROJECT__
 #define __LIBCPROJECT__
 
+#include "lib/array_list.h"
 #include "lib/character.h"
 #include "lib/convert.h"
 #include "lib/dictionary.h"
