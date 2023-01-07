@@ -1,6 +1,13 @@
 #ifndef __CHARACTER_TEST__
 #define __CHARACTER_TEST__
 
+#include <assert.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+#include "libcproject.h"
+#include "test.h"
+
 void character_test();
 
 void character_append_test();

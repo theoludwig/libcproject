@@ -1,6 +1,13 @@
 #ifndef __CONVERT_TEST__
 #define __CONVERT_TEST__
 
+#include <assert.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+#include "libcproject.h"
+#include "test.h"
+
 void convert_test();
 
 void convert_character_to_string_test();

@@ -4,6 +4,8 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
+#include "string.h"
+
 /**
  * @brief Append a character to a string, assuming string points to an array
  * with enough space.

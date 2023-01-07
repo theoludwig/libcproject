@@ -1,16 +1,5 @@
 #include "filesystem.h"
 
-#include <dirent.h>
-#include <errno.h>
-#include <fcntl.h>
-#include <pwd.h>
-#include <stdbool.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-
-#include "string.h"
-
 int filesystem_read(char *path, char **file_content, off_t *file_size) {
   int file_descriptor = open(path, O_RDONLY);
   if (file_descriptor == -1) {

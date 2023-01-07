@@ -1,13 +1,5 @@
 #include "convert.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-
-#include "character.h"
-#include "mathematics.h"
-#include "stdbool.h"
-#include "string.h"
-
 char* convert_character_to_string(const char character) {
   char* string = malloc(sizeof(char*) * 2);
   if (string == NULL) {

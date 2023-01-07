@@ -1,6 +1,10 @@
 #ifndef __MATHEMATICS_TEST__
 #define __MATHEMATICS_TEST__
 
+#include <assert.h>
+
+#include "libcproject.h"
+
 void mathematics_test();
 
 void mathematics_absolute_value_test();

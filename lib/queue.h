@@ -1,6 +1,7 @@
 #ifndef __QUEUE__
 #define __QUEUE__
 
+#include <stdio.h>
 #include <stdlib.h>
 
 // FIFO = First In First Out

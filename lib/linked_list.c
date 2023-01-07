@@ -1,10 +1,5 @@
 #include "linked_list.h"
 
-#include <stdbool.h>
-#include <stdlib.h>
-
-#include "stack.h"
-
 struct linked_list *linked_list_initialization() {
   struct linked_list *list = malloc(sizeof(*list));
   if (list == NULL) {

@@ -1,12 +1,5 @@
 #include "convert_test.h"
 
-#include <assert.h>
-#include <stdio.h>
-#include <stdlib.h>
-
-#include "libcproject.h"
-#include "test.h"
-
 void convert_test() {
   convert_character_to_string_test();
   convert_character_to_digit_test();

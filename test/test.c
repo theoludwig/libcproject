@@ -1,6 +1,4 @@
-#include <stdbool.h>
-#include <stdio.h>
-#include <string.h>
+#include "test.h"
 
 bool assert_string_equal(const char *actual, const char *expected) {
   if (strcmp(expected, actual) != 0) {

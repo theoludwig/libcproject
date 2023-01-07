@@ -1,8 +1,12 @@
 #ifndef __TERMINAL__
 #define __TERMINAL__
 
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
 #include <stdlib.h>
 
+#include "character.h"
 #include "dictionary.h"
 #include "linked_list.h"
 #include "queue.h"

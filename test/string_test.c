@@ -1,12 +1,5 @@
 #include "string_test.h"
 
-#include <assert.h>
-#include <stdio.h>
-#include <stdlib.h>
-
-#include "libcproject.h"
-#include "test.h"
-
 void string_test() {
   string_get_length_test();
   string_to_uppercase_test();

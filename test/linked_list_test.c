@@ -1,12 +1,5 @@
 #include "linked_list_test.h"
 
-#include <assert.h>
-#include <stdint.h>
-#include <stdio.h>
-#include <stdlib.h>
-
-#include "libcproject.h"
-
 void linked_list_test() {
   linked_list_initialization_test();
   linked_list_add_in_head_test();

@@ -1,9 +1,5 @@
 #include "mathematics_test.h"
 
-#include <assert.h>
-
-#include "libcproject.h"
-
 void mathematics_test() {
   mathematics_absolute_value_test();
   mathematics_pow_test();

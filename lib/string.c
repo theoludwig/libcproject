@@ -1,13 +1,5 @@
 #include "string.h"
 
-#include <stdbool.h>
-#include <stdio.h>
-#include <stdlib.h>
-
-#include "character.h"
-#include "convert.h"
-#include "dictionary.h"
-
 size_t string_get_length(const char* string) {
   size_t length = 0;
   while (string[length] != '\0') {

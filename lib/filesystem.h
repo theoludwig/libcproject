@@ -1,7 +1,16 @@
 #ifndef __FILESYSTEM__
 #define __FILESYSTEM__
 
+#include <dirent.h>
+#include <errno.h>
 #include <fcntl.h>
+#include <pwd.h>
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+#include "string.h"
 
 /**
  * @brief Read the content of a file.

@@ -1,8 +1,5 @@
 #include "queue.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-
 struct queue *queue_initialization() {
   struct queue *queue = malloc(sizeof(*queue));
   if (queue == NULL) {

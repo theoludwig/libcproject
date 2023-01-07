@@ -1,16 +1,5 @@
 #include "terminal.h"
 
-#include <stdbool.h>
-#include <stdint.h>
-#include <stdio.h>
-#include <stdlib.h>
-
-#include "character.h"
-#include "dictionary.h"
-#include "linked_list.h"
-#include "queue.h"
-#include "stack.h"
-
 char* terminal_input() {
   char character;
   size_t length = 1;

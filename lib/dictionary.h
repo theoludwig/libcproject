@@ -4,7 +4,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
-#include "linked_list.h"
+#include "string.h"
 
 #define DICTIONARY_INITIAL_CAPACITY 10
 

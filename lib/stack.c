@@ -1,8 +1,5 @@
 #include "stack.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-
 struct stack *stack_initialization() {
   struct stack *stack = malloc(sizeof(*stack));
   if (stack == NULL) {

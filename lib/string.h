@@ -2,7 +2,12 @@
 #define __STRING__
 
 #include <stdbool.h>
+#include <stdio.h>
 #include <stdlib.h>
+
+#include "character.h"
+#include "convert.h"
+#include "dictionary.h"
 
 /**
  * @brief Return the length of a string (excluding '\0').
@@ -100,7 +105,7 @@ char* string_reverse(const char* string);
  *
  * @param string1
  * @param string2
- * @return true if the strings are equals, false otherwise
+ * @return true if the strings are equals, false otherwise.
  */
 bool string_equals(const char* string1, const char* string2);
 
@@ -108,7 +113,7 @@ bool string_equals(const char* string1, const char* string2);
  * @brief Check if the string is a integer.
  *
  * @param string
- * @return true if the string is a integer, false otherwise
+ * @return true if the string is a integer, false otherwise.
  */
 bool string_get_is_integer(const char* string);
 
@@ -143,7 +148,7 @@ char* string_concatenate(char* string1, char* string2);
  * @brief Check if a string contains only unique characters.
  *
  * @param string
- * @return true if string contains only unique characters, false otherwise
+ * @return true if string contains only unique characters, false otherwise.
  */
 bool string_get_has_unique_characters(const char* string);
 
@@ -162,7 +167,7 @@ char* string_substring(const char* string, size_t index_start, size_t index_end)
  *
  * @param string
  * @param substring
- * @return true if the string contains the substring, false otherwise
+ * @return true if the string contains the substring, false otherwise.
  */
 bool string_get_is_substring(const char* string, const char* substring);
 
@@ -188,7 +193,7 @@ char* string_get_last_occurence_of_character(const char* string, char character)
  *
  * @param string
  * @param prefix
- * @return true if the string starts with the substring, false otherwise
+ * @return true if the string starts with the substring, false otherwise.
  */
 bool string_starts_with(const char* string, const char* prefix);
 
@@ -197,7 +202,7 @@ bool string_starts_with(const char* string, const char* prefix);
  *
  * @param string
  * @param prefix
- * @return true if the string ends with the substring, false otherwise
+ * @return true if the string ends with the substring, false otherwise.
  */
 bool string_ends_with(const char* string, const char* prefix);
 

@@ -1,12 +1,5 @@
 #include "array_list_test.h"
 
-#include <assert.h>
-#include <stdint.h>
-#include <stdio.h>
-#include <stdlib.h>
-
-#include "libcproject.h"
-
 void array_list_test() {
   struct array_list *list = array_list_initialization();
   assert(list->size == 0);

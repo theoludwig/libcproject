@@ -1,10 +1,5 @@
 #include "character.h"
 
-#include <stdbool.h>
-#include <stdlib.h>
-
-#include "string.h"
-
 void character_append(char* string, const char character) {
   size_t length = string_get_length(string);
   character_append_at(string, character, length);

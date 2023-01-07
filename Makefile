@@ -43,7 +43,7 @@ set_version: ${LIB} ./set_version.c
 test: ${LIB} $(addprefix build/, ${TEST_OBJECTS})
 	mkdir --parents ./bin
 	${CC} ${CC_FLAGS} -o ${TEST_EXECUTABLE} $(addprefix build/, ${TEST_OBJECTS}) ${LIB_CC_FLAGS}
-	./${TEST_EXECUTABLE}
+	./${TEST_EXECUTABLE} ${ARGS}
 
 .PHONY: lint
 lint:

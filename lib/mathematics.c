@@ -1,7 +1,5 @@
 #include "mathematics.h"
 
-#include <stdbool.h>
-
 bool mathematics_equals(const float number1, const float number2) {
   return (number1 - number2) < MATHEMATICS_FLOAT_PRECISION;
 }

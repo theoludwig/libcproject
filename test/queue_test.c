@@ -1,11 +1,5 @@
 #include "queue_test.h"
 
-#include <assert.h>
-#include <stdint.h>
-#include <stdlib.h>
-
-#include "libcproject.h"
-
 void queue_test() {
   queue_initialization_test();
   queue_push_test();

@@ -1,11 +1,5 @@
 #include "dictionary_test.h"
 
-#include <assert.h>
-#include <stdio.h>
-#include <stdlib.h>
-
-#include "libcproject.h"
-
 void dictionary_test() {
   struct dictionary *dictionary = dictionary_initialization();
   assert(dictionary->length == 0);

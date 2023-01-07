@@ -2,6 +2,8 @@
 #define __TEST__
 
 #include <stdbool.h>
+#include <stdio.h>
+#include <string.h>
 
 bool assert_string_equal(const char *actual, const char *expected);
 

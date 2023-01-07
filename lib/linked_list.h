@@ -1,10 +1,12 @@
 #ifndef __LINKED_LIST__
 #define __LINKED_LIST__
 
+#include <stdbool.h>
 #include <stdlib.h>
 
+#include "stack.h"
+
 struct linked_list {
-  // first node of the list
   struct linked_list_node *head;
 
   size_t length;

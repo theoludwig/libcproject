@@ -4,8 +4,6 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
-#include "linked_list.h"
-
 #define ARRAY_LIST_INITIAL_CAPACITY 10
 
 struct array_list {

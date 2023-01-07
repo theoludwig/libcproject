@@ -1,6 +1,7 @@
 #ifndef __STACK__
 #define __STACK__
 
+#include <stdio.h>
 #include <stdlib.h>
 
 // LIFO = Last In First Out

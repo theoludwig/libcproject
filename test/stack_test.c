@@ -1,11 +1,5 @@
 #include "stack_test.h"
 
-#include <assert.h>
-#include <stdint.h>
-#include <stdlib.h>
-
-#include "libcproject.h"
-
 void stack_test() {
   stack_initialization_test();
   stack_push_test();

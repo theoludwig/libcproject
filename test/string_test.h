@@ -1,6 +1,13 @@
 #ifndef __STRING_TEST__
 #define __STRING_TEST__
 
+#include <assert.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+#include "libcproject.h"
+#include "test.h"
+
 void string_test();
 
 void string_get_length_test();

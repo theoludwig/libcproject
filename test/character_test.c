@@ -1,12 +1,5 @@
 #include "character_test.h"
 
-#include <assert.h>
-#include <stdio.h>
-#include <stdlib.h>
-
-#include "libcproject.h"
-#include "test.h"
-
 void character_test() {
   character_append_test();
   character_append_at_test();

@@ -1,9 +1,5 @@
 #include "dictionary.h"
 
-#include <stdlib.h>
-
-#include "string.h"
-
 struct dictionary *dictionary_initialization() {
   struct dictionary *dictionary = malloc(sizeof(struct dictionary));
   dictionary->items = malloc(sizeof(struct dictionary_item *) * DICTIONARY_INITIAL_CAPACITY);
