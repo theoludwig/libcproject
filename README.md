@@ -55,9 +55,16 @@ nm ./build/libcproject.a # to see the symbols
 
 Steps to create a new C project that uses `libcproject`:
 
-### Step 1: Compile `libcproject`
+### Step 1: Install and Compile `libcproject`
 
 ```sh
+# Clone the repository
+git clone https://github.com/Divlo/libcproject.git
+
+# Go to libcproject directory
+cd libcproject
+
+# Compile the library
 make
 ```
 

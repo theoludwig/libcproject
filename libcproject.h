@@ -11,5 +11,6 @@
 #include "lib/stack.h"
 #include "lib/string.h"
 #include "lib/terminal.h"
+#include "version.h"
 
 #endif

@@ -12,13 +12,21 @@ MAIN_EXECUTABLE = bin/main.exe
 SET_VERSION_EXECUTABLE = bin/set_version.exe
 TEST_EXECUTABLE = bin/test.exe
 
-build/%.o: %.c
-	mkdir --parents ./build/lib ./build/test
-	${CC} ${CC_FLAGS} -c $< -o $@
-
 ${LIB}: $(addprefix build/, ${LIB_OBJECTS})
 	rm --force ${LIB}
 	ar -rcs ${LIB} $(addprefix build/, ${LIB_OBJECTS})
+
+build/lib:
+	mkdir --parents ./build/lib
+
+build/test:
+	mkdir --parents ./build/test
+
+build/lib/%.o: lib/%.c ${HEADER_FILES} | build/lib
+	${CC} ${CC_FLAGS} -c $< -o $@
+
+build/test/%.o: test/%.c ${HEADER_FILES} | build/test
+	${CC} ${CC_FLAGS} -c $< -o $@
 
 .PHONY: run
 run: ${LIB} ./main.c

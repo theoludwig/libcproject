@@ -1,6 +1,6 @@
 DOXYFILE_ENCODING = UTF-8
 PROJECT_NAME = libcproject
-PROJECT_BRIEF = "C static library easier to use than $(libc) (C standard library)."
+PROJECT_BRIEF = "C static library easier to use than libc (C standard library)."
 OUTPUT_DIRECTORY = documentation
 OUTPUT_LANGUAGE = English
 OPTIMIZE_OUTPUT_FOR_C = YES
