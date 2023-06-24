@@ -46,5 +46,44 @@ char *filesystem_get_mimetype(char *path) {
   if (string_ends_with(path, ".gif")) {
     return "image/gif";
   }
+  if (string_ends_with(path, ".ico")) {
+    return "image/x-icon";
+  }
+  if (string_ends_with(path, ".svg")) {
+    return "image/svg+xml";
+  }
+  if (string_ends_with(path, ".json")) {
+    return "application/json";
+  }
+  if (string_ends_with(path, ".pdf")) {
+    return "application/pdf";
+  }
+  if (string_ends_with(path, ".xml")) {
+    return "application/xml";
+  }
+  if (string_ends_with(path, ".csv")) {
+    return "text/csv";
+  }
+  if (string_ends_with(path, ".zip")) {
+    return "application/zip";
+  }
+  if (string_ends_with(path, ".tar")) {
+    return "application/x-tar";
+  }
+  if (string_ends_with(path, ".gz")) {
+    return "application/x-gzip";
+  }
+  if (string_ends_with(path, ".mp3")) {
+    return "audio/mpeg";
+  }
+  if (string_ends_with(path, ".wav")) {
+    return "audio/wav";
+  }
+  if (string_ends_with(path, ".mp4")) {
+    return "video/mp4";
+  }
+  if (string_ends_with(path, ".bin")) {
+    return "application/octet-stream";
+  }
   return "text/plain";
 }
