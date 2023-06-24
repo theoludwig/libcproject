@@ -21,6 +21,7 @@
  * @return int
  * @retval -1 if the file does not exist
  * @retval 0 for success
+ * @since v1.0.0
  */
 int filesystem_read(char *path, char **file_content, off_t *file_size);
 
@@ -33,6 +34,7 @@ int filesystem_read(char *path, char **file_content, off_t *file_size);
  * @return int
  * @retval -1 if errors
  * @retval 0 for success
+ * @since v1.0.0
  */
 int filesystem_write(char *path, char *file_content, off_t file_size);
 
@@ -41,6 +43,7 @@ int filesystem_write(char *path, char *file_content, off_t file_size);
  *
  * @param path
  * @return char*
+ * @since v1.0.0
  */
 char *filesystem_get_mimetype(char *path);
 

@@ -14,6 +14,7 @@
  *
  * @param string
  * @return size_t
+ * @since v1.0.0
  */
 size_t string_get_length(const char* string);
 
@@ -22,6 +23,7 @@ size_t string_get_length(const char* string);
  *
  * @param string
  * @return char*
+ * @since v1.0.0
  */
 char* string_to_uppercase(char* string);
 
@@ -30,6 +32,7 @@ char* string_to_uppercase(char* string);
  *
  * @param string
  * @return char*
+ * @since v1.0.0
  */
 char* string_to_lowercase(char* string);
 
@@ -40,6 +43,7 @@ char* string_to_lowercase(char* string);
  * @param search_value A character search value.
  * @param replace_value A character containing the text to replace for match.
  * @return char*
+ * @since v1.0.0
  */
 char* string_replace(char* string, char search, char replace);
 
@@ -48,6 +52,7 @@ char* string_replace(char* string, char search, char replace);
  *
  * @param string
  * @return char*
+ * @since v1.0.0
  */
 char* string_trim_start(char* string);
 
@@ -56,6 +61,7 @@ char* string_trim_start(char* string);
  *
  * @param string
  * @return char*
+ * @since v1.0.0
  */
 char* string_trim_end(char* string);
 
@@ -64,6 +70,7 @@ char* string_trim_end(char* string);
  *
  * @param string
  * @return char*
+ * @since v1.0.0
  */
 char* string_trim(char* string);
 
@@ -72,6 +79,7 @@ char* string_trim(char* string);
  *
  * @param string
  * @return char*
+ * @since v1.0.0
  */
 char* string_copy(const char* string);
 
@@ -80,6 +88,7 @@ char* string_copy(const char* string);
  *
  * @param string
  * @return char*
+ * @since v1.0.0
  */
 char* string_capitalize(char* string);
 
@@ -89,6 +98,7 @@ char* string_capitalize(char* string);
  * @param string
  * @param character
  * @return size_t
+ * @since v1.0.0
  */
 size_t string_total_occurrences_of_character(char* string, char character);
 
@@ -97,6 +107,7 @@ size_t string_total_occurrences_of_character(char* string, char character);
  *
  * @param string
  * @return char*
+ * @since v1.0.0
  */
 char* string_reverse(const char* string);
 
@@ -106,6 +117,7 @@ char* string_reverse(const char* string);
  * @param string1
  * @param string2
  * @return true if the strings are equals, false otherwise.
+ * @since v1.0.0
  */
 bool string_equals(const char* string1, const char* string2);
 
@@ -114,6 +126,7 @@ bool string_equals(const char* string1, const char* string2);
  *
  * @param string
  * @return true if the string is a integer, false otherwise.
+ * @since v1.0.0
  */
 bool string_get_is_integer(const char* string);
 
@@ -123,6 +136,7 @@ bool string_get_is_integer(const char* string);
  * @param string
  * @param separator
  * @return char**
+ * @since v1.0.0
  */
 char** string_split(const char* string, char separator, size_t* result_size);
 
@@ -132,6 +146,7 @@ char** string_split(const char* string, char separator, size_t* result_size);
  * @param array
  * @param separator
  * @return char*
+ * @since v1.0.0
  */
 char* string_join(char** array, const char separator, size_t array_length);
 
@@ -141,6 +156,7 @@ char* string_join(char** array, const char separator, size_t array_length);
  * @param string1
  * @param string2
  * @return char*
+ * @since v1.0.0
  */
 char* string_concatenate(char* string1, char* string2);
 
@@ -149,6 +165,7 @@ char* string_concatenate(char* string1, char* string2);
  *
  * @param string
  * @return true if string contains only unique characters, false otherwise.
+ * @since v1.0.0
  */
 bool string_get_has_unique_characters(const char* string);
 
@@ -159,6 +176,7 @@ bool string_get_has_unique_characters(const char* string);
  * @param index_start
  * @param index_end
  * @return char*
+ * @since v1.0.0
  */
 char* string_substring(const char* string, size_t index_start, size_t index_end);
 
@@ -168,6 +186,7 @@ char* string_substring(const char* string, size_t index_start, size_t index_end)
  * @param string
  * @param substring
  * @return true if the string contains the substring, false otherwise.
+ * @since v1.0.0
  */
 bool string_get_is_substring(const char* string, const char* substring);
 
@@ -176,6 +195,7 @@ bool string_get_is_substring(const char* string, const char* substring);
  *
  * @param integer
  * @return char* example: string_get_formatted_number(1000, " ") => "1 000"
+ * @since v1.0.0
  */
 char* string_get_formatted_number(const long long number, char* separator);
 
@@ -185,6 +205,7 @@ char* string_get_formatted_number(const long long number, char* separator);
  * @param string
  * @param character
  * @return char*
+ * @since v1.0.0
  */
 char* string_get_last_occurence_of_character(const char* string, char character);
 
@@ -194,6 +215,7 @@ char* string_get_last_occurence_of_character(const char* string, char character)
  * @param string
  * @param prefix
  * @return true if the string starts with the substring, false otherwise.
+ * @since v1.0.0
  */
 bool string_starts_with(const char* string, const char* prefix);
 
@@ -203,6 +225,7 @@ bool string_starts_with(const char* string, const char* prefix);
  * @param string
  * @param prefix
  * @return true if the string ends with the substring, false otherwise.
+ * @since v1.0.0
  */
 bool string_ends_with(const char* string, const char* prefix);
 

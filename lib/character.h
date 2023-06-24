@@ -12,6 +12,7 @@
  *
  * @param string
  * @param character
+ * @since v1.0.0
  */
 void character_append(char* string, char character);
 
@@ -21,6 +22,7 @@ void character_append(char* string, char character);
  * @param string
  * @param character
  * @param index
+ * @since v1.0.0
  */
 void character_append_at(char* string, const char character, const size_t index);
 
@@ -29,6 +31,7 @@ void character_append_at(char* string, const char character, const size_t index)
  *
  * @param character
  * @return const char
+ * @since v1.0.0
  */
 char character_to_upper(const char character);
 
@@ -37,6 +40,7 @@ char character_to_upper(const char character);
  *
  * @param character
  * @return const char
+ * @since v1.0.0
  */
 char character_to_lower(const char character);
 
@@ -46,6 +50,7 @@ char character_to_lower(const char character);
  * @param string1
  * @param string2
  * @return true if the character is a digit, false otherwise
+ * @since v1.0.0
  */
 bool character_get_is_digit(const char character);
 
@@ -55,6 +60,7 @@ bool character_get_is_digit(const char character);
  *
  * @param character
  * @return char
+ * @since v1.0.0
  */
 unsigned char character_get_alphabet_position(const char character);
 
