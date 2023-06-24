@@ -8,7 +8,9 @@ int filesystem_read(char *path, char **file_content, off_t *file_size) {
   (*file_size) = lseek(file_descriptor, 0, SEEK_END);
   lseek(file_descriptor, 0, SEEK_SET);
   (*file_content) = malloc(*file_size);
-  read(file_descriptor, *file_content, *file_size);
+  if (read(file_descriptor, *file_content, *file_size) == -1) {
+    return -1;
+  }
   close(file_descriptor);
   return 0;
 }
@@ -18,7 +20,9 @@ int filesystem_write(char *path, char *file_content, off_t file_size) {
   if (file_descriptor == -1) {
     return -1;
   }
-  write(file_descriptor, file_content, file_size);
+  if (write(file_descriptor, file_content, file_size) == -1) {
+    return -1;
+  }
   close(file_descriptor);
   return 0;
 }

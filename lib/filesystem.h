@@ -19,8 +19,8 @@
  * @param file_content
  * @param file_size
  * @return int
- * @retval -1 if the file does not exist
- * @retval 0 for success
+ * @retval -1 if the file does not exist or if there is an error.
+ * @retval 0 for success.
  * @since v1.0.0
  */
 int filesystem_read(char *path, char **file_content, off_t *file_size);
@@ -32,8 +32,8 @@ int filesystem_read(char *path, char **file_content, off_t *file_size);
  * @param file_content
  * @param file_size
  * @return int
- * @retval -1 if errors
- * @retval 0 for success
+ * @retval -1 if there is an error.
+ * @retval 0 for success.
  * @since v1.0.0
  */
 int filesystem_write(char *path, char *file_content, off_t file_size);
