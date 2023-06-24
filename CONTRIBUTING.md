@@ -11,7 +11,7 @@ Thanks a lot for your interest in contributing to **libcproject**! 🎉
 
 ## Pull Requests
 
-- **Please first discuss** the change you wish to make via [issue](https://github.com/Divlo/libcproject/issues) before making a change. It might avoid a waste of your time.
+- **Please first discuss** the change you wish to make via [issue](https://github.com/theoludwig/libcproject/issues) before making a change. It might avoid a waste of your time.
 
 - Ensure your code respect linting.
 

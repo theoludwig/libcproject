@@ -9,7 +9,7 @@
   <a href="./LICENSE"><img src="https://img.shields.io/badge/licence-MIT-blue.svg" alt="Licence MIT"/></a>
   <a href="./CODE_OF_CONDUCT.md"><img src="https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg" alt="Contributor Covenant" /></a>
   <br />
-  <a href="https://github.com/Divlo/libcproject/actions/workflows/ci.yml"><img src="https://github.com/Divlo/libcproject/actions/workflows/ci.yml/badge.svg?branch=develop" /></a>
+  <a href="https://github.com/theoludwig/libcproject/actions/workflows/ci.yml"><img src="https://github.com/theoludwig/libcproject/actions/workflows/ci.yml/badge.svg?branch=develop" /></a>
   <a href="https://conventionalcommits.org"><img src="https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg" alt="Conventional Commits" /></a>
   <a href="https://github.com/semantic-release/semantic-release"><img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg" alt="semantic-release" /></a>
 </p>
@@ -59,7 +59,7 @@ Steps to create a new C project that uses `libcproject`:
 
 ```sh
 # Clone the repository
-git clone https://github.com/Divlo/libcproject.git
+git clone git@github.com:theoludwig/libcproject.git
 
 # Go to libcproject directory
 cd libcproject
