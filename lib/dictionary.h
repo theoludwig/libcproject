@@ -5,6 +5,7 @@
 #include <stdlib.h>
 
 #include "string.h"
+#include "types.h"
 
 #define DICTIONARY_INITIAL_CAPACITY 10
 

@@ -5,6 +5,7 @@
 #include <stdlib.h>
 
 #include "stack.h"
+#include "types.h"
 
 /**
  * @brief Linked list data structure.

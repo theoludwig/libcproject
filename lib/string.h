@@ -8,8 +8,7 @@
 #include "character.h"
 #include "convert.h"
 #include "dictionary.h"
-
-typedef char* string_t;
+#include "types.h"
 
 /**
  * @brief Return the length of a string (excluding '\0').

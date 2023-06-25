@@ -5,6 +5,7 @@
 #include <stdlib.h>
 
 #include "string.h"
+#include "types.h"
 
 /**
  * @brief Append a character to a string, assuming string points to an array

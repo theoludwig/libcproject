@@ -5,6 +5,8 @@
 
 #include <stdbool.h>
 
+#include "types.h"
+
 /**
  * @brief Verify that 2 numbers are equal.
  *

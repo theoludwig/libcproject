@@ -6,14 +6,12 @@
 #include <fcntl.h>
 #include <pwd.h>
 #include <stdbool.h>
-#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 
 #include "string.h"
-
-typedef uint8_t byte_t;
+#include "types.h"
 
 /**
  * @brief Read the content of a file.

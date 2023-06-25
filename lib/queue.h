@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "types.h"
+
 /**
  * @brief Queue structure => FIFO (First In First Out).
  * @since v1.0.0

@@ -8,6 +8,7 @@
 #include "mathematics.h"
 #include "stdbool.h"
 #include "string.h"
+#include "types.h"
 
 /**
  * @brief Convert a character to a string.

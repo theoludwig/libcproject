@@ -4,6 +4,8 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
+#include "types.h"
+
 #define ARRAY_LIST_INITIAL_CAPACITY 10
 
 /**
