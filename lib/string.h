@@ -14,7 +14,6 @@
  * @brief Return the length of a string (excluding '\0').
  *
  * @param string
- * @return size_t
  * @since v1.0.0
  */
 size_t string_get_length(const string_t string_value);
@@ -90,7 +89,6 @@ string_t string_capitalize(string_t string_value);
  *
  * @param string
  * @param character
- * @return size_t
  * @since v1.0.0
  */
 size_t string_total_occurrences_of_character(string_t string_value, char character);

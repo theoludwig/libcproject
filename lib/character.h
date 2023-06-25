@@ -31,7 +31,6 @@ void character_append_at(string_t string_value, const char character, const size
  * @brief Converts the character to uppercase.
  *
  * @param character
- * @return const char
  * @since v1.0.0
  */
 char character_to_upper(const char character);
@@ -40,7 +39,6 @@ char character_to_upper(const char character);
  * @brief Converts the character to lowercase.
  *
  * @param character
- * @return const char
  * @since v1.0.0
  */
 char character_to_lower(const char character);
@@ -60,7 +58,6 @@ bool character_get_is_digit(const char character);
  * Return 0 if the character is not a letter.
  *
  * @param character
- * @return char
  * @since v1.0.0
  */
 unsigned char character_get_alphabet_position(const char character);
