@@ -7,7 +7,7 @@
 
 #include "character.h"
 #include "convert.h"
-#include "dictionary.h"
+#include "hash_map.h"
 #include "types.h"
 
 /**

@@ -243,14 +243,14 @@ string_t string_concatenate(string_t string1, string_t string2) {
 bool string_get_has_unique_characters(const string_t string_value) {
   bool has_unique = true;
   size_t string_length = string_get_length(string_value);
-  struct dictionary* characters_already_seen = dictionary_initialization();
+  struct hash_map* characters_already_seen = hash_map_initialization();
   for (size_t index = 0; index < string_length && has_unique; index++) {
     char character = string_value[index];
     string_t key = convert_character_to_string(character);
-    if (dictionary_contains_key(characters_already_seen, key)) {
+    if (hash_map_contains_key(characters_already_seen, key)) {
       has_unique = false;
     } else {
-      dictionary_add(characters_already_seen, key, (void*)true);
+      hash_map_add(characters_already_seen, key, (void*)true);
     }
   }
   return has_unique;
