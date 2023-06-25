@@ -109,3 +109,21 @@ void terminal_print_dictionary(struct dictionary* dictionary, void (*print_eleme
   }
   printf("}\n");
 }
+
+void terminal_print_hash_map(struct hash_map* hash_map, void (*print_element)(void*)) {
+  if (hash_map == NULL) {
+    exit(EXIT_FAILURE);
+  }
+  printf("{\n");
+  string_t* keys = hash_map_get_keys(hash_map);
+  for (size_t index = 0; index < hash_map->length; index++) {
+    string_t key = keys[index];
+    void* value = hash_map_get(hash_map, key);
+    printf("\t\"");
+    terminal_print_string(key);
+    printf("\" -> ");
+    print_element(&value);
+    printf("\n");
+  }
+  printf("}\n");
+}

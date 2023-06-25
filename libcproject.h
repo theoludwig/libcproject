@@ -6,6 +6,7 @@
 #include "lib/convert.h"
 #include "lib/dictionary.h"
 #include "lib/filesystem.h"
+#include "lib/hash_map.h"
 #include "lib/linked_list.h"
 #include "lib/mathematics.h"
 #include "lib/queue.h"

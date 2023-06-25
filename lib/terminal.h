@@ -8,6 +8,7 @@
 
 #include "character.h"
 #include "dictionary.h"
+#include "hash_map.h"
 #include "linked_list.h"
 #include "queue.h"
 #include "stack.h"
@@ -105,5 +106,14 @@ void terminal_print_linked_list(struct linked_list* linked_list, void (*print_el
  * @since v1.0.0
  */
 void terminal_print_dictionary(struct dictionary* dictionary, void (*print_element)(void*));
+
+/**
+ * @brief Print a hash map.
+ *
+ * @param hash_map
+ * @param print_element
+ * @since v2.0.0
+ */
+void terminal_print_hash_map(struct hash_map* hash_map, void (*print_element)(void*));
 
 #endif
