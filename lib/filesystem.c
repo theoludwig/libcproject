@@ -1,6 +1,6 @@
 #include "filesystem.h"
 
-int filesystem_read(char *path, char **file_content, off_t *file_size) {
+int filesystem_read(char *path, uint8_t **file_content, off_t *file_size) {
   int file_descriptor = open(path, O_RDONLY);
   if (file_descriptor == -1) {
     return -1;
@@ -15,7 +15,7 @@ int filesystem_read(char *path, char **file_content, off_t *file_size) {
   return 0;
 }
 
-int filesystem_write(char *path, char *file_content, off_t file_size) {
+int filesystem_write(char *path, uint8_t *file_content, off_t file_size) {
   int file_descriptor = open(path, O_WRONLY | O_CREAT | O_TRUNC, 0644);
   if (file_descriptor == -1) {
     return -1;
