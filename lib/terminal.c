@@ -94,22 +94,6 @@ void terminal_print_linked_list(struct linked_list* linked_list, void (*print_el
   printf("NULL\n");
 }
 
-void terminal_print_dictionary(struct dictionary* dictionary, void (*print_element)(void*)) {
-  if (dictionary == NULL) {
-    exit(EXIT_FAILURE);
-  }
-  printf("{\n");
-  for (size_t index = 0; index < dictionary->length; index++) {
-    struct dictionary_item* item = dictionary->items[index];
-    printf("\t\"");
-    terminal_print_string(item->key);
-    printf("\" -> ");
-    print_element(&item->data);
-    printf("\n");
-  }
-  printf("}\n");
-}
-
 void terminal_print_hash_map(struct hash_map* hash_map, void (*print_element)(void*)) {
   if (hash_map == NULL) {
     exit(EXIT_FAILURE);

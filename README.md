@@ -20,7 +20,7 @@
 
 C is a low-level programming language and we often end up reinventing the wheel as the C standard library (`libc`) is quite small and in my humble opinion, not well designed.
 
-**libcproject** solve this by providing common functions or data structures (`dictionary`, `linked_list`, `queue`, `stack`, etc.) we might need in our C projects.
+**libcproject** solve this by providing common functions or data structures (`hash_map`, `array_list`, `linked_list`, `queue`, `stack`, etc.) we might need in our C projects.
 
 [Online documentation](https://libcproject.vercel.app/).
 

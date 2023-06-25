@@ -7,7 +7,6 @@
 #include <stdlib.h>
 
 #include "character.h"
-#include "dictionary.h"
 #include "hash_map.h"
 #include "linked_list.h"
 #include "queue.h"
@@ -97,15 +96,6 @@ void terminal_print_queue(struct queue* queue, void (*print_element)(void*));
  * @since v1.0.0
  */
 void terminal_print_linked_list(struct linked_list* linked_list, void (*print_element)(void*));
-
-/**
- * @brief Print a dictionary.
- *
- * @param dictionary
- * @param print_element
- * @since v1.0.0
- */
-void terminal_print_dictionary(struct dictionary* dictionary, void (*print_element)(void*));
 
 /**
  * @brief Print a hash map.
