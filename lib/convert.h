@@ -15,7 +15,7 @@
  * @param character
  * @since v1.0.0
  */
-string convert_character_to_string(const char character);
+string_t convert_character_to_string(const char character);
 
 /**
  * @brief Convert a character to a digit.
@@ -39,7 +39,7 @@ char convert_digit_to_character(const char digit);
  * @param string
  * @since v1.0.0
  */
-long long convert_string_to_number(const string string_value);
+long long convert_string_to_number(const string_t string_value);
 
 /**
  * @brief Convert a number to a string.
@@ -47,7 +47,7 @@ long long convert_string_to_number(const string string_value);
  * @param integer
  * @since v1.0.0
  */
-string convert_number_to_string(const long long integer);
+string_t convert_number_to_string(const long long integer);
 
 /**
  * @brief Convert a number (base 10) to a string with a specific base.
@@ -56,7 +56,7 @@ string convert_number_to_string(const long long integer);
  * @param base
  * @since v1.0.0
  */
-string convert_number_from_base_10_to_base(unsigned long long number, unsigned int base);
+string_t convert_number_from_base_10_to_base(unsigned long long number, unsigned int base);
 
 /**
  * @brief Convert a number with a specific base to a number base 10.
@@ -65,7 +65,7 @@ string convert_number_from_base_10_to_base(unsigned long long number, unsigned i
  * @param base
  * @since v1.0.0
  */
-int convert_number_from_base_to_base_10(string number, unsigned int base);
+int convert_number_from_base_to_base_10(string_t number, unsigned int base);
 
 /**
  * @brief Convert a number with a specific base to a number of specific base.
@@ -75,6 +75,6 @@ int convert_number_from_base_to_base_10(string number, unsigned int base);
  * @param base_target
  * @since v1.0.0
  */
-string convert_number_from_base_to_another(string number, int base_from, int base_target);
+string_t convert_number_from_base_to_another(string_t number, int base_from, int base_target);
 
 #endif

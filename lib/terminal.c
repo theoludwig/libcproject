@@ -1,9 +1,9 @@
 #include "terminal.h"
 
-string terminal_input() {
+string_t terminal_input() {
   char character;
   size_t length = 1;
-  string string_value = malloc(length * sizeof(char));
+  string_t string_value = malloc(length * sizeof(char));
   if (string_value == NULL) {
     exit(EXIT_FAILURE);
   }

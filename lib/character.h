@@ -14,7 +14,7 @@
  * @param character
  * @since v1.0.0
  */
-void character_append(string string_value, char character);
+void character_append(string_t string_value, char character);
 
 /**
  * @brief Append a character to a string at a specific index, assuming string points to an array with enough space.
@@ -24,7 +24,7 @@ void character_append(string string_value, char character);
  * @param index
  * @since v1.0.0
  */
-void character_append_at(string string_value, const char character, const size_t index);
+void character_append_at(string_t string_value, const char character, const size_t index);
 
 /**
  * @brief Converts the character to uppercase.

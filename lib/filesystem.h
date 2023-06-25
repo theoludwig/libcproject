@@ -13,7 +13,7 @@
 
 #include "string.h"
 
-typedef uint8_t byte;
+typedef uint8_t byte_t;
 
 /**
  * @brief Read the content of a file.
@@ -26,7 +26,7 @@ typedef uint8_t byte;
  * @retval 0 for success.
  * @since v1.0.0
  */
-int filesystem_read(string path, byte **file_content, off_t *file_size);
+int filesystem_read(string_t path, byte_t **file_content, off_t *file_size);
 
 /**
  * @brief Write the content to a file.
@@ -39,7 +39,7 @@ int filesystem_read(string path, byte **file_content, off_t *file_size);
  * @retval 0 for success.
  * @since v1.0.0
  */
-int filesystem_write(string path, byte *file_content, off_t file_size);
+int filesystem_write(string_t path, byte_t *file_content, off_t file_size);
 
 /**
  * @brief Get the mimetype of a file.
@@ -47,6 +47,6 @@ int filesystem_write(string path, byte *file_content, off_t file_size);
  * @param path
  * @since v1.0.0
  */
-string filesystem_get_mimetype(string path);
+string_t filesystem_get_mimetype(string_t path);
 
 #endif

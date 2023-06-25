@@ -16,7 +16,7 @@
  * @brief Read a line from stdin.
  * @since v1.0.0
  */
-string terminal_input();
+string_t terminal_input();
 
 /**
  * @brief Print an array.
