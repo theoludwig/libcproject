@@ -21,6 +21,8 @@ jobs:
       - run: 'make run'
       - run: 'make test'
       - run: 'make lint'
+      - run: 'make documentation'
+      - run: 'make set_version'
       - run: 'make clean'
 
   lint-commit:
