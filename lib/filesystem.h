@@ -1,5 +1,5 @@
-#ifndef __FILESYSTEM__
-#define __FILESYSTEM__
+#ifndef __LIBCPROJECT_FILESYSTEM__
+#define __LIBCPROJECT_FILESYSTEM__
 
 #include <dirent.h>
 #include <errno.h>

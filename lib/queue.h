@@ -1,5 +1,5 @@
-#ifndef __QUEUE__
-#define __QUEUE__
+#ifndef __LIBCPROJECT_QUEUE__
+#define __LIBCPROJECT_QUEUE__
 
 #include <stdio.h>
 #include <stdlib.h>

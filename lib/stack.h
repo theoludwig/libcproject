@@ -1,5 +1,5 @@
-#ifndef __STACK__
-#define __STACK__
+#ifndef __LIBCPROJECT_STACK__
+#define __LIBCPROJECT_STACK__
 
 #include <stdio.h>
 #include <stdlib.h>

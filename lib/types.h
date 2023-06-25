@@ -1,5 +1,5 @@
-#ifndef __TYPES__
-#define __TYPES__
+#ifndef __LIBCPROJECT_TYPES__
+#define __LIBCPROJECT_TYPES__
 
 #include <stdint.h>
 

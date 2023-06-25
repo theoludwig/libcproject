@@ -1,5 +1,5 @@
-#ifndef __CONVERT__
-#define __CONVERT__
+#ifndef __LIBCPROJECT_CONVERT__
+#define __LIBCPROJECT_CONVERT__
 
 #include <stdio.h>
 #include <stdlib.h>

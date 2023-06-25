@@ -1,5 +1,5 @@
-#ifndef __CHARACTER__
-#define __CHARACTER__
+#ifndef __LIBCPROJECT_CHARACTER__
+#define __LIBCPROJECT_CHARACTER__
 
 #include <stdbool.h>
 #include <stdlib.h>

@@ -1,5 +1,5 @@
-#ifndef __LINKED_LIST__
-#define __LINKED_LIST__
+#ifndef __LIBCPROJECT_LINKED_LIST__
+#define __LIBCPROJECT_LINKED_LIST__
 
 #include <stdbool.h>
 #include <stdlib.h>

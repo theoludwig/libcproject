@@ -1,5 +1,5 @@
-#ifndef __ARRAY_LIST__
-#define __ARRAY_LIST__
+#ifndef __LIBCPROJECT_ARRAY_LIST__
+#define __LIBCPROJECT_ARRAY_LIST__
 
 #include <stdbool.h>
 #include <stdlib.h>

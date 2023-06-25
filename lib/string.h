@@ -1,5 +1,5 @@
-#ifndef __STRING__
-#define __STRING__
+#ifndef __LIBCPROJECT_STRING__
+#define __LIBCPROJECT_STRING__
 
 #include <stdbool.h>
 #include <stdio.h>

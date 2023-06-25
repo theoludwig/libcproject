@@ -1,5 +1,5 @@
-#ifndef __DICTIONARY__
-#define __DICTIONARY__
+#ifndef __LIBCPROJECT_DICTIONARY__
+#define __LIBCPROJECT_DICTIONARY__
 
 #include <stdbool.h>
 #include <stdlib.h>

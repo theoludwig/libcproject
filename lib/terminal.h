@@ -1,5 +1,5 @@
-#ifndef __TERMINAL__
-#define __TERMINAL__
+#ifndef __LIBCPROJECT_TERMINAL__
+#define __LIBCPROJECT_TERMINAL__
 
 #include <stdbool.h>
 #include <stdint.h>
