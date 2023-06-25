@@ -27,7 +27,7 @@ int filesystem_write(string_t path, byte_t *file_content, off_t file_size) {
   return 0;
 }
 
-char *filesystem_get_mimetype(string_t path) {
+string_t filesystem_get_mimetype(string_t path) {
   if (string_ends_with(path, ".html")) {
     return "text/html";
   }

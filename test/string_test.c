@@ -27,50 +27,50 @@ void string_test() {
 }
 
 void string_get_length_test() {
-  char *string = "Hello World!";
+  string_t string = "Hello World!";
   size_t string_length = string_get_length(string);
   assert(string_length == 12);
 }
 
 void string_to_uppercase_test() {
-  char *string = "heLlO world";
+  string_t string = "heLlO world";
   string = string_to_uppercase(string);
   assert(assert_string_equal(string, "HELLO WORLD"));
 }
 
 void string_to_lowercase_test() {
-  char *string = "HellO WoRLd";
+  string_t string = "HellO WoRLd";
   string = string_to_lowercase(string);
   assert(assert_string_equal(string, "hello world"));
 }
 
 void string_replace_test() {
-  char *string = "hello world";
+  string_t string = "hello world";
   string = string_replace(string, 'l', 'z');
   assert(assert_string_equal(string, "hezzo worzd"));
 }
 
 void string_trim_start_test() {
-  char *string = "      hello world      ";
+  string_t string = "      hello world      ";
   string = string_trim_start(string);
   assert(assert_string_equal(string, "hello world      "));
 }
 
 void string_trim_end_test() {
-  char *string = "      hello world      ";
+  string_t string = "      hello world      ";
   string = string_trim_end(string);
   assert(assert_string_equal(string, "      hello world"));
 }
 
 void string_trim_test() {
-  char *string = "      hello world      ";
+  string_t string = "      hello world      ";
   string = string_trim(string);
   assert(assert_string_equal(string, "hello world"));
 }
 
 void string_copy_test() {
-  char *string = "hello world";
-  char *string2 = string_copy(string);
+  string_t string = "hello world";
+  string_t string2 = string_copy(string);
   assert(assert_string_equal(string, string2));
   string2[0] = 'a';
   assert(assert_string_not_equal(string, string2));
@@ -79,26 +79,26 @@ void string_copy_test() {
 }
 
 void string_capitalize_test() {
-  char *string = "hello world";
+  string_t string = "hello world";
   string = string_capitalize(string);
   assert(assert_string_equal(string, "Hello world"));
 }
 
 void string_total_occurrences_of_character_test() {
-  char *string = "hello world";
+  string_t string = "hello world";
   assert(string_total_occurrences_of_character(string, 'l') == 3);
 }
 
 void string_reverse_test() {
-  char *string = "hello world";
+  string_t string = "hello world";
   string = string_reverse(string);
   assert(assert_string_equal(string, "dlrow olleh"));
 }
 
 void string_equals_test() {
-  char *string1 = "hello world";
-  char *string2 = "dlrow olleh";
-  char *string3 = "dlrow olleh";
+  string_t string1 = "hello world";
+  string_t string2 = "dlrow olleh";
+  string_t string3 = "dlrow olleh";
   assert(!string_equals(string1, string2));
   assert(string_equals(string1, string1));
   assert(string_equals(string2, string3));
@@ -117,9 +117,9 @@ void string_get_is_integer_test() {
 }
 
 void string_split_test() {
-  char *string = "abc def ghij kl";
+  string_t string = "abc def ghij kl";
   size_t result_length = 0;
-  char **result = string_split(string, ' ', &result_length);
+  string_t* result = string_split(string, ' ', &result_length);
   assert(result_length == 4);
   assert(assert_string_equal(result[0], "abc"));
   assert(assert_string_equal(result[1], "def"));
@@ -128,11 +128,11 @@ void string_split_test() {
 }
 
 void string_join_test() {
-  char *string = "abc def ghij kl";
+  string_t string = "abc def ghij kl";
   size_t result_length = 0;
-  char **result = string_split(string, ' ', &result_length);
-  char *new_string = string_join(result, ' ', result_length);
-  char *new_string2 = string_join(result, '+', result_length);
+  string_t* result = string_split(string, ' ', &result_length);
+  string_t new_string = string_join(result, ' ', result_length);
+  string_t new_string2 = string_join(result, '+', result_length);
   assert(assert_string_equal(new_string, string));
   assert(assert_string_equal(new_string2, "abc+def+ghij+kl"));
 }
@@ -149,13 +149,13 @@ void string_get_has_unique_characters_test() {
 }
 
 void string_substring_test() {
-  char *string = "abcdef";
-  char *substring = string_substring(string, 1, 3);
+  string_t string = "abcdef";
+  string_t substring = string_substring(string, 1, 3);
   assert(assert_string_equal(substring, "bcd"));
 }
 
 void string_get_is_substring_test() {
-  char *string = "abcdef";
+  string_t string = "abcdef";
   assert(string_get_is_substring(string, "abc"));
   assert(string_get_is_substring(string, "bcd"));
   assert(string_get_is_substring(string, "de"));
@@ -187,7 +187,7 @@ void string_get_formatted_number_test() {
 }
 
 void string_get_last_occurence_of_character_test() {
-  char *string = "abcdef";
+  string_t string = "abcdef";
   assert(assert_string_equal(string_get_last_occurence_of_character(string, 'a'), "abcdef"));
   assert(assert_string_equal(string_get_last_occurence_of_character(string, 'b'), "bcdef"));
   assert(assert_string_equal(string_get_last_occurence_of_character(string, 'c'), "cdef"));

@@ -5,8 +5,10 @@
 #include <stdio.h>
 #include <string.h>
 
-bool assert_string_equal(const char *actual, const char *expected);
+#include "libcproject.h"
 
-bool assert_string_not_equal(const char *actual, const char *expected);
+bool assert_string_equal(const string_t actual, const string_t expected);
+
+bool assert_string_not_equal(const string_t actual, const string_t expected);
 
 #endif
