@@ -8,7 +8,10 @@ INPUT = ./
 INPUT_ENCODING = UTF-8
 USE_MDFILE_AS_MAINPAGE = README.md
 FILE_PATTERNS = *.h \
-  README.md
+  README.md \
+  CODE_OF_CONDUCT.md \
+  CONTRIBUTING.md \
+  LICENSE
 HTML_EXTRA_STYLESHEET  = doxygen-awesome-css/doxygen-awesome.css
 
 RECURSIVE = YES

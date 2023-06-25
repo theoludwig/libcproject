@@ -11,7 +11,7 @@
  * @brief Append a character to a string, assuming string points to an array
  * with enough space.
  *
- * @param string
+ * @param string_value
  * @param character
  * @since v1.0.0
  */
@@ -20,7 +20,7 @@ void character_append(string_t string_value, char character);
 /**
  * @brief Append a character to a string at a specific index, assuming string points to an array with enough space.
  *
- * @param string
+ * @param string_value
  * @param character
  * @param index
  * @since v1.0.0
@@ -46,8 +46,6 @@ char character_to_lower(const char character);
 /**
  * @brief Check if the character is a digit ('0', '1', '2', '3', '4', '5', '6', '7, '8' or '9').
  *
- * @param string1
- * @param string2
  * @return true if the character is a digit, false otherwise
  * @since v1.0.0
  */

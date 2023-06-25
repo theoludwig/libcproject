@@ -34,9 +34,10 @@ struct hash_map_item {
 
 /**
  * @brief Hash function (using SipHash 1-3 algorithm).
- * @link https://en.wikipedia.org/wiki/SipHash
  * @param key
  * @param capacity
+ * @see https://en.wikipedia.org/wiki/SipHash
+ * @see https://github.com/veorq/SipHash
  * @since v2.0.0
  */
 uint64_t hash(string_t key, size_t capacity);
