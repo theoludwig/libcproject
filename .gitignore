@@ -4,6 +4,5 @@ documentation
 .vscode
 *.out
 *.o
-*.exe
 *.a
 node_modules

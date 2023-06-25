@@ -8,9 +8,9 @@ LIB_OBJECTS = $(patsubst %.c, %.o, $(LIB_SOURCES))
 TEST_SOURCES = $(wildcard test/*.c)
 TEST_OBJECTS = $(patsubst %.c, %.o, $(TEST_SOURCES))
 HEADER_FILES = $(wildcard lib/*.h) $(wildcard test/*.h) ./${LIBRARY_NAME}.h
-MAIN_EXECUTABLE = bin/main.exe
-SET_VERSION_EXECUTABLE = bin/set_version.exe
-TEST_EXECUTABLE = bin/test.exe
+MAIN_EXECUTABLE = bin/main
+SET_VERSION_EXECUTABLE = bin/set_version
+TEST_EXECUTABLE = bin/test
 
 ${LIB}: $(addprefix build/, ${LIB_OBJECTS})
 	rm --force ${LIB}

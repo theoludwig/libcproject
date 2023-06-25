@@ -107,7 +107,7 @@ int main() {
 ### Step 5: Compile your project and link it with the library
 
 ```sh
-gcc -o ./main.exe ./main.c -L. -l:./libcproject/build/libcproject.a
+gcc -o ./main ./main.c -L. -l:./libcproject/build/libcproject.a
 ```
 
 ## 💡 Contributing
