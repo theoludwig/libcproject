@@ -15,6 +15,9 @@ jobs:
       - name: 'Install Build Tools'
         run: 'sudo apt-get install --yes build-essential gcc make clang-format'
 
+      - name: 'Install Documentation Tools'
+        run: 'sudo apt-get install --yes doxygen doxygen-gui doxygen-doc graphviz'
+
       - run: 'gcc --version'
 
       - run: 'make'
