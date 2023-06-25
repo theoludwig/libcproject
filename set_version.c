@@ -13,7 +13,7 @@ int main(int argc, string_t* argv) {
   content = string_concatenate(content, argv[1]);
   content = string_concatenate(content, "\"\n\n");
   content = string_concatenate(content, "#endif\n");
-  int result = filesystem_write("./version.h", content, string_get_length(content));
+  int result = filesystem_write("./version.h", (byte_t*)content, string_get_length(content));
   if (result == -1) {
     fprintf(stderr, "Error: Could not write to file.\n");
     return EXIT_FAILURE;
