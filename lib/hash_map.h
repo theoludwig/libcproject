@@ -4,6 +4,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "linked_list.h"
 #include "string.h"
@@ -32,7 +33,8 @@ struct hash_map_item {
 };
 
 /**
- * @brief Hash function.
+ * @brief Hash function (using SipHash 1-3 algorithm).
+ * @link https://en.wikipedia.org/wiki/SipHash
  * @param key
  * @param capacity
  * @since v2.0.0

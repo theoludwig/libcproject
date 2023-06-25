@@ -1,12 +1,123 @@
 #include "hash_map.h"
 
+#define ROTATE_LEFT(x, b) (((x) << (b)) | ((x) >> (64 - (b))))
+
 uint64_t hash(string_t key, size_t capacity) {
-  uint64_t hash_value = 0;
-  for (size_t iteration = 0; iteration < capacity; iteration++) {
-    hash_value += key[iteration];
-    hash_value *= key[iteration];
+  size_t key_length = string_get_length(key);
+  const uint64_t c = 0x736f6d6570736575;
+  uint64_t v0 = 0x736f6d6570736575 ^ c;
+  uint64_t v1 = 0x646f72616e646f6d ^ c;
+  uint64_t v2 = 0x6c7967656e657261 ^ c;
+  uint64_t v3 = 0x7465646279746573 ^ c;
+  uint64_t k1;
+  uint64_t m;
+  uint8_t *message = (uint8_t *)key;
+  size_t remaining = key_length;
+  uint64_t hash;
+
+  message += sizeof(uint64_t);
+  k1 = *(uint64_t *)message;
+
+  if (key_length % sizeof(uint64_t) != 0) {
+    memcpy(&k1, key + (key_length - sizeof(uint64_t)), sizeof(uint64_t));
   }
-  return hash_value % capacity;
+
+  while (remaining >= 8) {
+    memcpy(&m, message, sizeof(uint64_t));
+    v3 ^= m;
+
+    for (int i = 0; i < 2; i++) {
+      v0 += v1;
+      v2 += v3;
+      v1 = ROTATE_LEFT(v1, 13);
+      v3 = ROTATE_LEFT(v3, 16);
+      v1 ^= v0;
+      v3 ^= v2;
+      v0 = ROTATE_LEFT(v0, 32);
+      v2 += v1;
+      v0 += v3;
+      v1 = ROTATE_LEFT(v1, 17);
+      v3 = ROTATE_LEFT(v3, 21);
+      v1 ^= v2;
+      v3 ^= v0;
+      v2 = ROTATE_LEFT(v2, 32);
+    }
+
+    v0 ^= m;
+    remaining -= sizeof(uint64_t);
+    message += sizeof(uint64_t);
+  }
+
+  m = (uint64_t)remaining << 56;
+
+  switch (remaining) {
+    case 7:
+      m |= (uint64_t)message[6] << 48;
+      break;
+    case 6:
+      m |= (uint64_t)message[5] << 40;
+      break;
+    case 5:
+      m |= (uint64_t)message[4] << 32;
+      break;
+    case 4:
+      m |= (uint64_t)message[3] << 24;
+      break;
+    case 3:
+      m |= (uint64_t)message[2] << 16;
+      break;
+    case 2:
+      m |= (uint64_t)message[1] << 8;
+      break;
+    case 1:
+      m |= (uint64_t)message[0];
+      break;
+    default:
+      break;
+  }
+
+  v3 ^= m;
+
+  for (int i = 0; i < 2; i++) {
+    v0 += v1;
+    v2 += v3;
+    v1 = ROTATE_LEFT(v1, 13);
+    v3 = ROTATE_LEFT(v3, 16);
+    v1 ^= v0;
+    v3 ^= v2;
+    v0 = ROTATE_LEFT(v0, 32);
+    v2 += v1;
+    v0 += v3;
+    v1 = ROTATE_LEFT(v1, 17);
+    v3 = ROTATE_LEFT(v3, 21);
+    v1 ^= v2;
+    v3 ^= v0;
+    v2 = ROTATE_LEFT(v2, 32);
+  }
+
+  v0 ^= m;
+  v2 ^= 0xff;
+
+  for (int i = 0; i < 4; i++) {
+    v0 += v1;
+    v2 += v3;
+    v1 = ROTATE_LEFT(v1, 13);
+    v3 = ROTATE_LEFT(v3, 16);
+    v1 ^= v0;
+    v3 ^= v2;
+    v0 = ROTATE_LEFT(v0, 32);
+    v2 += v1;
+    v0 += v3;
+    v1 = ROTATE_LEFT(v1, 17);
+    v3 = ROTATE_LEFT(v3, 21);
+    v1 ^= v2;
+    v3 ^= v0;
+    v2 = ROTATE_LEFT(v2, 32);
+  }
+
+  hash = v0 ^ v1 ^ v2 ^ v3;
+
+  return hash % capacity;
 }
 
 struct hash_map *hash_map_initialization() {
