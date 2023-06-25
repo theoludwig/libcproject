@@ -1,22 +1,22 @@
 #include "terminal.h"
 
-char* terminal_input() {
+string terminal_input() {
   char character;
   size_t length = 1;
-  char* string = malloc(length * sizeof(char));
-  if (string == NULL) {
+  string string_value = malloc(length * sizeof(char));
+  if (string_value == NULL) {
     exit(EXIT_FAILURE);
   }
-  *string = '\0';
+  *string_value = '\0';
   while ((character = getchar()) != '\n' && character != EOF) {
     length++;
-    string = realloc(string, length * sizeof(char));
-    if (string == NULL) {
+    string_value = realloc(string_value, length * sizeof(char));
+    if (string_value == NULL) {
       exit(EXIT_FAILURE);
     }
-    character_append(string, character);
+    character_append(string_value, character);
   }
-  return string;
+  return string_value;
 }
 
 void terminal_print_array(void* array, size_t array_size, size_t element_size, void (*print_element)(void*)) {

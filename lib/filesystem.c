@@ -1,6 +1,6 @@
 #include "filesystem.h"
 
-int filesystem_read(char *path, byte **file_content, off_t *file_size) {
+int filesystem_read(string path, byte **file_content, off_t *file_size) {
   int file_descriptor = open(path, O_RDONLY);
   if (file_descriptor == -1) {
     return -1;
@@ -15,7 +15,7 @@ int filesystem_read(char *path, byte **file_content, off_t *file_size) {
   return 0;
 }
 
-int filesystem_write(char *path, byte *file_content, off_t file_size) {
+int filesystem_write(string path, byte *file_content, off_t file_size) {
   int file_descriptor = open(path, O_WRONLY | O_CREAT | O_TRUNC, 0644);
   if (file_descriptor == -1) {
     return -1;
@@ -27,7 +27,7 @@ int filesystem_write(char *path, byte *file_content, off_t file_size) {
   return 0;
 }
 
-char *filesystem_get_mimetype(char *path) {
+char *filesystem_get_mimetype(string path) {
   if (string_ends_with(path, ".html")) {
     return "text/html";
   }

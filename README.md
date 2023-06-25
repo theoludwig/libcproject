@@ -97,9 +97,9 @@ touch main.c
 #include "libcproject/libcproject.h"
 
 int main() {
-  char* string = "Hello, world!";
-  printf("%s\n", string);
-  printf("string_length = %ld\n", string_get_length(string)); // `string_get_length` is a function from `libcproject`
+  string string_value = "Hello, world!"; // `string` is a typedef from `libcproject`
+  printf("%s\n", string_value);
+  printf("string_length = %ld\n", string_get_length(string_value)); // `string_get_length` is a function from `libcproject`
   return EXIT_SUCCESS;
 }
 ```

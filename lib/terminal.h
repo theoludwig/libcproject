@@ -14,11 +14,9 @@
 
 /**
  * @brief Read a line from stdin.
- *
- * @return char*
  * @since v1.0.0
  */
-char* terminal_input();
+string terminal_input();
 
 /**
  * @brief Print an array.

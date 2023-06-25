@@ -3,12 +3,12 @@
 
 #include "libcproject.h"
 
-int main(int argc, char* argv[]) {
+int main(int argc, string* argv) {
   if (argc != 2) {
     fprintf(stderr, "Usage: %s <version>\n", argv[0]);
     return EXIT_FAILURE;
   }
-  char* content = "#ifndef __LIBCPROJECT_VERSION__\n";
+  string content = "#ifndef __LIBCPROJECT_VERSION__\n";
   content = string_concatenate(content, "#define __LIBCPROJECT_VERSION__ \"");
   content = string_concatenate(content, argv[1]);
   content = string_concatenate(content, "\"\n\n");

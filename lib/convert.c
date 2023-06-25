@@ -1,7 +1,7 @@
 #include "convert.h"
 
-char* convert_character_to_string(const char character) {
-  char* string = malloc(sizeof(char*) * 2);
+string convert_character_to_string(const char character) {
+  string string = malloc(sizeof(string) * 2);
   if (string == NULL) {
     exit(EXIT_FAILURE);
   }
@@ -17,42 +17,42 @@ char convert_digit_to_character(const char digit) {
   return digit + '0';
 }
 
-long long convert_string_to_number(const char* string) {
-  bool is_negative = string[0] == '-';
+long long convert_string_to_number(const string string_value) {
+  bool is_negative = string_value[0] == '-';
   long long integer = 0;
-  size_t length = string_get_length(string);
+  size_t length = string_get_length(string_value);
   for (size_t index = is_negative ? 1 : 0; index < length; index++) {
-    integer = integer * 10 + convert_character_to_digit(string[index]);
+    integer = integer * 10 + convert_character_to_digit(string_value[index]);
   }
   return is_negative ? integer * -1 : integer;
 }
 
-char* convert_number_to_string(const long long integer) {
+string convert_number_to_string(const long long integer) {
   if (integer == 0) {
     return convert_character_to_string('0');
   }
   bool is_negative = integer < 0;
   size_t length = 1;
-  char* string = malloc(sizeof(char*) * length);
-  if (string == NULL) {
+  string string_value = malloc(sizeof(string) * length);
+  if (string_value == NULL) {
     exit(EXIT_FAILURE);
   }
   long long current = mathematics_absolute_value(integer);
   while (current != 0) {
-    character_append(string, convert_digit_to_character(current % 10));
+    character_append(string_value, convert_digit_to_character(current % 10));
     current = current / 10;
     length++;
-    string = realloc(string, sizeof(char*) * length);
+    string_value = realloc(string_value, sizeof(string) * length);
   }
   if (is_negative) {
-    character_append(string, '-');
+    character_append(string_value, '-');
     length++;
-    string = realloc(string, sizeof(char*) * length);
+    string_value = realloc(string_value, sizeof(string) * length);
   }
-  return string_reverse(string);
+  return string_reverse(string_value);
 }
 
-char* convert_number_from_base_10_to_base(unsigned long long number, unsigned int base) {
+string convert_number_from_base_10_to_base(unsigned long long number, unsigned int base) {
   if (number == 0) {
     return "0";
   }
@@ -63,7 +63,7 @@ char* convert_number_from_base_10_to_base(unsigned long long number, unsigned in
     number = number / base;
     index++;
   }
-  char* result = malloc(sizeof(char) * (index + 1));
+  string result = malloc(sizeof(string) * (index + 1));
   int index_result = 0;
   for (int iteration = index - 1; iteration >= 0; iteration--) {
     int remainder = remainders[iteration];
@@ -77,7 +77,7 @@ char* convert_number_from_base_10_to_base(unsigned long long number, unsigned in
   return result;
 }
 
-int convert_number_from_base_to_base_10(char* number, unsigned int base) {
+int convert_number_from_base_to_base_10(string number, unsigned int base) {
   int length = string_get_length(number);
   int exponent = length - 1;
   int result = 0;
@@ -96,6 +96,6 @@ int convert_number_from_base_to_base_10(char* number, unsigned int base) {
   return result;
 }
 
-char* convert_number_from_base_to_another(char* number, int base_from, int base_target) {
+string convert_number_from_base_to_another(string number, int base_from, int base_target) {
   return convert_number_from_base_10_to_base(convert_number_from_base_to_base_10(number, base_from), base_target);
 }

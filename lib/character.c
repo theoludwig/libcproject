@@ -1,17 +1,17 @@
 #include "character.h"
 
-void character_append(char* string, const char character) {
-  size_t length = string_get_length(string);
-  character_append_at(string, character, length);
+void character_append(string string_value, const char character) {
+  size_t length = string_get_length(string_value);
+  character_append_at(string_value, character, length);
 }
 
-void character_append_at(char* string, const char character, const size_t index) {
-  size_t length = string_get_length(string);
+void character_append_at(string string_value, const char character, const size_t index) {
+  size_t length = string_get_length(string_value);
   for (size_t index_string = length; index_string > index; index_string--) {
-    string[index_string] = string[index_string - 1];
+    string_value[index_string] = string_value[index_string - 1];
   }
-  string[index] = character;
-  string[length + 1] = '\0';
+  string_value[index] = character;
+  string_value[length + 1] = '\0';
 }
 
 char character_to_upper(const char character) {

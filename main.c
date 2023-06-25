@@ -4,8 +4,8 @@
 #include "libcproject.h"
 
 int main() {
-  char* string = "Hello, world!";
-  printf("%s\n", string);
-  printf("string_length = %ld\n", string_get_length(string));
+  string string_value = "Hello, world!";
+  printf("%s\n", string_value);
+  printf("string_length = %ld\n", string_get_length(string_value));
   return EXIT_SUCCESS;
 }
