@@ -1,11 +1,12 @@
 #include "convert.h"
 
 string_t convert_character_to_string(const char character) {
-  string_t string = malloc(sizeof(string) * 2);
+  string_t string = malloc(sizeof(char) * 2);
   if (string == NULL) {
     exit(EXIT_FAILURE);
   }
-  character_append(string, character);
+  string[0] = character;
+  string[1] = '\0';
   return string;
 }
 
@@ -33,7 +34,7 @@ string_t convert_number_to_string(const long long integer) {
   }
   bool is_negative = integer < 0;
   size_t length = 1;
-  string_t string_value = malloc(sizeof(string_t) * length);
+  string_t string_value = malloc(sizeof(char) * (length + 1));
   if (string_value == NULL) {
     exit(EXIT_FAILURE);
   }
@@ -42,12 +43,12 @@ string_t convert_number_to_string(const long long integer) {
     character_append(string_value, convert_digit_to_character(current % 10));
     current = current / 10;
     length++;
-    string_value = realloc(string_value, sizeof(string_t) * length);
+    string_value = realloc(string_value, sizeof(char) * (length + 1));
   }
   if (is_negative) {
     character_append(string_value, '-');
     length++;
-    string_value = realloc(string_value, sizeof(string_t) * length);
+    string_value = realloc(string_value, sizeof(char) * (length + 1));
   }
   return string_reverse(string_value);
 }
@@ -63,7 +64,7 @@ string_t convert_number_from_base_10_to_base(unsigned long long number, unsigned
     number = number / base;
     index++;
   }
-  string_t result = malloc(sizeof(string_t) * (index + 1));
+  string_t result = malloc(sizeof(char) * (index + 1));
   int index_result = 0;
   for (int iteration = index - 1; iteration >= 0; iteration--) {
     int remainder = remainders[iteration];

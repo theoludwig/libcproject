@@ -10,48 +10,51 @@ size_t string_get_length(const string_t string_value) {
 
 string_t string_to_uppercase(string_t string_value) {
   size_t string_length = string_get_length(string_value);
-  string_t result = malloc(sizeof(string_t) * string_length);
+  string_t result = malloc(sizeof(char) * (string_length + 1));
   if (result == NULL) {
     exit(EXIT_FAILURE);
   }
   for (size_t index = 0; index < string_length; index++) {
-    character_append(result, character_to_upper(string_value[index]));
+    result[index] = character_to_upper(string_value[index]);
   }
+  result[string_length] = '\0';
   return result;
 }
 
 string_t string_to_lowercase(string_t string_value) {
   size_t string_length = string_get_length(string_value);
-  string_t result = malloc(sizeof(string_t) * string_length);
+  string_t result = malloc(sizeof(char) * (string_length + 1));
   if (result == NULL) {
     exit(EXIT_FAILURE);
   }
   for (size_t index = 0; index < string_length; index++) {
-    character_append(result, character_to_lower(string_value[index]));
+    result[index] = character_to_lower(string_value[index]);
   }
+  result[string_length] = '\0';
   return result;
 }
 
 string_t string_replace(string_t string_value, char search, char replace) {
   size_t string_length = string_get_length(string_value);
-  string_t result = malloc(sizeof(string_t) * string_length);
+  string_t result = malloc(sizeof(char) * (string_length + 1));
   if (result == NULL) {
     exit(EXIT_FAILURE);
   }
   for (size_t index = 0; index < string_length; index++) {
     bool is_search_value = search == string_value[index];
     if (is_search_value) {
-      character_append(result, replace);
+      result[index] = replace;
     } else {
-      character_append(result, string_value[index]);
+      result[index] = string_value[index];
     }
   }
+  result[string_length] = '\0';
   return result;
 }
 
 string_t string_trim_start(string_t string_value) {
   size_t string_length = string_get_length(string_value);
-  string_t result = malloc(sizeof(string_t) * string_length);
+  string_t result = malloc(sizeof(char) * (string_length + 1));
   if (result == NULL) {
     exit(EXIT_FAILURE);
   }
@@ -60,14 +63,15 @@ string_t string_trim_start(string_t string_value) {
     index_space++;
   }
   for (size_t index = index_space; index < string_length; index++) {
-    character_append(result, string_value[index]);
+    result[index - index_space] = string_value[index];
   }
+  result[string_length - index_space] = '\0';
   return result;
 }
 
 string_t string_trim_end(string_t string_value) {
   size_t string_length = string_get_length(string_value);
-  string_t result = malloc(sizeof(string_t) * string_length);
+  string_t result = malloc(sizeof(char) * (string_length + 1));
   if (result == NULL) {
     exit(EXIT_FAILURE);
   }
@@ -76,8 +80,9 @@ string_t string_trim_end(string_t string_value) {
     index_space--;
   }
   for (size_t index = 0; index < index_space + 1; index++) {
-    character_append(result, string_value[index]);
+    result[index] = string_value[index];
   }
+  result[index_space + 1] = '\0';
   return result;
 }
 
@@ -93,18 +98,19 @@ string_t string_copy(const string_t string_value) {
 
 string_t string_capitalize(string_t string_value) {
   size_t string_length = string_get_length(string_value);
-  string_t result = malloc(sizeof(string_t) * string_length);
+  string_t result = malloc(sizeof(char) * (string_length + 1));
   if (result == NULL) {
     exit(EXIT_FAILURE);
   }
   for (size_t index = 0; index < string_length; index++) {
     bool is_first_character = index == 0;
     if (is_first_character) {
-      character_append(result, character_to_upper(string_value[index]));
+      result[index] = character_to_upper(string_value[index]);
     } else {
-      character_append(result, string_value[index]);
+      result[index] = string_value[index];
     }
   }
+  result[string_length] = '\0';
   return result;
 }
 
@@ -123,14 +129,17 @@ size_t string_total_occurrences_of_character(string_t string_value, char charact
 string_t string_reverse(const string_t string_value) {
   size_t string_length = string_get_length(string_value);
   size_t index = 0;
-  string_t result = malloc(sizeof(string_t) * string_length);
+  string_t result = malloc(sizeof(char) * (string_length + 1));
   if (result == NULL) {
     exit(EXIT_FAILURE);
   }
+  size_t result_index = 0;
   for (index = string_length - 1; index > 0; index--) {
-    character_append(result, string_value[index]);
+    result[result_index] = string_value[index];
+    result_index++;
   }
-  character_append(result, string_value[index]);
+  result[result_index] = string_value[index];
+  result[string_length] = '\0';
   return result;
 }
 
@@ -171,27 +180,29 @@ string_t* string_split(const string_t string_value, char separator, size_t* resu
   size_t index_string = 0;
   size_t index_current = 0;
   size_t index_result = 0;
-  string_t current = malloc(sizeof(string_t) * string_length);
-  string_t* result = malloc(sizeof(string_t*) * index_result);
+  string_t current = malloc(sizeof(char) * (string_length + 1));
+  string_t* result = malloc(sizeof(char*) * index_result);
   if (result == NULL || current == NULL) {
     exit(EXIT_FAILURE);
   }
   while (index_string < string_length) {
     if (string_value[index_string] == separator) {
+      current[index_current] = '\0';
       result[index_result] = string_copy(current);
       index_result++;
-      result = realloc(result, sizeof(string_value) * index_result);
+      result = realloc(result, sizeof(string_value) * (index_result + 1));
       if (result == NULL) {
         exit(EXIT_FAILURE);
       }
       index_current = 0;
       current = string_copy("");
     } else {
-      character_append(current, string_value[index_string]);
+      current[index_current] = string_value[index_string];
       index_current++;
     }
     index_string++;
   }
+  current[index_current] = '\0';
   result[index_result] = string_copy(current);
   free(current);
   *result_size = index_result + 1;
@@ -227,16 +238,18 @@ string_t string_concatenate(string_t string1, string_t string2) {
   size_t string1_length = string_get_length(string1);
   size_t string2_length = string_get_length(string2);
   size_t result_length = string1_length + string2_length;
-  string_t result = malloc(sizeof(string_t) * result_length);
+  string_t result = malloc(sizeof(char) * (result_length + 1));
   if (result == NULL) {
     exit(EXIT_FAILURE);
   }
-  for (size_t index_string1 = 0; index_string1 < string1_length; index_string1++) {
-    character_append(result, string1[index_string1]);
+  size_t index_string1 = 0;
+  for (; index_string1 < string1_length; index_string1++) {
+    result[index_string1] = string1[index_string1];
   }
   for (size_t index_string2 = 0; index_string2 < string2_length; index_string2++) {
-    character_append(result, string2[index_string2]);
+    result[index_string1 + index_string2] = string2[index_string2];
   }
+  result[result_length] = '\0';
   return result;
 }
 
@@ -258,7 +271,7 @@ bool string_get_has_unique_characters(const string_t string_value) {
 
 string_t string_substring(const string_t string_value, size_t index_start, size_t index_end) {
   size_t string_length = string_get_length(string_value);
-  string_t result = malloc(sizeof(string_t) * string_length);
+  string_t result = malloc(sizeof(char) * (string_length + 1));
   for (size_t index = index_start; index <= index_end; index++) {
     character_append(result, string_value[index]);
   }
@@ -288,7 +301,7 @@ string_t string_get_formatted_number(const long long number, string_t separator)
     number_string = string_substring(number_string, 1, string_get_length(number_string));
   }
   size_t number_string_length = string_get_length(number_string);
-  string_t result = malloc(sizeof(string_t) * number_string_length);
+  string_t result = malloc(sizeof(char) * (number_string_length + 1));
   if (result == NULL) {
     exit(EXIT_FAILURE);
   }
@@ -315,7 +328,7 @@ string_t string_get_formatted_number(const long long number, string_t separator)
 
 string_t string_get_last_occurence_of_character(const string_t string_value, char character) {
   size_t string_length = string_get_length(string_value);
-  string_t result = malloc(sizeof(string_t) * string_length);
+  string_t result = malloc(sizeof(char) * (string_length + 1));
   if (result == NULL) {
     exit(EXIT_FAILURE);
   }
