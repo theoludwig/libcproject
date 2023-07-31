@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "array_list.h"
 #include "character.h"
 #include "hash_map.h"
 #include "linked_list.h"
@@ -105,5 +106,14 @@ void terminal_print_linked_list(struct linked_list* linked_list, void (*print_el
  * @since v2.0.0
  */
 void terminal_print_hash_map(struct hash_map* hash_map, void (*print_element)(void*));
+
+/**
+ * @brief Print an array list.
+ *
+ * @param array_list
+ * @param print_element
+ * @since v2.1.0
+ */
+void terminal_print_array_list(struct array_list* list, void (*print_element)(void*));
 
 #endif

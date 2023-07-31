@@ -111,3 +111,7 @@ void terminal_print_hash_map(struct hash_map* hash_map, void (*print_element)(vo
   }
   printf("}\n");
 }
+
+void terminal_print_array_list(struct array_list* list, void (*print_element)(void*)) {
+  terminal_print_array(list->data, list->size, sizeof(void*), print_element);
+}
