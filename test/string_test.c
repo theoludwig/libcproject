@@ -224,7 +224,7 @@ void string_get_formatted_number_test() {
 void string_get_last_occurence_of_character_test() {
   string_t string = "abcdef";
 
-  char *result = string_get_last_occurence_of_character(string, 'a');
+  char* result = string_get_last_occurence_of_character(string, 'a');
   assert(assert_string_equal(result, "abcdef"));
   free(result);
 
