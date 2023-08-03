@@ -35,3 +35,16 @@ void *stack_pop(struct stack *stack) {
   stack->length = stack->length - 1;
   return data;
 }
+
+void stack_free(struct stack *stack) {
+  if (stack == NULL) {
+    exit(EXIT_FAILURE);
+  }
+  struct stack_node *node = stack->first;
+  while (node != NULL) {
+    struct stack_node *node_next = node->next;
+    free(node);
+    node = node_next;
+  }
+  free(stack);
+}

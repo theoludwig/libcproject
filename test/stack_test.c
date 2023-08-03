@@ -10,6 +10,7 @@ void stack_initialization_test() {
   struct stack *stack = stack_initialization();
   assert(stack->length == 0);
   assert(stack->first == NULL);
+  stack_free(stack);
 }
 
 void stack_push_test() {
@@ -22,6 +23,7 @@ void stack_push_test() {
   assert(((uintptr_t)stack->first->next->data) == 8);
   assert(((uintptr_t)stack->first->next->next->data) == 4);
   assert(stack->first->next->next->next == NULL);
+  stack_free(stack);
 }
 
 void stack_pop_test() {
@@ -35,4 +37,5 @@ void stack_pop_test() {
   assert(((uintptr_t)stack->first->data) == 8);
   assert(((uintptr_t)stack->first->next->data) == 4);
   assert(stack->first->next->next == NULL);
+  stack_free(stack);
 }

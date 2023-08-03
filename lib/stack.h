@@ -42,4 +42,10 @@ void stack_push(struct stack *stack, void *data);
  */
 void *stack_pop(struct stack *stack);
 
+/**
+ * @brief Frees the stack.
+ * @since v2.1.0
+ */
+void stack_free(struct stack *stack);
+
 #endif
