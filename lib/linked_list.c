@@ -92,5 +92,6 @@ void linked_list_free(struct linked_list *list) {
     node_current = node_current->next;
     free(node_to_remove);
   }
+  list->head = NULL;
   free(list);
 }

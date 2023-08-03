@@ -24,4 +24,5 @@ void hash_map_test() {
   hash_map_remove(hash_map, "key5");
   assert(hash_map->length == 5);
   assert(!hash_map_contains_key(hash_map, "key5"));
+  hash_map_free(hash_map);
 }

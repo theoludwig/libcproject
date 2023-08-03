@@ -89,4 +89,10 @@ bool hash_map_contains_key(struct hash_map *hash_map, string_t key);
  */
 string_t *hash_map_get_keys(struct hash_map *hash_map);
 
+/**
+ * @brief Frees the hash map.
+ * @since v2.1.0
+ */
+void hash_map_free(struct hash_map *hash_map);
+
 #endif

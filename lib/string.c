@@ -285,6 +285,7 @@ bool string_get_has_unique_characters(const string_t string_value) {
       hash_map_add(characters_already_seen, key, (void*)true);
     }
   }
+  hash_map_free(characters_already_seen);
   return has_unique;
 }
 
