@@ -34,22 +34,28 @@ string_t convert_number_to_string(const long long integer) {
   }
   bool is_negative = integer < 0;
   size_t length = 1;
-  string_t string_value = malloc(sizeof(char) * (length + 1));
+  long long current = mathematics_absolute_value(integer);
+  while (current != 0) {
+    current = current / 10;
+    length++;
+  }
+  if (is_negative) {
+    length++;
+  }
+  string_t string_value = malloc(sizeof(char) * length);
   if (string_value == NULL) {
     exit(EXIT_FAILURE);
   }
-  long long current = mathematics_absolute_value(integer);
+  current = mathematics_absolute_value(integer);
+  size_t index = 0;
   while (current != 0) {
-    character_append(string_value, convert_digit_to_character(current % 10));
+    string_value[index++] = convert_digit_to_character(current % 10);
     current = current / 10;
-    length++;
-    string_value = realloc(string_value, sizeof(char) * (length + 1));
   }
   if (is_negative) {
-    character_append(string_value, '-');
-    length++;
-    string_value = realloc(string_value, sizeof(char) * (length + 1));
+    string_value[index++] = '-';
   }
+  string_value[index] = '\0';
   return string_reverse(string_value);
 }
 
@@ -75,6 +81,7 @@ string_t convert_number_from_base_10_to_base(unsigned long long number, unsigned
     }
     index_result++;
   }
+  result[index_result] = '\0';
   return result;
 }
 

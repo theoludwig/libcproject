@@ -2,75 +2,87 @@
 
 #define ROTATE_LEFT(x, b) (((x) << (b)) | ((x) >> (64 - (b))))
 
+uint64_t sip_round(uint64_t v0, uint64_t v1, uint64_t v2, uint64_t v3) {
+  v0 += v1;
+  v2 += v3;
+  v1 = ROTATE_LEFT(v1, 13);
+  v3 = ROTATE_LEFT(v3, 16);
+  v1 ^= v0;
+  v3 ^= v2;
+  v0 = ROTATE_LEFT(v0, 32);
+  v2 += v1;
+  v0 += v3;
+  v1 = ROTATE_LEFT(v1, 17);
+  v3 = ROTATE_LEFT(v3, 21);
+  v1 ^= v2;
+  v3 ^= v0;
+  v2 = ROTATE_LEFT(v2, 32);
+  return v0;
+}
+
 uint64_t hash(string_t key, size_t capacity) {
   size_t key_length = string_get_length(key);
   const uint64_t c = 0x736f6d6570736575;
-  uint64_t v0 = 0x736f6d6570736575 ^ c;
-  uint64_t v1 = 0x646f72616e646f6d ^ c;
-  uint64_t v2 = 0x6c7967656e657261 ^ c;
-  uint64_t v3 = 0x7465646279746573 ^ c;
-  uint64_t k1;
+  uint64_t v0 = c ^ 0x736f6d6570736575;
+  uint64_t v1 = c ^ 0x646f72616e646f6d;
+  uint64_t v2 = c ^ 0x6c7967656e657261;
+  uint64_t v3 = c ^ 0x7465646279746573;
+
   uint64_t m;
-  uint8_t *message = (uint8_t *)key;
-  size_t remaining = key_length;
   uint64_t hash;
 
-  message += sizeof(uint64_t);
-  k1 = *(uint64_t *)message;
+  uint8_t *message = (uint8_t *)key;
 
-  if (key_length % sizeof(uint64_t) != 0) {
-    memcpy(&k1, key + (key_length - sizeof(uint64_t)), sizeof(uint64_t));
-  }
+  size_t remaining = key_length;
+  size_t offset = 0;
 
   while (remaining >= 8) {
-    memcpy(&m, message, sizeof(uint64_t));
+    memcpy(&m, message + offset, sizeof(uint64_t));
     v3 ^= m;
 
     for (int i = 0; i < 2; i++) {
-      v0 += v1;
-      v2 += v3;
+      v0 = sip_round(v0, v1, v2, v3);
       v1 = ROTATE_LEFT(v1, 13);
-      v3 = ROTATE_LEFT(v3, 16);
-      v1 ^= v0;
-      v3 ^= v2;
-      v0 = ROTATE_LEFT(v0, 32);
-      v2 += v1;
-      v0 += v3;
-      v1 = ROTATE_LEFT(v1, 17);
-      v3 = ROTATE_LEFT(v3, 21);
-      v1 ^= v2;
-      v3 ^= v0;
-      v2 = ROTATE_LEFT(v2, 32);
+      v2 = ROTATE_LEFT(v2, 16);
+      v3 = ROTATE_LEFT(v3, 32);
+      v0 ^= m;
     }
 
-    v0 ^= m;
+    v2 ^= 0xff;
+    for (int i = 0; i < 4; i++) {
+      v0 = sip_round(v0, v1, v2, v3);
+      v1 = ROTATE_LEFT(v1, 13);
+      v2 = ROTATE_LEFT(v2, 16);
+      v3 = ROTATE_LEFT(v3, 32);
+    }
+
+    hash = v0 ^ v1 ^ v2 ^ v3;
     remaining -= sizeof(uint64_t);
-    message += sizeof(uint64_t);
+    offset += sizeof(uint64_t);
   }
 
   m = (uint64_t)remaining << 56;
-
   switch (remaining) {
     case 7:
-      m |= (uint64_t)message[6] << 48;
+      m |= (uint64_t)message[offset + 6] << 48;
       break;
     case 6:
-      m |= (uint64_t)message[5] << 40;
+      m |= (uint64_t)message[offset + 5] << 40;
       break;
     case 5:
-      m |= (uint64_t)message[4] << 32;
+      m |= (uint64_t)message[offset + 4] << 32;
       break;
     case 4:
-      m |= (uint64_t)message[3] << 24;
+      m |= (uint64_t)message[offset + 3] << 24;
       break;
     case 3:
-      m |= (uint64_t)message[2] << 16;
+      m |= (uint64_t)message[offset + 2] << 16;
       break;
     case 2:
-      m |= (uint64_t)message[1] << 8;
+      m |= (uint64_t)message[offset + 1] << 8;
       break;
     case 1:
-      m |= (uint64_t)message[0];
+      m |= (uint64_t)message[offset];
       break;
     default:
       break;
@@ -79,40 +91,20 @@ uint64_t hash(string_t key, size_t capacity) {
   v3 ^= m;
 
   for (int i = 0; i < 2; i++) {
-    v0 += v1;
-    v2 += v3;
+    v0 = sip_round(v0, v1, v2, v3);
     v1 = ROTATE_LEFT(v1, 13);
-    v3 = ROTATE_LEFT(v3, 16);
-    v1 ^= v0;
-    v3 ^= v2;
-    v0 = ROTATE_LEFT(v0, 32);
-    v2 += v1;
-    v0 += v3;
-    v1 = ROTATE_LEFT(v1, 17);
-    v3 = ROTATE_LEFT(v3, 21);
-    v1 ^= v2;
-    v3 ^= v0;
-    v2 = ROTATE_LEFT(v2, 32);
+    v2 = ROTATE_LEFT(v2, 16);
+    v3 = ROTATE_LEFT(v3, 32);
   }
 
   v0 ^= m;
   v2 ^= 0xff;
 
   for (int i = 0; i < 4; i++) {
-    v0 += v1;
-    v2 += v3;
+    v0 = sip_round(v0, v1, v2, v3);
     v1 = ROTATE_LEFT(v1, 13);
-    v3 = ROTATE_LEFT(v3, 16);
-    v1 ^= v0;
-    v3 ^= v2;
-    v0 = ROTATE_LEFT(v0, 32);
-    v2 += v1;
-    v0 += v3;
-    v1 = ROTATE_LEFT(v1, 17);
-    v3 = ROTATE_LEFT(v3, 21);
-    v1 ^= v2;
-    v3 ^= v0;
-    v2 = ROTATE_LEFT(v2, 32);
+    v2 = ROTATE_LEFT(v2, 16);
+    v3 = ROTATE_LEFT(v3, 32);
   }
 
   hash = v0 ^ v1 ^ v2 ^ v3;

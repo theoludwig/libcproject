@@ -20,7 +20,7 @@ void character_append_at_test() {
   character_append_at(string, 'd', 1);
   assert(assert_string_equal(string, "adbc"));
 
-  char string2[5] = "abcd";
+  char string2[6] = "abcd";
   character_append_at(string2, 'e', 4);
   assert(assert_string_equal(string2, "abcde"));
 }
