@@ -68,6 +68,7 @@ struct linked_list *linked_list_reverse(struct linked_list *list) {
     linked_list_add_after_last(linked_list_reversed, stack_node_current->data);
     stack_node_current = stack_node_current->next;
   }
+  stack_free(stack);
   return linked_list_reversed;
 }
 

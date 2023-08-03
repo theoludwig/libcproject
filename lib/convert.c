@@ -56,7 +56,9 @@ string_t convert_number_to_string(const long long integer) {
     string_value[index++] = '-';
   }
   string_value[index] = '\0';
-  return string_reverse(string_value);
+  char* result = string_reverse(string_value);
+  free(string_value);
+  return result;
 }
 
 string_t convert_number_from_base_10_to_base(unsigned long long number, unsigned int base) {

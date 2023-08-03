@@ -192,11 +192,9 @@ string_t* string_split(const string_t string_value, char separator, size_t* resu
   size_t index_result = 0;
   string_t current = malloc(sizeof(char) * (string_length + 1));
   string_t* result = NULL;
-
   if (current == NULL) {
     exit(EXIT_FAILURE);
   }
-
   while (index_string < string_length) {
     if (string_value[index_string] == separator) {
       current[index_current] = '\0';
@@ -206,7 +204,7 @@ string_t* string_split(const string_t string_value, char separator, size_t* resu
       }
       result[index_result] = string_copy(current);
       index_result++;
-      index_current = 0;  // Reset index_current for the next substring
+      index_current = 0;
     } else {
       current[index_current] = string_value[index_string];
       index_current++;
@@ -281,6 +279,7 @@ bool string_get_has_unique_characters(const string_t string_value) {
     string_t key = convert_character_to_string(character);
     if (hash_map_contains_key(characters_already_seen, key)) {
       has_unique = false;
+      free(key);
     } else {
       hash_map_add(characters_already_seen, key, (void*)true);
     }
@@ -342,6 +341,7 @@ string_t string_get_formatted_number(const long long number, string_t separator)
       count = 0;
     }
   }
+  free(number_string);
   result[formatted_length] = '\0';
   result = string_reverse(result);
   if (is_negative) {

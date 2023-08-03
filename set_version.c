@@ -19,5 +19,6 @@ int main(int argc, string_t* argv) {
     return EXIT_FAILURE;
   }
   printf("Success: Version set to %s.\n", argv[1]);
+  free(content);
   return EXIT_SUCCESS;
 }

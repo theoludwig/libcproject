@@ -79,6 +79,7 @@ void linked_list_reverse_test() {
   assert((list_reversed->head->next->next->data) == (void *)'B');
   assert((list_reversed->head->next->next->next->data) == (void *)'A');
   linked_list_free(list);
+  linked_list_free(list_reversed);
 }
 
 void linked_list_reverse_mutate_test() {

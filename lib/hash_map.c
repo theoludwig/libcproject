@@ -221,6 +221,7 @@ string_t *hash_map_get_keys(struct hash_map *hash_map) {
 void hash_map_free(struct hash_map *hash_map) {
   for (size_t index = 0; index < hash_map->capacity; index++) {
     if (hash_map->items[index] != NULL) {
+      free(hash_map->items[index]->head->data);
       linked_list_free(hash_map->items[index]);
     }
   }
