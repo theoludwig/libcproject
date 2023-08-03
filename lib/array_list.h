@@ -42,4 +42,10 @@ void array_list_remove(struct array_list* list, size_t index);
  */
 void* array_list_get(struct array_list* list, size_t index);
 
+/**
+ * @brief Frees the array list.
+ * @since v2.1.0
+ */
+void array_list_free(struct array_list* list);
+
 #endif

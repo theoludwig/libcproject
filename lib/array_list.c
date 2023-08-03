@@ -37,3 +37,8 @@ void* array_list_get(struct array_list* list, size_t index) {
   }
   return list->data[index];
 }
+
+void array_list_free(struct array_list* list) {
+  free(list->data);
+  free(list);
+}

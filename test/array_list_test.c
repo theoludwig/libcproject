@@ -32,4 +32,6 @@ void array_list_test() {
   array_list_remove(list, 100);
   assert(list->size == 105);
   assert(array_list_get(list, 100) == (void *)95);
+
+  array_list_free(list);
 }
