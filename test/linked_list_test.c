@@ -13,6 +13,7 @@ void linked_list_initialization_test() {
   struct linked_list *list = linked_list_initialization();
   assert(list->length == 0);
   assert(list->head == NULL);
+  linked_list_free(list);
 }
 
 void linked_list_add_in_head_test() {
@@ -25,6 +26,7 @@ void linked_list_add_in_head_test() {
   assert(((uintptr_t)list->head->next->data) == 8);
   assert(((uintptr_t)list->head->next->next->data) == 4);
   assert(list->head->next->next->next == NULL);
+  linked_list_free(list);
 }
 
 void linked_list_delete_in_head_test() {
@@ -37,6 +39,7 @@ void linked_list_delete_in_head_test() {
   assert(((uintptr_t)list->head->data) == 8);
   assert(((uintptr_t)list->head->next->data) == 4);
   assert(list->head->next->next == NULL);
+  linked_list_free(list);
 }
 
 void linked_list_add_after_last_test() {
@@ -54,6 +57,7 @@ void linked_list_add_after_last_test() {
   assert(((uintptr_t)list->head->next->data) == 8);
   assert(((uintptr_t)list->head->next->next->data) == 4);
   assert(((uintptr_t)list->head->next->next->next->data) == 18);
+  linked_list_free(list);
 }
 
 void linked_list_reverse_test() {
@@ -74,6 +78,7 @@ void linked_list_reverse_test() {
   assert((list_reversed->head->next->data) == (void *)'C');
   assert((list_reversed->head->next->next->data) == (void *)'B');
   assert((list_reversed->head->next->next->next->data) == (void *)'A');
+  linked_list_free(list);
 }
 
 void linked_list_reverse_mutate_test() {
@@ -89,4 +94,5 @@ void linked_list_reverse_mutate_test() {
   assert((list->head->next->data) == (void *)'C');
   assert((list->head->next->next->data) == (void *)'B');
   assert((list->head->next->next->next->data) == (void *)'A');
+  linked_list_free(list);
 }

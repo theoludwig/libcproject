@@ -84,3 +84,13 @@ void linked_list_reverse_mutate(struct linked_list *list) {
     (*current) = temporary_current;
   }
 }
+
+void linked_list_free(struct linked_list *list) {
+  struct linked_list_node *node_current = list->head;
+  while (node_current != NULL) {
+    struct linked_list_node *node_to_remove = node_current;
+    node_current = node_current->next;
+    free(node_to_remove);
+  }
+  free(list);
+}
