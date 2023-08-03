@@ -10,6 +10,7 @@ void queue_initialization_test() {
   struct queue *queue = queue_initialization();
   assert(queue->length == 0);
   assert(queue->first == NULL);
+  queue_free(queue);
 }
 
 void queue_push_test() {
@@ -22,6 +23,7 @@ void queue_push_test() {
   assert(((uintptr_t)queue->first->next->data) == 8);
   assert(((uintptr_t)queue->first->next->next->data) == 15);
   assert(queue->first->next->next->next == NULL);
+  queue_free(queue);
 }
 
 void queue_pop_test() {
@@ -35,4 +37,5 @@ void queue_pop_test() {
   assert(((uintptr_t)queue->first->data) == 8);
   assert(((uintptr_t)queue->first->next->data) == 15);
   assert(queue->first->next->next == NULL);
+  queue_free(queue);
 }

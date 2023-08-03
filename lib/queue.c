@@ -43,3 +43,16 @@ void *queue_pop(struct queue *queue) {
   queue->length = queue->length - 1;
   return data;
 }
+
+void queue_free(struct queue *queue) {
+  if (queue == NULL) {
+    exit(EXIT_FAILURE);
+  }
+  struct queue_node *node = queue->first;
+  while (node != NULL) {
+    struct queue_node *node_next = node->next;
+    free(node);
+    node = node_next;
+  }
+  free(queue);
+}

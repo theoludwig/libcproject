@@ -42,4 +42,10 @@ void queue_push(struct queue *queue, void *data);
  */
 void *queue_pop(struct queue *queue);
 
+/**
+ * @brief Frees the queue.
+ * @since v2.1.0
+ */
+void queue_free(struct queue *queue);
+
 #endif
