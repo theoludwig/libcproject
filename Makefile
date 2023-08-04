@@ -1,6 +1,6 @@
 LIBRARY_NAME = libcproject
 CC = gcc
-CC_FLAGS = -Wall -Wextra -Wfloat-equal -Wundef -Werror -std=c17 -pedantic -pedantic-errors -O3 -I./
+CC_FLAGS = -Wall -Wextra -Wfloat-equal -Wundef -Werror -std=c17 -pedantic -pedantic-errors -O3 -fsanitize=address -fsanitize=undefined -I./
 LIB = ./build/${LIBRARY_NAME}.a
 LIB_CC_FLAGS = -L. -l:${LIB}
 LIB_SOURCES = $(wildcard lib/*.c)
