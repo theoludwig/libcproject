@@ -123,7 +123,7 @@ struct hash_map *hash_map_initialization() {
   return hash_map;
 }
 
-void hash_map_add(struct hash_map *hash_map, string_t key, void *data) {
+void hash_map_add(struct hash_map *hash_map, string_t key_value, void *data) {
   if (hash_map->length == hash_map->capacity) {
     size_t previous_capacity = hash_map->capacity;
     hash_map->capacity += HASH_MAP_INITIAL_CAPACITY;
@@ -132,6 +132,7 @@ void hash_map_add(struct hash_map *hash_map, string_t key, void *data) {
       hash_map->items[index] = NULL;
     }
   }
+  string_t key = string_copy(key_value);
   uint64_t hash_value = hash(key, hash_map->capacity);
   struct linked_list *list = hash_map->items[hash_value];
   struct hash_map_item *item = malloc(sizeof(struct hash_map_item));
@@ -156,6 +157,9 @@ void hash_map_add(struct hash_map *hash_map, string_t key, void *data) {
     if (!found) {
       linked_list_add_in_head(list, (void *)item);
       hash_map->length++;
+    } else {
+      free(key);
+      free(item);
     }
   }
 }
@@ -172,10 +176,13 @@ void hash_map_remove(struct hash_map *hash_map, string_t key) {
     struct hash_map_item *item = (struct hash_map_item *)node->data;
     if (!string_equals(key, item->key)) {
       linked_list_add_in_head(new_list, item);
+    } else {
+      free(item->key);
+      free(item);
     }
     node = node->next;
   }
-  free(list);
+  linked_list_free(list);
   hash_map->items[hash_value] = new_list;
   hash_map->length--;
 }
@@ -220,10 +227,18 @@ string_t *hash_map_get_keys(struct hash_map *hash_map) {
 
 void hash_map_free(struct hash_map *hash_map) {
   for (size_t index = 0; index < hash_map->capacity; index++) {
-    if (hash_map->items[index] != NULL) {
-      free(hash_map->items[index]->head->data);
-      linked_list_free(hash_map->items[index]);
+    struct linked_list *list = hash_map->items[index];
+    if (list != NULL) {
+      struct linked_list_node *node = list->head;
+      while (node != NULL) {
+        struct hash_map_item *item = (struct hash_map_item *)node->data;
+        free(item->key);
+        free(item);
+        node = node->next;
+      }
+      linked_list_free(list);
     }
   }
+  free(hash_map->items);
   free(hash_map);
 }

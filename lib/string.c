@@ -87,8 +87,9 @@ string_t string_trim_end(string_t string_value) {
 }
 
 string_t string_trim(string_t string_value) {
-  string_t result = string_trim_start(string_value);
-  result = string_trim_end(result);
+  string_t result_start = string_trim_start(string_value);
+  string_t result = string_trim_end(result_start);
+  free(result_start);
   return result;
 }
 
@@ -274,16 +275,26 @@ bool string_get_has_unique_characters(const string_t string_value) {
   bool has_unique = true;
   size_t string_length = string_get_length(string_value);
   struct hash_map* characters_already_seen = hash_map_initialization();
+  string_t* keys = malloc(sizeof(string_t) * string_length);
+  for (size_t index = 0; index < string_length; index++) {
+    keys[index] = NULL;
+  }
   for (size_t index = 0; index < string_length && has_unique; index++) {
     char character = string_value[index];
-    string_t key = convert_character_to_string(character);
+    keys[index] = convert_character_to_string(character);
+    string_t key = keys[index];
     if (hash_map_contains_key(characters_already_seen, key)) {
       has_unique = false;
-      free(key);
     } else {
       hash_map_add(characters_already_seen, key, (void*)true);
     }
   }
+  for (size_t index = 0; index < string_length; index++) {
+    if (keys[index] != NULL) {
+      free(keys[index]);
+    }
+  }
+  free(keys);
   hash_map_free(characters_already_seen);
   return has_unique;
 }
@@ -315,10 +326,12 @@ bool string_get_is_substring(const string_t string_value, const string_t substri
 }
 
 string_t string_get_formatted_number(const long long number, string_t separator) {
-  string_t number_string = convert_number_to_string(number);
-  bool is_negative = number_string[0] == '-';
+  string_t number_string_temp = convert_number_to_string(number);
+  string_t number_string = number_string_temp;
+  bool is_negative = number_string_temp[0] == '-';
   if (is_negative) {
-    number_string = string_substring(number_string, 1, string_get_length(number_string));
+    number_string = string_substring(number_string_temp, 1, string_get_length(number_string_temp));
+    free(number_string_temp);
   }
   size_t number_string_length = string_get_length(number_string);
   size_t formatted_length = number_string_length + (number_string_length - 1) / 3;
@@ -343,11 +356,16 @@ string_t string_get_formatted_number(const long long number, string_t separator)
   }
   free(number_string);
   result[formatted_length] = '\0';
-  result = string_reverse(result);
+  string_t new_result = string_reverse(result);
+  free(result);
   if (is_negative) {
-    result = string_concatenate(convert_character_to_string('-'), result);
+    string_t dash = convert_character_to_string('-');
+    string_t negative_result = string_concatenate(dash, new_result);
+    free(new_result);
+    free(dash);
+    return negative_result;
   }
-  return result;
+  return new_result;
 }
 
 string_t string_get_last_occurence_of_character(const string_t string_value, char character) {
