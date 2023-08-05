@@ -44,7 +44,7 @@ void *queue_pop(struct queue *queue);
 
 /**
  * @brief Frees the queue.
- * @since v2.1.0
+ * @since v3.0.0
  */
 void queue_free(struct queue *queue);
 

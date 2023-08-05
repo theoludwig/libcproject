@@ -64,7 +64,7 @@ void linked_list_reverse_mutate(struct linked_list *list);
 
 /**
  * @brief Frees the linked list.
- * @since v2.1.0
+ * @since v3.0.0
  */
 void linked_list_free(struct linked_list *list);
 

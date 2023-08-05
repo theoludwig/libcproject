@@ -44,7 +44,7 @@ void *stack_pop(struct stack *stack);
 
 /**
  * @brief Frees the stack.
- * @since v2.1.0
+ * @since v3.0.0
  */
 void stack_free(struct stack *stack);
 

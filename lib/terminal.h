@@ -112,7 +112,7 @@ void terminal_print_hash_map(struct hash_map* hash_map, void (*print_element)(vo
  *
  * @param array_list
  * @param print_element
- * @since v2.1.0
+ * @since v3.0.0
  */
 void terminal_print_array_list(struct array_list* list, void (*print_element)(void*));
 
