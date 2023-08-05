@@ -1,6 +1,7 @@
 LIBRARY_NAME = libcproject
 CC = gcc
-CC_FLAGS = -Wall -Wextra -Wfloat-equal -Wundef -Werror -std=c17 -pedantic -pedantic-errors -O3 -fsanitize=address -fsanitize=undefined -I./
+CC_FLAGS = -Wall -Wextra -Wfloat-equal -Wundef -Werror -std=c17 -pedantic -pedantic-errors -O3 -I./
+CC_SANITIZER_FLAGS = -fsanitize=address -fsanitize=undefined
 LIB = ./build/${LIBRARY_NAME}.a
 LIB_CC_FLAGS = -L. -l:${LIB}
 LIB_SOURCES = $(wildcard lib/*.c)
@@ -42,7 +43,7 @@ set_version: ${LIB} ./set_version.c
 .PHONY: test
 test: ${LIB} $(addprefix build/, ${TEST_OBJECTS})
 	mkdir --parents ./bin
-	${CC} ${CC_FLAGS} -o ${TEST_EXECUTABLE} $(addprefix build/, ${TEST_OBJECTS}) ${LIB_CC_FLAGS}
+	${CC} ${CC_FLAGS} ${CC_SANITIZER_FLAGS} -o ${TEST_EXECUTABLE} $(addprefix build/, ${TEST_OBJECTS}) ${LIB_CC_FLAGS}
 	./${TEST_EXECUTABLE} ${ARGS}
 
 .PHONY: lint
