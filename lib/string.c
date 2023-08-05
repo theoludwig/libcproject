@@ -52,14 +52,14 @@ string_t string_replace(string_t string_value, char search, char replace) {
   return result;
 }
 
-string_t string_trim_start(string_t string_value) {
+string_t string_trim_start(string_t string_value, char character) {
   size_t string_length = string_get_length(string_value);
   string_t result = malloc(sizeof(char) * (string_length + 1));
   if (result == NULL) {
     exit(EXIT_FAILURE);
   }
   size_t index_space = 0;
-  while (string_value[index_space] == ' ') {
+  while (string_value[index_space] == character) {
     index_space++;
   }
   for (size_t index = index_space; index < string_length; index++) {
@@ -69,14 +69,14 @@ string_t string_trim_start(string_t string_value) {
   return result;
 }
 
-string_t string_trim_end(string_t string_value) {
+string_t string_trim_end(string_t string_value, char character) {
   size_t string_length = string_get_length(string_value);
   string_t result = malloc(sizeof(char) * (string_length + 1));
   if (result == NULL) {
     exit(EXIT_FAILURE);
   }
   size_t index_space = string_length - 1;
-  while (string_value[index_space] == ' ') {
+  while (string_value[index_space] == character) {
     index_space--;
   }
   for (size_t index = 0; index < index_space + 1; index++) {
@@ -86,9 +86,9 @@ string_t string_trim_end(string_t string_value) {
   return result;
 }
 
-string_t string_trim(string_t string_value) {
-  string_t result_start = string_trim_start(string_value);
-  string_t result = string_trim_end(result_start);
+string_t string_trim(string_t string_value, char character) {
+  string_t result_start = string_trim_start(string_value, character);
+  string_t result = string_trim_end(result_start, character);
   free(result_start);
   return result;
 }
@@ -377,7 +377,7 @@ string_t string_get_last_occurence_of_character(const string_t string_value, cha
     }
   }
   if (index_last_occurrence == SIZE_MAX) {
-    return string_copy("");
+    return "";
   }
   string_t result = malloc(sizeof(char) * (string_length - index_last_occurrence + 1));
   if (result == NULL) {

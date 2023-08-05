@@ -45,28 +45,28 @@ string_t string_to_lowercase(string_t string_value);
 string_t string_replace(string_t string_value, char search, char replace);
 
 /**
- * @brief Removes all whitespace from the start of a string.
+ * @brief Removes all `character` from the start of a string.
  *
  * @param string_value
  * @since v1.0.0
  */
-string_t string_trim_start(string_t string_value);
+string_t string_trim_start(string_t string_value, char character);
 
 /**
- * @brief Removes all whitespace from the end of a string.
+ * @brief Removes all `character` from the end of a string.
  *
  * @param string_value
  * @since v1.0.0
  */
-string_t string_trim_end(string_t string_value);
+string_t string_trim_end(string_t string_value, char character);
 
 /**
- * @brief Removes all whitespace from the start and end of a string.
+ * @brief Removes all `character` from the start and end of a string.
  *
  * @param string_value
  * @since v1.0.0
  */
-string_t string_trim(string_t string_value);
+string_t string_trim(string_t string_value, char character);
 
 /**
  * @brief Return the copy of a string.

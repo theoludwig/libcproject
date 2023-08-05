@@ -55,21 +55,21 @@ void string_replace_test() {
 
 void string_trim_start_test() {
   string_t string = "      hello world      ";
-  string = string_trim_start(string);
+  string = string_trim_start(string, ' ');
   assert(assert_string_equal(string, "hello world      "));
   free(string);
 }
 
 void string_trim_end_test() {
   string_t string = "      hello world      ";
-  string = string_trim_end(string);
+  string = string_trim_end(string, ' ');
   assert(assert_string_equal(string, "      hello world"));
   free(string);
 }
 
 void string_trim_test() {
   string_t string = "      hello world      ";
-  string = string_trim(string);
+  string = string_trim(string, ' ');
   assert(assert_string_equal(string, "hello world"));
   free(string);
 }
