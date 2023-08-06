@@ -37,10 +37,10 @@ char convert_digit_to_character(const char digit);
 /**
  * @brief Convert a string to a number.
  *
- * @param string_value
+ * @param string
  * @since v1.0.0
  */
-long long convert_string_to_number(const string_t string_value);
+long long convert_string_to_number(const string_t string);
 
 /**
  * @brief Convert a number to a string.

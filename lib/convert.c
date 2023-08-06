@@ -18,12 +18,12 @@ char convert_digit_to_character(const char digit) {
   return digit + '0';
 }
 
-long long convert_string_to_number(const string_t string_value) {
-  bool is_negative = string_value[0] == '-';
+long long convert_string_to_number(const string_t string) {
+  bool is_negative = string[0] == '-';
   long long integer = 0;
-  size_t length = string_get_length(string_value);
+  size_t length = string_get_length(string);
   for (size_t index = is_negative ? 1 : 0; index < length; index++) {
-    integer = integer * 10 + convert_character_to_digit(string_value[index]);
+    integer = integer * 10 + convert_character_to_digit(string[index]);
   }
   return is_negative ? integer * -1 : integer;
 }
@@ -42,23 +42,22 @@ string_t convert_number_to_string(const long long integer) {
   if (is_negative) {
     length++;
   }
-  string_t string_value = malloc(sizeof(char) * length);
-  if (string_value == NULL) {
+  string_t string = malloc(sizeof(char) * length);
+  if (string == NULL) {
     exit(EXIT_FAILURE);
   }
   current = mathematics_absolute_value(integer);
   size_t index = 0;
   while (current != 0) {
-    string_value[index++] = convert_digit_to_character(current % 10);
+    string[index++] = convert_digit_to_character(current % 10);
     current = current / 10;
   }
   if (is_negative) {
-    string_value[index++] = '-';
+    string[index++] = '-';
   }
-  string_value[index] = '\0';
-  char* result = string_reverse(string_value);
-  free(string_value);
-  return result;
+  string[index] = '\0';
+  string_reverse(string);
+  return string;
 }
 
 string_t convert_number_from_base_10_to_base(unsigned long long number, unsigned int base) {

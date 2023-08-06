@@ -30,46 +30,47 @@ void string_get_length_test() {
   string_t string = "Hello World!";
   size_t string_length = string_get_length(string);
   assert(string_length == 12);
+  assert(strlen(string) == string_length);
 }
 
 void string_to_uppercase_test() {
-  string_t string = "heLlO world";
-  string = string_to_uppercase(string);
+  string_t string = string_copy("heLlO world");
+  string_to_uppercase(string);
   assert(assert_string_equal(string, "HELLO WORLD"));
   free(string);
 }
 
 void string_to_lowercase_test() {
-  string_t string = "HellO WoRLd";
-  string = string_to_lowercase(string);
+  string_t string = string_copy("HellO WoRLd");
+  string_to_lowercase(string);
   assert(assert_string_equal(string, "hello world"));
   free(string);
 }
 
 void string_replace_test() {
-  string_t string = "hello world";
-  string = string_replace(string, 'l', 'z');
+  string_t string = string_copy("hello world");
+  string_replace(string, 'l', 'z');
   assert(assert_string_equal(string, "hezzo worzd"));
   free(string);
 }
 
 void string_trim_start_test() {
-  string_t string = "      hello world      ";
-  string = string_trim_start(string, ' ');
+  string_t string = string_copy("      hello world      ");
+  string_trim_start(string, ' ');
   assert(assert_string_equal(string, "hello world      "));
   free(string);
 }
 
 void string_trim_end_test() {
-  string_t string = "      hello world      ";
-  string = string_trim_end(string, ' ');
+  string_t string = string_copy("      hello world      ");
+  string_trim_end(string, ' ');
   assert(assert_string_equal(string, "      hello world"));
   free(string);
 }
 
 void string_trim_test() {
-  string_t string = "      hello world      ";
-  string = string_trim(string, ' ');
+  string_t string = string_copy("      hello world      ");
+  string_trim(string, ' ');
   assert(assert_string_equal(string, "hello world"));
   free(string);
 }
@@ -86,8 +87,8 @@ void string_copy_test() {
 }
 
 void string_capitalize_test() {
-  string_t string = "hello world";
-  string = string_capitalize(string);
+  string_t string = string_copy("hello world");
+  string_capitalize(string);
   assert(assert_string_equal(string, "Hello world"));
   free(string);
 }
@@ -98,8 +99,8 @@ void string_total_occurrences_of_character_test() {
 }
 
 void string_reverse_test() {
-  string_t string = "hello world";
-  string = string_reverse(string);
+  string_t string = string_copy("hello world");
+  string_reverse(string);
   assert(assert_string_equal(string, "dlrow olleh"));
   free(string);
 }
