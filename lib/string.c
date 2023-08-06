@@ -212,24 +212,20 @@ string_t string_join(string_t* array, const char separator, size_t array_length)
   return string;
 }
 
-string_t string_concatenate(string_t string1, string_t string2) {
-  size_t string1_length = string_get_length(string1);
-  size_t string2_length = string_get_length(string2);
-  size_t result_length = string1_length + string2_length;
-  string_t result = malloc(sizeof(char) * (result_length + 1));
-  if (result == NULL) {
+void string_concatenate(string_t* destination, string_t source) {
+  size_t destination_length = string_get_length(*destination);
+  size_t source_length = string_get_length(source);
+  size_t new_length = destination_length + source_length;
+  *destination = realloc(*destination, sizeof(char) * (new_length + 1));
+  if (*destination == NULL) {
     perror("Error (string_concatenate)");
     exit(EXIT_FAILURE);
   }
-  size_t index_string1 = 0;
-  for (; index_string1 < string1_length; index_string1++) {
-    result[index_string1] = string1[index_string1];
+  size_t index_destination = destination_length;
+  for (size_t index_source = 0; index_source < source_length; index_source++) {
+    (*destination)[index_destination++] = source[index_source];
   }
-  for (size_t index_string2 = 0; index_string2 < string2_length; index_string2++) {
-    result[index_string1 + index_string2] = string2[index_string2];
-  }
-  result[result_length] = '\0';
-  return result;
+  (*destination)[index_destination] = '\0';
 }
 
 bool string_get_has_unique_characters(const string_t string) {
@@ -320,10 +316,9 @@ string_t string_get_formatted_number(const long long number, string_t separator)
   result[formatted_length] = '\0';
   string_reverse(result);
   if (is_negative) {
-    string_t dash = convert_character_to_string('-');
-    string_t negative_result = string_concatenate(dash, result);
+    string_t negative_result = convert_character_to_string('-');
+    string_concatenate(&negative_result, result);
     free(result);
-    free(dash);
     return negative_result;
   }
   return result;

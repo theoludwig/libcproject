@@ -158,12 +158,14 @@ void string_join_test() {
 }
 
 void string_concatenate_test() {
-  char* result = string_concatenate("abc", "def");
+  string_t result = string_copy("abc");
+  string_concatenate(&result, "def");
   assert(assert_string_equal(result, "abcdef"));
   free(result);
 
-  result = string_concatenate("abc", "  defghi");
-  assert(assert_string_equal(result, "abc  defghi"));
+  result = string_copy("abcz");
+  string_concatenate(&result, "  defghi");
+  assert(assert_string_equal(result, "abcz  defghi"));
   free(result);
 }
 

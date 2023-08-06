@@ -32,13 +32,13 @@ build/test/%.o: test/%.c ${HEADER_FILES} | build/test
 .PHONY: run
 run: ${LIB} ./main.c
 	mkdir --parents ./bin
-	${CC} ${CC_FLAGS} -o ${MAIN_EXECUTABLE} ./main.c ${LIB_CC_FLAGS}
+	${CC} ${CC_FLAGS} ${CC_SANITIZER_FLAGS} -o ${MAIN_EXECUTABLE} ./main.c ${LIB_CC_FLAGS}
 	./${MAIN_EXECUTABLE} ${ARGS}
 
 .PHONY: set_version
 set_version: ${LIB} ./set_version.c
 	mkdir --parents ./bin
-	${CC} ${CC_FLAGS} -o ${SET_VERSION_EXECUTABLE} ./set_version.c ${LIB_CC_FLAGS}
+	${CC} ${CC_FLAGS} ${CC_SANITIZER_FLAGS} -o ${SET_VERSION_EXECUTABLE} ./set_version.c ${LIB_CC_FLAGS}
 
 .PHONY: test
 test: ${LIB} $(addprefix build/, ${TEST_OBJECTS})

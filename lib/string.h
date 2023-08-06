@@ -160,11 +160,13 @@ string_t string_join(string_t* array, const char separator, size_t array_length)
 /**
  * @brief Concatenate two strings.
  *
- * @param string1
- * @param string2
+ * NOTE: Mutates the string `destination`.
+ *
+ * @param destination
+ * @param source
  * @since v1.0.0
  */
-string_t string_concatenate(string_t string1, string_t string2);
+void string_concatenate(string_t* destination, string_t source);
 
 /**
  * @brief Check if a string contains only unique characters.
