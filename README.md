@@ -20,7 +20,7 @@
 
 C is a low-level programming language and we often end up reinventing the wheel as the C standard library (`libc`) is quite small and in my humble opinion, not well designed.
 
-**libcproject** solve this by providing common functions or data structures (`hash_map`, `array_list`, `linked_list`, `queue`, `stack`, etc.) we might need in our C projects.
+**libcproject** solve this by providing common functions or data structures (`hash_map`, `array_list`, `linked_list`, `queue`, `stack`, etc.), we might need in our C projects.
 
 [Online documentation](https://libcproject.vercel.app/).
 
@@ -36,7 +36,10 @@ C is a low-level programming language and we often end up reinventing the wheel 
 For example on GNU/Linux Ubuntu:
 
 ```sh
+# Install Build Tools
 sudo apt-get install build-essential gcc make clang-format
+
+# Install Documentation Tools
 sudo apt-get install doxygen doxygen-gui doxygen-doc graphviz
 ```
 
@@ -55,7 +58,14 @@ nm ./build/libcproject.a # to see the symbols
 
 Steps to create a new C project that uses `libcproject`:
 
-### Step 1: Install and Compile `libcproject`
+### Step 1: Create a new project
+
+```sh
+mkdir my-project
+cd my-project
+```
+
+### Step 2: Install and Compile `libcproject` in the project
 
 ```sh
 # Clone the repository
@@ -68,25 +78,10 @@ cd libcproject
 make
 ```
 
-### Step 2: Create a new project
+### Step 3: Create a new C file
 
 ```sh
-mkdir my-project
-cd my-project
-```
-
-### Step 3: Install `libcproject` in the project
-
-```sh
-mkdir libcproject
-cp --recursive <path-to-libcproject> ./ # copy
-# or
-ln -s <path-to-libcproject> ./ # symbolic link
-```
-
-### Step 4: Create a new C file
-
-```sh
+cd ..
 touch main.c
 ```
 
@@ -104,7 +99,7 @@ int main() {
 }
 ```
 
-### Step 5: Compile your project and link it with the library
+### Step 4: Compile your project and link it with the library
 
 ```sh
 gcc -o ./main ./main.c -L. -l:./libcproject/build/libcproject.a
