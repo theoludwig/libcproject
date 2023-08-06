@@ -31,6 +31,10 @@ bool filesystem_exists(string_t path) {
   return access(path, F_OK) == 0;
 }
 
+int filesystem_remove(string_t path) {
+  return remove(path);
+}
+
 string_t filesystem_get_mimetype(string_t path) {
   if (string_ends_with(path, ".html")) {
     return "text/html";

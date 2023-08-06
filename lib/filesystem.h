@@ -48,6 +48,17 @@ int filesystem_write(string_t path, byte_t *file_content, off_t file_size);
 bool filesystem_exists(string_t path);
 
 /**
+ * @brief Removes a path.
+ *
+ * @param path
+ * @return int
+ * @retval -1 if there is an error.
+ * @retval 0 for success.
+ * @since v3.1.0
+ */
+int filesystem_remove(string_t path);
+
+/**
  * @brief Get the mimetype of a file.
  *
  * @param path
