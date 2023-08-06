@@ -3,6 +3,7 @@
 struct queue *queue_initialization() {
   struct queue *queue = malloc(sizeof(*queue));
   if (queue == NULL) {
+    perror("Error (queue_initialization)");
     exit(EXIT_FAILURE);
   }
   queue->first = NULL;
@@ -11,8 +12,14 @@ struct queue *queue_initialization() {
 }
 
 void queue_push(struct queue *queue, void *data) {
+  if (queue == NULL) {
+    errno = EINVAL;
+    perror("Error (queue_push)");
+    exit(EXIT_FAILURE);
+  }
   struct queue_node *node_new = malloc(sizeof(*node_new));
-  if (queue == NULL || node_new == NULL) {
+  if (node_new == NULL) {
+    perror("Error (queue_push)");
     exit(EXIT_FAILURE);
   }
   node_new->data = data;
@@ -31,6 +38,8 @@ void queue_push(struct queue *queue, void *data) {
 
 void *queue_pop(struct queue *queue) {
   if (queue == NULL) {
+    errno = EINVAL;
+    perror("Error (queue_pop)");
     exit(EXIT_FAILURE);
   }
   struct queue_node *node = queue->first;
@@ -46,6 +55,8 @@ void *queue_pop(struct queue *queue) {
 
 void queue_free(struct queue *queue) {
   if (queue == NULL) {
+    errno = EINVAL;
+    perror("Error (queue_free)");
     exit(EXIT_FAILURE);
   }
   struct queue_node *node = queue->first;

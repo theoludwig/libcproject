@@ -3,6 +3,7 @@
 struct linked_list *linked_list_initialization() {
   struct linked_list *list = malloc(sizeof(*list));
   if (list == NULL) {
+    perror("Error (linked_list_initialization)");
     exit(EXIT_FAILURE);
   }
   list->head = NULL;
@@ -11,8 +12,14 @@ struct linked_list *linked_list_initialization() {
 }
 
 struct linked_list_node *linked_list_add_in_head(struct linked_list *list, void *new_data) {
+  if (list == NULL) {
+    errno = EINVAL;
+    perror("Error (linked_list_add_in_head)");
+    exit(EXIT_FAILURE);
+  }
   struct linked_list_node *node_new = malloc(sizeof(*node_new));
-  if (list == NULL || node_new == NULL) {
+  if (node_new == NULL) {
+    perror("Error (linked_list_add_in_head)");
     exit(EXIT_FAILURE);
   }
   node_new->data = new_data;
@@ -24,6 +31,8 @@ struct linked_list_node *linked_list_add_in_head(struct linked_list *list, void 
 
 void linked_list_delete_in_head(struct linked_list *list) {
   if (list == NULL) {
+    errno = EINVAL;
+    perror("Error (linked_list_delete_in_head)");
     exit(EXIT_FAILURE);
   }
   if (list->head != NULL) {
@@ -35,11 +44,17 @@ void linked_list_delete_in_head(struct linked_list *list) {
 }
 
 struct linked_list_node *linked_list_add_after_last(struct linked_list *list, void *new_data) {
+  if (list == NULL) {
+    errno = EINVAL;
+    perror("Error (linked_list_add_after_last)");
+    exit(EXIT_FAILURE);
+  }
   if (list->head == NULL) {
     return linked_list_add_in_head(list, new_data);
   }
   struct linked_list_node *node_new = malloc(sizeof(*node_new));
-  if (list == NULL || node_new == NULL) {
+  if (node_new == NULL) {
+    perror("Error (linked_list_add_after_last)");
     exit(EXIT_FAILURE);
   }
   node_new->data = new_data;

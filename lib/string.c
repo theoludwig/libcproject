@@ -67,6 +67,7 @@ string_t string_copy(const string_t string) {
   size_t source_length = string_get_length(string);
   string_t copy = malloc(sizeof(char) * (source_length + 1));
   if (copy == NULL) {
+    perror("Error (string_copy)");
     exit(EXIT_FAILURE);
   }
   size_t index;
@@ -150,6 +151,7 @@ string_t* string_split(const string_t string, char separator, size_t* result_siz
   string_t current = malloc(sizeof(char) * (string_length + 1));
   string_t* result = NULL;
   if (current == NULL) {
+    perror("Error (string_split)");
     exit(EXIT_FAILURE);
   }
   while (index_string < string_length) {
@@ -157,6 +159,7 @@ string_t* string_split(const string_t string, char separator, size_t* result_siz
       current[index_current] = '\0';
       result = realloc(result, sizeof(string_t) * (index_result + 1));
       if (result == NULL) {
+        perror("Error (string_split)");
         exit(EXIT_FAILURE);
       }
       result[index_result] = string_copy(current);
@@ -168,10 +171,10 @@ string_t* string_split(const string_t string, char separator, size_t* result_siz
     }
     index_string++;
   }
-
   current[index_current] = '\0';
   result = realloc(result, sizeof(string_t) * (index_result + 1));
   if (result == NULL) {
+    perror("Error (string_split)");
     exit(EXIT_FAILURE);
   }
   result[index_result] = string_copy(current);
@@ -188,6 +191,7 @@ string_t string_join(string_t* array, const char separator, size_t array_length)
   size_t string_length = total_length + (array_length - 1);
   string_t string = malloc(sizeof(char) * (string_length + 1));
   if (string == NULL) {
+    perror("Error (string_join)");
     exit(EXIT_FAILURE);
   }
   size_t current_index = 0;
@@ -214,6 +218,7 @@ string_t string_concatenate(string_t string1, string_t string2) {
   size_t result_length = string1_length + string2_length;
   string_t result = malloc(sizeof(char) * (result_length + 1));
   if (result == NULL) {
+    perror("Error (string_concatenate)");
     exit(EXIT_FAILURE);
   }
   size_t index_string1 = 0;
@@ -293,6 +298,7 @@ string_t string_get_formatted_number(const long long number, string_t separator)
   size_t formatted_length = number_string_length + (number_string_length - 1) / 3;
   string_t result = malloc(sizeof(char) * (formatted_length + 1));
   if (result == NULL) {
+    perror("Error (string_get_formatted_number)");
     exit(EXIT_FAILURE);
   }
   size_t count = 0;
@@ -336,6 +342,7 @@ string_t string_get_last_occurence_of_character(const string_t string, char char
   }
   string_t result = malloc(sizeof(char) * (string_length - index_last_occurrence + 1));
   if (result == NULL) {
+    perror("Error (string_get_last_occurence_of_character)");
     exit(EXIT_FAILURE);
   }
   size_t index_result = 0;

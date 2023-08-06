@@ -1,6 +1,7 @@
 #ifndef __LIBCPROJECT_LINKED_LIST__
 #define __LIBCPROJECT_LINKED_LIST__
 
+#include <errno.h>
 #include <stdbool.h>
 #include <stdlib.h>
 

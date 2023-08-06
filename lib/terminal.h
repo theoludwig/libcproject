@@ -1,6 +1,7 @@
 #ifndef __LIBCPROJECT_TERMINAL__
 #define __LIBCPROJECT_TERMINAL__
 
+#include <errno.h>
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>

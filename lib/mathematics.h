@@ -3,6 +3,7 @@
 
 #define MATHEMATICS_FLOAT_PRECISION 0.00000001
 
+#include <errno.h>
 #include <stdbool.h>
 
 #include "types.h"

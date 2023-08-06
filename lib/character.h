@@ -1,6 +1,7 @@
 #ifndef __LIBCPROJECT_CHARACTER__
 #define __LIBCPROJECT_CHARACTER__
 
+#include <errno.h>
 #include <stdbool.h>
 #include <stdlib.h>
 

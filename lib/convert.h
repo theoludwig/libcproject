@@ -1,6 +1,7 @@
 #ifndef __LIBCPROJECT_CONVERT__
 #define __LIBCPROJECT_CONVERT__
 
+#include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
 

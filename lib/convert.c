@@ -3,6 +3,7 @@
 string_t convert_character_to_string(const char character) {
   string_t string = malloc(sizeof(char) * 2);
   if (string == NULL) {
+    perror("Error (convert_character_to_string)");
     exit(EXIT_FAILURE);
   }
   string[0] = character;
@@ -44,6 +45,7 @@ string_t convert_number_to_string(const long long integer) {
   }
   string_t string = malloc(sizeof(char) * length);
   if (string == NULL) {
+    perror("Error (convert_number_to_string)");
     exit(EXIT_FAILURE);
   }
   current = mathematics_absolute_value(integer);

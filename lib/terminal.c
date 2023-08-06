@@ -5,6 +5,7 @@ string_t terminal_input() {
   size_t length = 1;
   string_t string = malloc(length * sizeof(char));
   if (string == NULL) {
+    perror("Error (terminal_input)");
     exit(EXIT_FAILURE);
   }
   *string = '\0';
@@ -12,6 +13,7 @@ string_t terminal_input() {
     length++;
     string = realloc(string, length * sizeof(char));
     if (string == NULL) {
+      perror("Error (terminal_input)");
       exit(EXIT_FAILURE);
     }
     character_append(string, character);
@@ -54,6 +56,8 @@ void terminal_print_string(void* value) {
 
 void terminal_print_stack(struct stack* stack, void (*print_element)(void*)) {
   if (stack == NULL) {
+    errno = EINVAL;
+    perror("Error (terminal_print_stack)");
     exit(EXIT_FAILURE);
   }
   struct stack_node* node_current = stack->first;
@@ -68,6 +72,8 @@ void terminal_print_stack(struct stack* stack, void (*print_element)(void*)) {
 
 void terminal_print_queue(struct queue* queue, void (*print_element)(void*)) {
   if (queue == NULL) {
+    errno = EINVAL;
+    perror("Error (terminal_print_queue)");
     exit(EXIT_FAILURE);
   }
   struct queue_node* node_current = queue->first;
@@ -82,6 +88,8 @@ void terminal_print_queue(struct queue* queue, void (*print_element)(void*)) {
 
 void terminal_print_linked_list(struct linked_list* linked_list, void (*print_element)(void*)) {
   if (linked_list == NULL) {
+    errno = EINVAL;
+    perror("Error (terminal_print_linked_list)");
     exit(EXIT_FAILURE);
   }
   struct linked_list_node* node_current = linked_list->head;
@@ -96,6 +104,8 @@ void terminal_print_linked_list(struct linked_list* linked_list, void (*print_el
 
 void terminal_print_hash_map(struct hash_map* hash_map, void (*print_element)(void*)) {
   if (hash_map == NULL) {
+    errno = EINVAL;
+    perror("Error (terminal_print_hash_map)");
     exit(EXIT_FAILURE);
   }
   printf("{\n");

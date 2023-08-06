@@ -1,6 +1,7 @@
 #ifndef __LIBCPROJECT_STRING__
 #define __LIBCPROJECT_STRING__
 
+#include <errno.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>

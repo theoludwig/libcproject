@@ -1,6 +1,7 @@
 #ifndef __LIBCPROJECT_HASH_MAP__
 #define __LIBCPROJECT_HASH_MAP__
 
+#include <errno.h>
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdlib.h>

@@ -1,6 +1,7 @@
 #ifndef __LIBCPROJECT_STACK__
 #define __LIBCPROJECT_STACK__
 
+#include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
 
