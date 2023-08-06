@@ -59,9 +59,11 @@ bool filesystem_exists(string_t path);
 int filesystem_remove(string_t path);
 
 /**
- * @brief Get the mimetype of a file.
+ * @brief Get the mimetype of a file based on its extension.
  *
  * @param path
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types
+ * @see https://www.iana.org/assignments/media-types/media-types.xhtml
  * @since v1.0.0
  */
 string_t filesystem_get_mimetype(string_t path);
