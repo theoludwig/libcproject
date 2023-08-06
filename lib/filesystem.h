@@ -38,6 +38,16 @@ int filesystem_read(string_t path, byte_t **file_content, off_t *file_size);
 int filesystem_write(string_t path, byte_t *file_content, off_t file_size);
 
 /**
+ * @brief Check if a path exists.
+ *
+ * @param path
+ * @retval true if the path exists.
+ * @retval false if the path does not exist.
+ * @since v3.1.0
+ */
+bool filesystem_exists(string_t path);
+
+/**
  * @brief Get the mimetype of a file.
  *
  * @param path
