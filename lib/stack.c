@@ -1,7 +1,7 @@
 #include "stack.h"
 
 struct stack *stack_initialization() {
-  struct stack *stack = malloc(sizeof(*stack));
+  struct stack *stack = malloc(sizeof(struct stack));
   if (stack == NULL) {
     perror("Error (stack_initialization)");
     exit(EXIT_FAILURE);
@@ -17,7 +17,7 @@ void stack_push(struct stack *stack, void *data) {
     perror("Error (stack_push)");
     exit(EXIT_FAILURE);
   }
-  struct stack_node *node_new = malloc(sizeof(*node_new));
+  struct stack_node *node_new = malloc(sizeof(struct stack_node));
   if (data == NULL) {
     perror("Error (stack_push)");
     exit(EXIT_FAILURE);

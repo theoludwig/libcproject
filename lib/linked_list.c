@@ -1,7 +1,7 @@
 #include "linked_list.h"
 
 struct linked_list *linked_list_initialization() {
-  struct linked_list *list = malloc(sizeof(*list));
+  struct linked_list *list = malloc(sizeof(struct linked_list));
   if (list == NULL) {
     perror("Error (linked_list_initialization)");
     exit(EXIT_FAILURE);
@@ -17,7 +17,7 @@ struct linked_list_node *linked_list_add_in_head(struct linked_list *list, void 
     perror("Error (linked_list_add_in_head)");
     exit(EXIT_FAILURE);
   }
-  struct linked_list_node *node_new = malloc(sizeof(*node_new));
+  struct linked_list_node *node_new = malloc(sizeof(struct linked_list_node));
   if (node_new == NULL) {
     perror("Error (linked_list_add_in_head)");
     exit(EXIT_FAILURE);
@@ -52,7 +52,7 @@ struct linked_list_node *linked_list_add_after_last(struct linked_list *list, vo
   if (list->head == NULL) {
     return linked_list_add_in_head(list, new_data);
   }
-  struct linked_list_node *node_new = malloc(sizeof(*node_new));
+  struct linked_list_node *node_new = malloc(sizeof(struct linked_list_node));
   if (node_new == NULL) {
     perror("Error (linked_list_add_after_last)");
     exit(EXIT_FAILURE);

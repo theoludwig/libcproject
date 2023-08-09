@@ -1,7 +1,7 @@
 #include "queue.h"
 
 struct queue *queue_initialization() {
-  struct queue *queue = malloc(sizeof(*queue));
+  struct queue *queue = malloc(sizeof(struct queue));
   if (queue == NULL) {
     perror("Error (queue_initialization)");
     exit(EXIT_FAILURE);
@@ -17,7 +17,7 @@ void queue_push(struct queue *queue, void *data) {
     perror("Error (queue_push)");
     exit(EXIT_FAILURE);
   }
-  struct queue_node *node_new = malloc(sizeof(*node_new));
+  struct queue_node *node_new = malloc(sizeof(struct queue_node));
   if (node_new == NULL) {
     perror("Error (queue_push)");
     exit(EXIT_FAILURE);
