@@ -203,7 +203,7 @@ void string_get_is_substring_test() {
 }
 
 void string_get_formatted_number_test() {
-  char* result = string_get_formatted_number(1000, " ");
+  string_t result = string_get_formatted_number(1000, " ");
   assert(assert_string_equal(result, "1 000"));
   free(result);
 
@@ -235,7 +235,7 @@ void string_get_formatted_number_test() {
 void string_get_last_occurence_of_character_test() {
   string_t string = "abcdef";
 
-  char* result = string_get_last_occurence_of_character(string, 'a');
+  string_t result = string_get_last_occurence_of_character(string, 'a');
   assert(assert_string_equal(result, "abcdef"));
   free(result);
 

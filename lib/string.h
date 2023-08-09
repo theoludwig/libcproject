@@ -61,7 +61,7 @@ void string_replace(string_t string, char search, char replace);
  * @param search A character search value.
  * @since v4.1.0
  */
-void string_remove_character(char* string, char search);
+void string_remove_character(string_t string, char search);
 
 /**
  * @brief Removes all `character` from the start of a string.

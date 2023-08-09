@@ -10,7 +10,7 @@ void convert_test() {
 }
 
 void convert_character_to_string_test() {
-  char* result = convert_character_to_string('a');
+  string_t result = convert_character_to_string('a');
   assert(assert_string_equal(result, "a"));
   free(result);
 
@@ -77,7 +77,7 @@ void convert_string_to_number_test() {
 }
 
 void convert_number_to_string_test() {
-  char* result = convert_number_to_string(0);
+  string_t result = convert_number_to_string(0);
   assert(assert_string_equal(result, "0"));
   free(result);
 
@@ -143,7 +143,7 @@ void convert_number_to_string_test() {
 }
 
 void convert_number_from_base_to_another_test() {
-  char* result = convert_number_from_base_to_another("15", 10, 16);
+  string_t result = convert_number_from_base_to_another("15", 10, 16);
   assert(assert_string_equal(result, "F"));
   free(result);
 

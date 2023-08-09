@@ -24,7 +24,7 @@ string_t terminal_input() {
 void terminal_print_array(void* array, size_t array_size, size_t element_size, void (*print_element)(void*)) {
   printf("[");
   for (size_t index = 0; index < array_size; index++) {
-    void* element = (char*)array + index * element_size;
+    void* element = (string_t)array + index * element_size;
     print_element(element);
     bool is_last = index == array_size - 1;
     if (!is_last) {
@@ -47,11 +47,11 @@ void terminal_print_unsigned_long(void* value) {
 }
 
 void terminal_print_char(void* value) {
-  printf("%c", *(char*)value);
+  printf("%c", *(string_t)value);
 }
 
 void terminal_print_string(void* value) {
-  printf("%s", (char*)value);
+  printf("%s", (string_t)value);
 }
 
 void terminal_print_stack(struct stack* stack, void (*print_element)(void*)) {
@@ -63,7 +63,7 @@ void terminal_print_stack(struct stack* stack, void (*print_element)(void*)) {
   struct stack_node* node_current = stack->first;
   while (node_current != NULL) {
     printf("|\t");
-    void* element = (char*)node_current->data;
+    void* element = node_current->data;
     print_element(&element);
     node_current = node_current->next;
     printf("\t|\n");
@@ -79,7 +79,7 @@ void terminal_print_queue(struct queue* queue, void (*print_element)(void*)) {
   struct queue_node* node_current = queue->first;
   while (node_current != NULL) {
     printf("|\t");
-    void* element = (char*)node_current->data;
+    void* element = node_current->data;
     print_element(&element);
     node_current = node_current->next;
     printf("\t|\n");
@@ -94,7 +94,7 @@ void terminal_print_linked_list(struct linked_list* linked_list, void (*print_el
   }
   struct linked_list_node* node_current = linked_list->head;
   while (node_current != NULL) {
-    void* element = (char*)node_current->data;
+    void* element = (string_t)node_current->data;
     node_current = node_current->next;
     print_element(&element);
     printf(" -> ");

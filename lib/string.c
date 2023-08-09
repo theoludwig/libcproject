@@ -37,7 +37,7 @@ void string_replace(string_t string, char search, char replace) {
   string[string_length] = '\0';
 }
 
-void string_remove_character(char* string, char search) {
+void string_remove_character(string_t string, char search) {
   size_t string_length = string_get_length(string);
   for (size_t index = 0; index < string_length; index++) {
     if (string[index] == search) {
