@@ -12,7 +12,7 @@
  * @brief Append a character to a string, assuming string points to an array
  * with enough space.
  *
- * @p
+ * @param string
  * @param character
  * @since v1.0.0
  */
