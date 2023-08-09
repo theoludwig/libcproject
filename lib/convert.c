@@ -62,7 +62,7 @@ string_t convert_number_to_string(const long long integer) {
   return string;
 }
 
-string_t convert_number_from_base_10_to_base(unsigned long long number, unsigned int base) {
+string_t convert_number_from_base_10_to_base(unsigned long long number, unsigned long base) {
   if (number == 0) {
     return "0";
   }
@@ -88,10 +88,10 @@ string_t convert_number_from_base_10_to_base(unsigned long long number, unsigned
   return result;
 }
 
-int convert_number_from_base_to_base_10(string_t number, unsigned int base) {
-  int length = string_get_length(number);
+unsigned long convert_number_from_base_to_base_10(string_t number, unsigned long base) {
+  size_t length = string_get_length(number);
   int exponent = length - 1;
-  int result = 0;
+  unsigned long result = 0;
   int index = 0;
   while (exponent >= 0) {
     int current_number = (int)(number[index] - '0');
@@ -107,6 +107,6 @@ int convert_number_from_base_to_base_10(string_t number, unsigned int base) {
   return result;
 }
 
-string_t convert_number_from_base_to_another(string_t number, int base_from, int base_target) {
+string_t convert_number_from_base_to_another(string_t number, unsigned long base_from, unsigned long base_target) {
   return convert_number_from_base_10_to_base(convert_number_from_base_to_base_10(number, base_from), base_target);
 }
