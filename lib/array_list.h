@@ -27,24 +27,36 @@ struct array_list* array_list_initialization();
 
 /**
  * @brief Adds an element to the end of the array list.
+ *
+ * @param list
+ * @param element
  * @since v1.2.0
  */
 void array_list_add(struct array_list* list, void* element);
 
 /**
  * @brief Removes an element from the array list.
+ *
+ * @param list
+ * @param index
  * @since v1.2.0
  */
 void array_list_remove(struct array_list* list, size_t index);
 
 /**
  * @brief Gets an element from the array list.
+ *
+ * @param list
+ * @param index
+ * @return void*
  * @since v1.2.0
  */
 void* array_list_get(struct array_list* list, size_t index);
 
 /**
  * @brief Frees the array list.
+ *
+ * @param list
  * @since v3.0.0
  */
 void array_list_free(struct array_list* list);

@@ -27,24 +27,34 @@ struct queue_node {
 
 /**
  * @brief Queue initialization.
+ *
+ * @return struct queue*
  * @since v1.0.0
  */
 struct queue *queue_initialization();
 
 /**
  * @brief Push data to queue.
+ *
+ * @param queue
+ * @param data
  * @since v1.0.0
  */
 void queue_push(struct queue *queue, void *data);
 
 /**
  * @brief Pop data from queue.
+ *
+ * @param queue
+ * @return void*
  * @since v1.0.0
  */
 void *queue_pop(struct queue *queue);
 
 /**
  * @brief Frees the queue.
+ *
+ * @param queue
  * @since v3.0.0
  */
 void queue_free(struct queue *queue);

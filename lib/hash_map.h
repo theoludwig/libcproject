@@ -35,22 +35,27 @@ struct hash_map_item {
 
 /**
  * @brief Hash function (using SipHash 1-3 algorithm).
- * @param key
- * @param capacity
  * @see https://en.wikipedia.org/wiki/SipHash
  * @see https://github.com/veorq/SipHash
+ *
+ * @param key
+ * @param capacity
+ * @return uint64_t
  * @since v2.0.0
  */
 uint64_t hash(string_t key, size_t capacity);
 
 /**
  * @brief Hash map initialization.
+ *
+ * @return struct hash_map*
  * @since v2.0.0
  */
 struct hash_map *hash_map_initialization();
 
 /**
  * @brief Add an item to the hash map.
+ *
  * @param hash_map
  * @param key
  * @param data
@@ -70,14 +75,18 @@ void hash_map_remove(struct hash_map *hash_map, string_t key);
  * @brief Get an item from the hash map.
  * @param hash_map
  * @param key
+ * @return void*
  * @since v2.0.0
  */
 void *hash_map_get(struct hash_map *hash_map, string_t key);
 
 /**
  * @brief Check if the hash map contains a key.
+ *
  * @param hash_map
  * @param key
+ * @return true
+ * @return false
  * @since v2.0.0
  */
 bool hash_map_contains_key(struct hash_map *hash_map, string_t key);
@@ -86,12 +95,15 @@ bool hash_map_contains_key(struct hash_map *hash_map, string_t key);
  * @brief Get the hash map keys.
  *
  * @param hash_map
+ * @return string_t*
  * @since v2.0.0
  */
 string_t *hash_map_get_keys(struct hash_map *hash_map);
 
 /**
  * @brief Frees the hash map.
+ *
+ * @param hash_map
  * @since v3.0.0
  */
 void hash_map_free(struct hash_map *hash_map);

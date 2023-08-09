@@ -16,6 +16,7 @@ int main(int argc, char** argv) {
   int result = filesystem_write("./version.h", (byte_t*)content, string_get_length(content));
   if (result == -1) {
     fprintf(stderr, "Error: Could not write to file.\n");
+    perror("Error (set_version)");
     return EXIT_FAILURE;
   }
   printf("Success: Version set to %s.\n", argv[1]);

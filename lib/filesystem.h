@@ -18,9 +18,10 @@
  *
  * @param path
  * @param file_content
- * @param file_size
+ * @param file_size The size of the file that was read (mutated by the function).
  * @retval -1 if the file does not exist or if there is an error.
  * @retval 0 for success.
+ * @return int
  * @since v1.0.0
  */
 int filesystem_read(string_t path, byte_t **file_content, off_t *file_size);
@@ -33,6 +34,7 @@ int filesystem_read(string_t path, byte_t **file_content, off_t *file_size);
  * @param file_size
  * @retval -1 if there is an error.
  * @retval 0 for success.
+ * @return int
  * @since v1.0.0
  */
 int filesystem_write(string_t path, byte_t *file_content, off_t file_size);
@@ -41,8 +43,8 @@ int filesystem_write(string_t path, byte_t *file_content, off_t file_size);
  * @brief Check if a path exists.
  *
  * @param path
- * @retval true if the path exists.
- * @retval false if the path does not exist.
+ * @return true
+ * @return false
  * @since v3.1.0
  */
 bool filesystem_exists(string_t path);
@@ -54,6 +56,7 @@ bool filesystem_exists(string_t path);
  * @return int
  * @retval -1 if there is an error.
  * @retval 0 for success.
+ * @return int
  * @since v3.1.0
  */
 int filesystem_remove(string_t path);
@@ -64,6 +67,7 @@ int filesystem_remove(string_t path);
  * @param path
  * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types
  * @see https://www.iana.org/assignments/media-types/media-types.xhtml
+ * @return string_t
  * @since v1.0.0
  */
 string_t filesystem_get_mimetype(string_t path);

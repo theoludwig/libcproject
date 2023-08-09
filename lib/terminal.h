@@ -17,6 +17,8 @@
 
 /**
  * @brief Read a line from stdin.
+ *
+ * @return string_t
  * @since v1.0.0
  */
 string_t terminal_input();
@@ -111,7 +113,7 @@ void terminal_print_hash_map(struct hash_map* hash_map, void (*print_element)(vo
 /**
  * @brief Print an array list.
  *
- * @param array_list
+ * @param list
  * @param print_element
  * @since v3.0.0
  */

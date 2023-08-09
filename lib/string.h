@@ -15,6 +15,7 @@
  * @brief Return the length of a string (excluding '\0').
  *
  * @param string
+ * @return size_t
  * @since v1.0.0
  */
 size_t string_get_length(const string_t string);
@@ -96,6 +97,7 @@ void string_trim(string_t string, char character);
  * @brief Return the copy of a string.
  *
  * @param string
+ * @return string_t
  * @since v1.0.0
  */
 string_t string_copy(const string_t string);
@@ -115,6 +117,7 @@ void string_capitalize(string_t string);
  *
  * @param string
  * @param character
+ * @return size_t
  * @since v1.0.0
  */
 size_t string_total_occurrences_of_character(string_t string, char character);
@@ -134,16 +137,18 @@ void string_reverse(const string_t string);
  *
  * @param string1
  * @param string2
- * @return true if the strings are equals, false otherwise.
+ * @return true if the strings are equals.
+ * @return false if the strings are not equals.
  * @since v1.0.0
  */
 bool string_equals(const string_t string1, const string_t string2);
 
 /**
- * @brief Check if the string is a integer.
+ * @brief Check if the string is an integer.
  *
  * @param string
- * @return true if the string is a integer, false otherwise.
+ * @return true if the string is an integer.
+ * @return false if the string is not an integer.
  * @since v1.0.0
  */
 bool string_get_is_integer(const string_t string);
@@ -154,6 +159,7 @@ bool string_get_is_integer(const string_t string);
  * @param string
  * @param separator
  * @param result_size
+ * @return string_t*
  * @since v1.0.0
  */
 string_t* string_split(const string_t string, char separator, size_t* result_size);
@@ -164,6 +170,7 @@ string_t* string_split(const string_t string, char separator, size_t* result_siz
  * @param array
  * @param separator
  * @param array_length
+ * @return string_t
  * @since v1.0.0
  */
 string_t string_join(string_t* array, const char separator, size_t array_length);
@@ -183,7 +190,8 @@ void string_concatenate(string_t* destination, string_t source);
  * @brief Check if a string contains only unique characters.
  *
  * @param string
- * @return true if string contains only unique characters, false otherwise.
+ * @return true if string contains only unique characters.
+ * @return false if string contains duplicate characters.
  * @since v1.0.0
  */
 bool string_get_has_unique_characters(const string_t string);
@@ -194,6 +202,7 @@ bool string_get_has_unique_characters(const string_t string);
  * @param string
  * @param index_start
  * @param index_end
+ * @return string_t
  * @since v1.0.0
  */
 string_t string_substring(const string_t string, size_t index_start, size_t index_end);
@@ -203,7 +212,8 @@ string_t string_substring(const string_t string, size_t index_start, size_t inde
  *
  * @param string
  * @param substring
- * @return true if the string contains the substring, false otherwise.
+ * @return true if the string contains the substring.
+ * @return false if the string does not contain the substring.
  * @since v1.0.0
  */
 bool string_get_is_substring(const string_t string, const string_t substring);
@@ -213,11 +223,12 @@ bool string_get_is_substring(const string_t string, const string_t substring);
  *
  * @param number
  * @param separator
- * @since v1.0.0
+ * @return string_t
  * @code
  * string_get_formatted_number(1000, " ") // "1 000"
  * string_get_formatted_number(1000, ",") // "1,000"
  * @endcode
+ * @since v1.0.0
  */
 string_t string_get_formatted_number(const long long number, string_t separator);
 
@@ -226,6 +237,7 @@ string_t string_get_formatted_number(const long long number, string_t separator)
  *
  * @param string
  * @param character
+ * @return string_t
  * @since v1.0.0
  */
 string_t string_get_last_occurence_of_character(const string_t string, char character);
@@ -235,7 +247,8 @@ string_t string_get_last_occurence_of_character(const string_t string, char char
  *
  * @param string
  * @param prefix
- * @return true if the string starts with the substring, false otherwise.
+ * @return true if the string starts with the substring.
+ * @return false if the string does not start with the substring.
  * @since v1.0.0
  */
 bool string_starts_with(const string_t string, const string_t prefix);
@@ -245,7 +258,8 @@ bool string_starts_with(const string_t string, const string_t prefix);
  *
  * @param string
  * @param prefix
- * @return true if the string ends with the substring, false otherwise.
+ * @return true if the string ends with the substring.
+ * @return false if the string does not end with the substring.
  * @since v1.0.0
  */
 bool string_ends_with(const string_t string, const string_t prefix);

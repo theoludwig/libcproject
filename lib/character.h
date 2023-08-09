@@ -47,7 +47,9 @@ char character_to_lower(const char character);
 /**
  * @brief Check if the character is a digit ('0', '1', '2', '3', '4', '5', '6', '7, '8' or '9').
  *
- * @return true if the character is a digit, false otherwise
+ * @param character
+ * @return true
+ * @return false
  * @since v1.0.0
  */
 bool character_get_is_digit(const char character);
@@ -57,6 +59,7 @@ bool character_get_is_digit(const char character);
  * Return 0 if the character is not a letter.
  *
  * @param character
+ * @return unsigned char
  * @since v1.0.0
  */
 unsigned char character_get_alphabet_position(const char character);
