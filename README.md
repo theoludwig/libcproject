@@ -37,10 +37,10 @@ For example on GNU/Linux Ubuntu:
 
 ```sh
 # Install Build Tools
-sudo apt-get install build-essential gcc make clang-format
+sudo apt install build-essential gcc make clang-format
 
 # Install Documentation Tools
-sudo apt-get install doxygen doxygen-gui doxygen-doc graphviz
+sudo apt install doxygen doxygen-gui doxygen-doc graphviz
 ```
 
 ## Usage
