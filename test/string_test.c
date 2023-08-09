@@ -5,6 +5,7 @@ void string_test() {
   string_to_uppercase_test();
   string_to_lowercase_test();
   string_replace_test();
+  string_remove_character_test();
   string_trim_start_test();
   string_trim_end_test();
   string_trim_test();
@@ -51,6 +52,13 @@ void string_replace_test() {
   string_t string = string_copy("hello world");
   string_replace(string, 'l', 'z');
   assert(assert_string_equal(string, "hezzo worzd"));
+  free(string);
+}
+
+void string_remove_character_test() {
+  string_t string = string_copy("hello world");
+  string_remove_character(string, 'l');
+  assert(assert_string_equal(string, "heo word"));
   free(string);
 }
 

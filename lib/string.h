@@ -52,6 +52,17 @@ void string_to_lowercase(string_t string);
 void string_replace(string_t string, char search, char replace);
 
 /**
+ * @brief Removes all the occurrences of a character in a string.
+ *
+ * NOTE: Mutates the string.
+ *
+ * @param string
+ * @param search A character search value.
+ * @since v4.1.0
+ */
+void string_remove_character(char* string, char search);
+
+/**
  * @brief Removes all `character` from the start of a string.
  *
  * NOTE: Mutates the string.

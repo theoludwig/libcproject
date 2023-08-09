@@ -18,6 +18,8 @@ void string_to_lowercase_test();
 
 void string_replace_test();
 
+void string_remove_character_test();
+
 void string_trim_start_test();
 
 void string_trim_end_test();
