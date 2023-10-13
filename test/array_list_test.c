@@ -35,12 +35,14 @@ void array_list_test() {
 
   array_list_free(list);
 
-  struct array_list *list = array_list_initialization();
+  list = array_list_initialization();
   array_list_add(list, (void *)'a');
   array_list_add(list, (void *)'b');
   array_list_add(list, (void *)'c');
   array_list_remove(list, 1);
   assert(array_list_get(list, 0) == (void *)'a');
   assert(array_list_get(list, 1) == (void *)'c');
-  assert(list->size == 106);
+  assert(list->size == 2);
+
+  array_list_free(list);
 }
