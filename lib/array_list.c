@@ -25,8 +25,8 @@ void array_list_remove(struct array_list* list, size_t index) {
   if (index >= list->size) {
     return;
   }
-  for (size_t i = index + 1; i < list->size - 1; i++) {
-    list->data[i - 1] = list->data[i];
+  for (size_t i = index; i < list->size - 1; i++) {
+    list->data[i] = list->data[i + 1];
   }
   list->size--;
 }
