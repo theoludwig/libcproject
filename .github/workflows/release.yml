@@ -8,14 +8,14 @@ jobs:
   release:
     runs-on: "ubuntu-latest"
     steps:
-      - uses: "actions/checkout@v3.5.3"
+      - uses: "actions/checkout@v4.1.1"
         with:
           fetch-depth: 0
           persist-credentials: false
-          submodules: recursive
+          submodules: "recursive"
 
       - name: "Import GPG key"
-        uses: "crazy-max/ghaction-import-gpg@v5.3.0"
+        uses: "crazy-max/ghaction-import-gpg@v6.1.0"
         with:
           gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
           git_user_signingkey: true
@@ -32,12 +32,12 @@ jobs:
       - run: "make set_version"
 
       - name: "Use Node.js"
-        uses: "actions/setup-node@v3.7.0"
+        uses: "actions/setup-node@v4.0.1"
         with:
-          node-version: "18.17.0"
+          node-version: "20.10.0"
 
       - name: "Install Release Tools"
-        run: "npm install --save-dev semantic-release@21.0.7 @commitlint/cli@17.6.7 @commitlint/config-conventional@17.6.7 @semantic-release/git@10.0.1 @semantic-release/exec@6.0.3 @saithodev/semantic-release-backmerge@3.2.0 vercel@31.2.2"
+        run: "npm install --save-dev semantic-release@22.0.12 @commitlint/cli@18.4.3 @commitlint/config-conventional@18.4.3 @semantic-release/git@10.0.1 @semantic-release/exec@6.0.3 @saithodev/semantic-release-backmerge@4.0.1 vercel@33.0.1"
 
       - run: "rm --force package.json package-lock.json"
 

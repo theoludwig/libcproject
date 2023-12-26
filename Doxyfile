@@ -12,7 +12,7 @@ FILE_PATTERNS = *.h \
   CODE_OF_CONDUCT.md \
   CONTRIBUTING.md \
   LICENSE
-HTML_EXTRA_STYLESHEET  = doxygen-awesome-css/doxygen-awesome.css
+HTML_EXTRA_STYLESHEET = doxygen-awesome-css/doxygen-awesome.css
 
 RECURSIVE = YES
 EXCLUDE = test doxygen-awesome-css node_modules
