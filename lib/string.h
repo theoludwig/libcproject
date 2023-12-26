@@ -264,4 +264,15 @@ bool string_starts_with(const string_t string, const string_t prefix);
  */
 bool string_ends_with(const string_t string, const string_t prefix);
 
+/**
+ * @brief Returns the position (index + 1) within the string of the first occurrence of the specified substring (0 if not found).
+ *
+ * @param string
+ * @param substring
+ * @return size_t
+ * @example string_position_of("hello world", "e") // 2
+ * @since v4.2.0
+ */
+size_t string_position_of(const string_t string, const char character);
+
 #endif

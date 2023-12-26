@@ -384,3 +384,14 @@ bool string_ends_with(const string_t string, const string_t prefix) {
   }
   return ends_with;
 }
+
+size_t string_position_of(const string_t string, const char character) {
+  size_t position_found = 0;
+  size_t string_length = string_get_length(string);
+  for (size_t index = 0; index < string_length && position_found == 0; index++) {
+    if (string[index] == character) {
+      position_found = index + 1;
+    }
+  }
+  return position_found;
+}

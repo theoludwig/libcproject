@@ -25,6 +25,7 @@ void string_test() {
   string_get_last_occurence_of_character_test();
   string_starts_with_test();
   string_ends_with_test();
+  string_position_of_test();
 }
 
 void string_get_length_test() {
@@ -276,4 +277,15 @@ void string_ends_with_test() {
   assert(!string_ends_with("abcdef", "abc"));
   assert(!string_ends_with("abcdef", "bcd"));
   assert(!string_ends_with("abcdef", "abcdefg"));
+}
+
+void string_position_of_test() {
+  assert(string_position_of("hello world", 'e') == 2);
+  assert(string_position_of("abcdef", 'a') == 1);
+  assert(string_position_of("abcdef", 'b') == 2);
+  assert(string_position_of("abcdef", 'c') == 3);
+  assert(string_position_of("abcdef", 'd') == 4);
+  assert(string_position_of("abcdef", 'e') == 5);
+  assert(string_position_of("abcdef", 'f') == 6);
+  assert(string_position_of("abcdef", 'g') == 0);
 }

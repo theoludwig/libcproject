@@ -58,4 +58,6 @@ void string_starts_with_test();
 
 void string_ends_with_test();
 
+void string_position_of_test();
+
 #endif
