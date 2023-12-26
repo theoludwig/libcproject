@@ -395,3 +395,15 @@ size_t string_position_of(const string_t string, const char character) {
   }
   return position_found;
 }
+
+size_t string_last_position_of(const string_t string, const char character) {
+  size_t position_found = 0;
+  size_t string_length = string_get_length(string);
+  while (string_length > 0 && position_found == 0) {
+    if (string[string_length - 1] == character) {
+      position_found = string_length;
+    }
+    string_length--;
+  }
+  return position_found;
+}

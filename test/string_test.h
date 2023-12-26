@@ -60,4 +60,6 @@ void string_ends_with_test();
 
 void string_position_of_test();
 
+void string_last_position_of_test();
+
 #endif

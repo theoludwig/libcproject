@@ -270,9 +270,20 @@ bool string_ends_with(const string_t string, const string_t prefix);
  * @param string
  * @param substring
  * @return size_t
- * @example string_position_of("hello world", "e") // 2
+ * @example string_position_of("hello world", 'e') // 2
  * @since v4.2.0
  */
 size_t string_position_of(const string_t string, const char character);
+
+/**
+ * @brief Returns the position (index + 1) within the string of the last occurrence of the specified substring (0 if not found).
+ *
+ * @param string
+ * @param character
+ * @return size_t
+ * @example string_last_position_of("hello world", 'o') // 8
+ * @since v4.2.0
+ */
+size_t string_last_position_of(const string_t string, const char character);
 
 #endif
