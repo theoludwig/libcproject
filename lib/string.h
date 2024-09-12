@@ -298,4 +298,16 @@ size_t string_last_position_of(const string_t string, const char character);
  */
 string_t string_pad_start(const string_t string, const string_t pad_string, size_t target_length);
 
+/**
+ * @brief Pad a number with zeros.
+ *
+ * @param number
+ * @param places
+ * @return string_t
+ * @example zero_pad(1, 2) // "01"
+ * @example zero_pad(10, 2) // "10"
+ * @since vTODO
+ */
+string_t string_zero_pad(uint64_t number, size_t places);
+
 #endif

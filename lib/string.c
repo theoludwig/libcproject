@@ -431,3 +431,12 @@ string_t string_pad_start(const string_t string, const string_t pad_string, size
   result[target_length] = '\0';
   return result;
 }
+
+string_t string_zero_pad(uint64_t number, size_t places) {
+  string_t number_string = convert_number_to_string((long long)number);
+  string_t pad_string = string_copy("0");
+  string_t result = string_pad_start(number_string, pad_string, places);
+  free(pad_string);
+  free(number_string);
+  return result;
+}

@@ -28,6 +28,7 @@ void string_test() {
   string_position_of_test();
   string_last_position_of_test();
   string_pad_start_test();
+  string_zero_pad_test();
 }
 
 void string_get_length_test() {
@@ -320,5 +321,15 @@ void string_pad_start_test() {
 
   result = string_pad_start("hello", "ab", 6);
   assert(assert_string_equal(result, "ahello"));
+  free(result);
+}
+
+void string_zero_pad_test() {
+  string_t result = string_zero_pad(1, 2);
+  assert(assert_string_equal(result, "01"));
+  free(result);
+
+  result = string_zero_pad(10, 2);
+  assert(assert_string_equal(result, "10"));
   free(result);
 }
