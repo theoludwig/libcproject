@@ -62,4 +62,6 @@ void string_position_of_test();
 
 void string_last_position_of_test();
 
+void string_pad_start_test();
+
 #endif

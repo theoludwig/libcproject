@@ -286,4 +286,16 @@ size_t string_position_of(const string_t string, const char character);
  */
 size_t string_last_position_of(const string_t string, const char character);
 
+/**
+ * @brief Pads a `string` with another `pad_string` (multiple times, if needed) until the resulting string reaches the `target_length`. The padding is applied from the start (left) of the string.
+ *
+ * @param string The string to pad.
+ * @param pad_string The string to pad the current string with, to the left.
+ * @param target_length
+ * @return string_t
+ * @example string_pad_start("hello", " ", 10) // "     hello"
+ * @since vTODO
+ */
+string_t string_pad_start(const string_t string, const string_t pad_string, size_t target_length);
+
 #endif

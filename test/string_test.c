@@ -27,6 +27,7 @@ void string_test() {
   string_ends_with_test();
   string_position_of_test();
   string_last_position_of_test();
+  string_pad_start_test();
 }
 
 void string_get_length_test() {
@@ -302,4 +303,22 @@ void string_last_position_of_test() {
   assert(string_last_position_of("abcdef", 'e') == 5);
   assert(string_last_position_of("abcdef", 'f') == 6);
   assert(string_last_position_of("abcdef", 'g') == 0);
+}
+
+void string_pad_start_test() {
+  string_t result = string_pad_start("hello", "ab", 10);
+  assert(assert_string_equal(result, "ababahello"));
+  free(result);
+
+  result = string_pad_start("hello", "ab", 4);
+  assert(assert_string_equal(result, "hell"));
+  free(result);
+
+  result = string_pad_start("hello", "ab", 5);
+  assert(assert_string_equal(result, "hello"));
+  free(result);
+
+  result = string_pad_start("hello", "ab", 6);
+  assert(assert_string_equal(result, "ahello"));
+  free(result);
 }

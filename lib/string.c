@@ -407,3 +407,27 @@ size_t string_last_position_of(const string_t string, const char character) {
   }
   return position_found;
 }
+
+string_t string_pad_start(const string_t string, const string_t pad_string, size_t target_length) {
+  string_t result = malloc(sizeof(char) * (target_length + 1));
+  size_t initial_length = string_get_length(string);
+  size_t left_length = target_length - initial_length;
+  if (target_length <= initial_length) {
+    left_length = 0;
+  }
+  size_t pad_length = string_get_length(pad_string);
+  size_t count_pad_string = 0;
+  size_t index_initial_string = 0;
+  for (size_t index = 0; index < target_length; index++) {
+    if (index < left_length) {
+      size_t index_pad_string = count_pad_string % pad_length;
+      result[index] = pad_string[index_pad_string];
+      count_pad_string += 1;
+    } else {
+      result[index] = string[index_initial_string];
+      index_initial_string += 1;
+    }
+  }
+  result[target_length] = '\0';
+  return result;
+}
