@@ -66,4 +66,12 @@ float mathematics_square_root(float number);
  */
 unsigned long long mathematics_factorial(unsigned long long number);
 
+/**
+ * @brief Calulcates the opposite number (additive inverse).
+ *
+ * @param number
+ * @return int64_t
+ */
+int64_t mathematics_opposite(int64_t number);
+
 #endif

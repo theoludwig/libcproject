@@ -32,3 +32,7 @@ float mathematics_square_root(float number) {
 unsigned long long mathematics_factorial(unsigned long long number) {
   return number == 0 ? 1 : number * mathematics_factorial(number - 1);
 }
+
+int64_t mathematics_opposite(int64_t number) {
+  return number * -1;
+}
