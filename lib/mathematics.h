@@ -5,6 +5,7 @@
 
 #include <errno.h>
 #include <stdbool.h>
+#include <stdlib.h>
 
 #include "types.h"
 
@@ -71,7 +72,54 @@ unsigned long long mathematics_factorial(unsigned long long number);
  *
  * @param number
  * @return int64_t
+ *
+ * @code
+ * mathematics_opposite(7) // -7
+ *
+ * mathematics_opposite(-7) // 7
+ * @endcode
+ * @since vTODO
  */
 int64_t mathematics_opposite(int64_t number);
+
+/**
+ * @brief Returns the largest number between 2 numbers.
+ *
+ * @param number1
+ * @param number2
+ * @return int64_t
+ * @since vTODO
+ */
+int64_t mathematics_max(int64_t number1, int64_t number2);
+
+/**
+ * @brief Returns the largest number between multiple numbers. If the array is empty, returns 0.
+ *
+ * @param values
+ * @param values_length
+ * @return int64_t
+ * @since vTODO
+ */
+int64_t mathematics_max_values(int64_t *values, size_t values_length);
+
+/**
+ * @brief Returns the smallest number between 2 numbers.
+ *
+ * @param number1
+ * @param number2
+ * @return int64_t
+ * @since vTODO
+ */
+int64_t mathematics_min(int64_t number1, int64_t number2);
+
+/**
+ * @brief Returns the smallest number between multiple numbers. If the array is empty, returns 0.
+ *
+ * @param values
+ * @param values_length
+ * @return int64_t
+ * @since vTODO
+ */
+int64_t mathematics_min_values(int64_t *values, size_t values_length);
 
 #endif

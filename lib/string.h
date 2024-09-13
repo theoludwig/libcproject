@@ -224,6 +224,7 @@ bool string_get_is_substring(const string_t string, const string_t substring);
  * @param number
  * @param separator
  * @return string_t
+ *
  * @code
  * string_get_formatted_number(1000, " ") // "1 000"
  * string_get_formatted_number(1000, ",") // "1,000"
@@ -270,7 +271,10 @@ bool string_ends_with(const string_t string, const string_t prefix);
  * @param string
  * @param substring
  * @return size_t
- * @example string_position_of("hello world", 'e') // 2
+ *
+ * @code
+ * string_position_of("hello world", 'e') // 2
+ * @endcode
  * @since v4.2.0
  */
 size_t string_position_of(const string_t string, const char character);
@@ -281,7 +285,10 @@ size_t string_position_of(const string_t string, const char character);
  * @param string
  * @param character
  * @return size_t
- * @example string_last_position_of("hello world", 'o') // 8
+ *
+ * @code
+ * string_last_position_of("hello world", 'o') // 8
+ * @endcode
  * @since v4.2.0
  */
 size_t string_last_position_of(const string_t string, const char character);
@@ -293,7 +300,10 @@ size_t string_last_position_of(const string_t string, const char character);
  * @param pad_string The string to pad the current string with, to the left.
  * @param target_length
  * @return string_t
- * @example string_pad_start("hello", " ", 10) // "     hello"
+ *
+ * @code
+ * string_pad_start("hello", " ", 10) // "     hello"
+ * @endcode
  * @since vTODO
  */
 string_t string_pad_start(const string_t string, const string_t pad_string, size_t target_length);
@@ -304,8 +314,12 @@ string_t string_pad_start(const string_t string, const string_t pad_string, size
  * @param number
  * @param places
  * @return string_t
- * @example zero_pad(1, 2) // "01"
- * @example zero_pad(10, 2) // "10"
+ *
+ * @code
+ * string_zero_pad(1, 2) // "01"
+ *
+ * string_zero_pad(10, 2) // "10"
+ * @endcode
  * @since vTODO
  */
 string_t string_zero_pad(uint64_t number, size_t places);

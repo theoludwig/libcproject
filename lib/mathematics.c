@@ -36,3 +36,35 @@ unsigned long long mathematics_factorial(unsigned long long number) {
 int64_t mathematics_opposite(int64_t number) {
   return number * -1;
 }
+
+int64_t mathematics_max(int64_t number1, int64_t number2) {
+  return number1 > number2 ? number1 : number2;
+}
+
+int64_t mathematics_max_values(int64_t *values, size_t values_length) {
+  int64_t max = 0;
+  if (values_length <= 0) {
+    return max;
+  }
+  max = values[0];
+  for (size_t index = 1; index < values_length; index++) {
+    max = mathematics_max(max, values[index]);
+  }
+  return max;
+}
+
+int64_t mathematics_min(int64_t number1, int64_t number2) {
+  return number1 > number2 ? number2 : number1;
+}
+
+int64_t mathematics_min_values(int64_t *values, size_t values_length) {
+  int64_t min = 0;
+  if (values_length <= 0) {
+    return min;
+  }
+  min = values[0];
+  for (size_t index = 1; index < values_length; index++) {
+    min = mathematics_min(min, values[index]);
+  }
+  return min;
+}

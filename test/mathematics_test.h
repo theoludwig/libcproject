@@ -17,4 +17,14 @@ void mathematics_square_root_test();
 
 void mathematics_factorial_test();
 
+void mathematics_opposite_test();
+
+void mathematics_max_test();
+
+void mathematics_max_values_test();
+
+void mathematics_min_test();
+
+void mathematics_min_values_test();
+
 #endif
