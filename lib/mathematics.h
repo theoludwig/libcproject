@@ -78,7 +78,7 @@ unsigned long long mathematics_factorial(unsigned long long number);
  *
  * mathematics_opposite(-7) // 7
  * @endcode
- * @since vTODO
+ * @since v4.3.0
  */
 int64_t mathematics_opposite(int64_t number);
 
@@ -88,7 +88,7 @@ int64_t mathematics_opposite(int64_t number);
  * @param number1
  * @param number2
  * @return int64_t
- * @since vTODO
+ * @since v4.3.0
  */
 int64_t mathematics_max(int64_t number1, int64_t number2);
 
@@ -98,7 +98,7 @@ int64_t mathematics_max(int64_t number1, int64_t number2);
  * @param values
  * @param values_length
  * @return int64_t
- * @since vTODO
+ * @since v4.3.0
  */
 int64_t mathematics_max_values(int64_t *values, size_t values_length);
 
@@ -108,7 +108,7 @@ int64_t mathematics_max_values(int64_t *values, size_t values_length);
  * @param number1
  * @param number2
  * @return int64_t
- * @since vTODO
+ * @since v4.3.0
  */
 int64_t mathematics_min(int64_t number1, int64_t number2);
 
@@ -118,7 +118,7 @@ int64_t mathematics_min(int64_t number1, int64_t number2);
  * @param values
  * @param values_length
  * @return int64_t
- * @since vTODO
+ * @since v4.3.0
  */
 int64_t mathematics_min_values(int64_t *values, size_t values_length);
 

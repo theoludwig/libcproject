@@ -305,7 +305,7 @@ size_t string_last_position_of(const string_t string, const char character);
  * @code
  * string_pad_start("hello", " ", 10) // "     hello"
  * @endcode
- * @since vTODO
+ * @since v4.3.0
  */
 string_t string_pad_start(const string_t string, const string_t pad_string, size_t target_length);
 
@@ -321,7 +321,7 @@ string_t string_pad_start(const string_t string, const string_t pad_string, size
  *
  * string_zero_pad(10, 2) // "10"
  * @endcode
- * @since vTODO
+ * @since v4.3.0
  */
 string_t string_zero_pad(uint64_t number, size_t places);
 
