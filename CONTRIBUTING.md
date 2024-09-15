@@ -30,3 +30,18 @@ If you're adding new features to **libcproject**, please include tests.
 ## Commits
 
 The commit message guidelines adheres to [Conventional Commits](https://www.conventionalcommits.org/) and [Semantic Versioning](https://semver.org/) for releases.
+
+## Git Submodules
+
+To get the submodule:
+
+```sh
+git submodule update --init --recursive
+```
+
+To update the version:
+
+```sh
+cd doxygen-awesome-css
+git checkout v2.3.3
+```

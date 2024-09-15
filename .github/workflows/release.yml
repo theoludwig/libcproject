@@ -8,7 +8,7 @@ jobs:
   release:
     runs-on: "ubuntu-latest"
     steps:
-      - uses: "actions/checkout@v4.1.1"
+      - uses: "actions/checkout@v4.1.7"
         with:
           fetch-depth: 0
           persist-credentials: false
@@ -32,12 +32,12 @@ jobs:
       - run: "make set_version"
 
       - name: "Use Node.js"
-        uses: "actions/setup-node@v4.0.1"
+        uses: "actions/setup-node@v4.0.3"
         with:
-          node-version: "20.10.0"
+          node-version: "20.17.0"
 
       - name: "Install Release Tools"
-        run: "npm install --save-dev semantic-release@22.0.12 @commitlint/cli@18.4.3 @commitlint/config-conventional@18.4.3 @semantic-release/git@10.0.1 @semantic-release/exec@6.0.3 @saithodev/semantic-release-backmerge@4.0.1 vercel@33.0.1"
+        run: "npm install --save-dev semantic-release@23.1.1 @commitlint/cli@19.5.0 @commitlint/config-conventional@19.5.0 @semantic-release/git@10.0.1 @semantic-release/exec@6.0.3 @saithodev/semantic-release-backmerge@4.0.1 vercel@37.4.2"
 
       - run: "rm --force package.json package-lock.json"
 
