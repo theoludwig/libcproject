@@ -227,6 +227,7 @@ bool string_get_is_substring(const string_t string, const string_t substring);
  *
  * @code
  * string_get_formatted_number(1000, " ") // "1 000"
+ *
  * string_get_formatted_number(1000, ",") // "1,000"
  * @endcode
  * @since v1.0.0
