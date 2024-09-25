@@ -18,6 +18,7 @@ struct array_list {
   void** data;
   size_t size;
   size_t capacity;
+  size_t capacity_step;
 };
 
 /**
@@ -25,6 +26,12 @@ struct array_list {
  * @since v1.2.0
  */
 struct array_list* array_list_initialization();
+
+/**
+ * @brief Initializes a new array list with a capacity.
+ * @since v5.0.0
+ */
+struct array_list* array_list_initialization_with_capacity(size_t capacity);
 
 /**
  * @brief Adds an element to the end of the array list.

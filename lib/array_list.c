@@ -1,25 +1,30 @@
 #include "array_list.h"
 
 struct array_list* array_list_initialization() {
+  return array_list_initialization_with_capacity(ARRAY_LIST_INITIAL_CAPACITY);
+}
+
+struct array_list* array_list_initialization_with_capacity(size_t capacity) {
   struct array_list* list = malloc(sizeof(struct array_list));
   if (list == NULL) {
     perror("Error (array_list_initialization)");
     exit(EXIT_FAILURE);
   }
-  list->data = malloc(sizeof(void*) * ARRAY_LIST_INITIAL_CAPACITY);
+  list->size = 0;
+  list->capacity = capacity;
+  list->capacity_step = capacity;
+  list->data = malloc(sizeof(void*) * list->capacity);
   if (list->data == NULL) {
     perror("Error (array_list_initialization)");
     exit(EXIT_FAILURE);
   }
-  list->size = 0;
-  list->capacity = ARRAY_LIST_INITIAL_CAPACITY;
   return list;
 }
 
 void array_list_add(struct array_list* list, void* element) {
   if (list->size >= list->capacity) {
     size_t previous_capacity = list->capacity;
-    list->capacity += ARRAY_LIST_INITIAL_CAPACITY;
+    list->capacity += list->capacity_step;
     list->data = realloc(list->data, sizeof(void*) * list->capacity);
     if (list->data == NULL) {
       perror("Error (array_list_add)");
