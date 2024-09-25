@@ -40,7 +40,7 @@ uint64_t hash(string_t key, size_t capacity) {
     memcpy(&m, message + offset, sizeof(uint64_t));
     v3 ^= m;
 
-    for (int i = 0; i < 2; i++) {
+    for (uint8_t i = 0; i < 2; i++) {
       v0 = sip_round(v0, v1, v2, v3);
       v1 = ROTATE_LEFT(v1, 13);
       v2 = ROTATE_LEFT(v2, 16);
@@ -49,7 +49,7 @@ uint64_t hash(string_t key, size_t capacity) {
     }
 
     v2 ^= 0xff;
-    for (int i = 0; i < 4; i++) {
+    for (uint8_t i = 0; i < 4; i++) {
       v0 = sip_round(v0, v1, v2, v3);
       v1 = ROTATE_LEFT(v1, 13);
       v2 = ROTATE_LEFT(v2, 16);
@@ -90,7 +90,7 @@ uint64_t hash(string_t key, size_t capacity) {
 
   v3 ^= m;
 
-  for (int i = 0; i < 2; i++) {
+  for (uint8_t i = 0; i < 2; i++) {
     v0 = sip_round(v0, v1, v2, v3);
     v1 = ROTATE_LEFT(v1, 13);
     v2 = ROTATE_LEFT(v2, 16);
@@ -100,7 +100,7 @@ uint64_t hash(string_t key, size_t capacity) {
   v0 ^= m;
   v2 ^= 0xff;
 
-  for (int i = 0; i < 4; i++) {
+  for (uint8_t i = 0; i < 4; i++) {
     v0 = sip_round(v0, v1, v2, v3);
     v1 = ROTATE_LEFT(v1, 13);
     v2 = ROTATE_LEFT(v2, 16);

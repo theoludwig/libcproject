@@ -24,23 +24,20 @@
 string_t terminal_input();
 
 /**
- * @brief Print an array.
- *
- * @param array
- * @param array_size
- * @param element_size
- * @param print_element
- * @since v1.0.0
- */
-void terminal_print_array(void* array, size_t array_size, size_t element_size, void (*print_element)(void*));
-
-/**
  * @brief Print a int.
  *
  * @param value
  * @since v1.0.0
  */
 void terminal_print_int(void* value);
+
+/**
+ * @brief Print a boolean.
+ *
+ * @param value
+ * @since v5.0.0
+ */
+void terminal_print_bool(void* value);
 
 /**
  * @brief Print a long.
@@ -59,12 +56,103 @@ void terminal_print_long(void* value);
 void terminal_print_unsigned_long(void* value);
 
 /**
+ * @brief Print a float.
+ *
+ * @param value
+ * @since v5.0.0
+ */
+void terminal_print_float(void* value);
+
+/**
+ * @brief Print a double.
+ *
+ * @param value
+ * @since v5.0.0
+ */
+void terminal_print_double(void* value);
+
+/**
+ * @brief Print a int8_t.
+ *
+ * @param value
+ * @since v5.0.0
+ */
+void terminal_print_int8_t(void* value);
+
+/**
+ * @brief Print a int16_t.
+ *
+ * @param value
+ * @since v5.0.0
+ */
+void terminal_print_int16_t(void* value);
+
+/**
+ * @brief Print a int32_t.
+ *
+ * @param value
+ * @since v5.0.0
+ */
+void terminal_print_int32_t(void* value);
+
+/**
+ * @brief Print a int64_t.
+ *
+ * @param value
+ * @since v5.0.0
+ */
+void terminal_print_int64_t(void* value);
+
+/**
+ * @brief Print a uint8_t.
+ *
+ * @param value
+ * @since v5.0.0
+ */
+void terminal_print_uint8_t(void* value);
+
+/**
+ * @brief Print a uint16_t.
+ *
+ * @param value
+ * @since v5.0.0
+ */
+void terminal_print_uint16_t(void* value);
+
+/**
+ * @brief Print a uint32_t.
+ *
+ * @param value
+ * @since v5.0.0
+ */
+void terminal_print_uint32_t(void* value);
+
+/**
+ * @brief Print a uint64_t.
+ *
+ * @param value
+ * @since v5.0.0
+ */
+void terminal_print_uint64_t(void* value);
+
+/**
  * @brief Print a char.
  *
  * @param value
  * @since v1.0.0
  */
 void terminal_print_char(void* value);
+
+/**
+ * @brief Print an array.
+ *
+ * @param array
+ * @param array_size
+ * @param element_size
+ * @param print_element
+ * @since v1.0.0
+ */
+void terminal_print_array(void* array, size_t array_size, size_t element_size, void (*print_element)(void*));
 
 /**
  * @brief Print a string.

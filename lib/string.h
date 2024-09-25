@@ -232,7 +232,7 @@ bool string_get_is_substring(const string_t string, const string_t substring);
  * @endcode
  * @since v1.0.0
  */
-string_t string_get_formatted_number(const long long number, string_t separator);
+string_t string_get_formatted_number(const int64_t number, string_t separator);
 
 /**
  * @brief Returns a pointer to the last occurrence of character in the string.

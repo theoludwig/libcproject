@@ -19,9 +19,9 @@ char convert_digit_to_character(const char digit) {
   return digit + '0';
 }
 
-long long convert_string_to_number(const string_t string) {
+int64_t convert_string_to_number(const string_t string) {
   bool is_negative = string[0] == '-';
-  long long integer = 0;
+  int64_t integer = 0;
   size_t length = string_get_length(string);
   for (size_t index = is_negative ? 1 : 0; index < length; index++) {
     integer = integer * 10 + convert_character_to_digit(string[index]);
@@ -29,13 +29,13 @@ long long convert_string_to_number(const string_t string) {
   return is_negative ? integer * -1 : integer;
 }
 
-string_t convert_number_to_string(const long long integer) {
+string_t convert_number_to_string(const int64_t integer) {
   if (integer == 0) {
     return convert_character_to_string('0');
   }
   bool is_negative = integer < 0;
   size_t length = 1;
-  long long current = mathematics_absolute_value(integer);
+  int64_t current = mathematics_absolute_value(integer);
   while (current != 0) {
     current = current / 10;
     length++;
@@ -62,21 +62,21 @@ string_t convert_number_to_string(const long long integer) {
   return string;
 }
 
-string_t convert_number_from_base_10_to_base(unsigned long long number, unsigned long base) {
+string_t convert_number_from_base_10_to_base(uint64_t number, uint64_t base) {
   if (number == 0) {
     return "0";
   }
-  int remainders[64];
-  int index = 0;
+  int64_t remainders[64];
+  int64_t index = 0;
   while (number > 0) {
     remainders[index] = number % base;
     number = number / base;
     index++;
   }
   string_t result = malloc(sizeof(char) * (index + 1));
-  int index_result = 0;
-  for (int iteration = index - 1; iteration >= 0; iteration--) {
-    int remainder = remainders[iteration];
+  int64_t index_result = 0;
+  for (int64_t iteration = index - 1; iteration >= 0; iteration--) {
+    int64_t remainder = remainders[iteration];
     if (remainder >= 10) {
       result[index_result] = (char)((remainder - 10) + 'A');
     } else {
@@ -88,17 +88,17 @@ string_t convert_number_from_base_10_to_base(unsigned long long number, unsigned
   return result;
 }
 
-unsigned long convert_number_from_base_to_base_10(string_t number, unsigned long base) {
+uint64_t convert_number_from_base_to_base_10(string_t number, uint64_t base) {
   size_t length = string_get_length(number);
-  int exponent = length - 1;
-  unsigned long result = 0;
-  int index = 0;
+  int64_t exponent = length - 1;
+  uint64_t result = 0;
+  int64_t index = 0;
   while (exponent >= 0) {
-    int current_number = (int)(number[index] - '0');
+    int64_t current_number = (int64_t)(number[index] - '0');
     if (current_number >= 10) {
-      current_number = (int)(number[index] - 'A') + 10;
+      current_number = (int64_t)(number[index] - 'A') + 10;
     } else {
-      current_number = (int)(number[index] - '0');
+      current_number = (int64_t)(number[index] - '0');
     }
     result = result + current_number * mathematics_pow(base, exponent);
     exponent--;
@@ -107,6 +107,6 @@ unsigned long convert_number_from_base_to_base_10(string_t number, unsigned long
   return result;
 }
 
-string_t convert_number_from_base_to_another(string_t number, unsigned long base_from, unsigned long base_target) {
+string_t convert_number_from_base_to_another(string_t number, uint64_t base_from, uint64_t base_target) {
   return convert_number_from_base_10_to_base(convert_number_from_base_to_base_10(number, base_from), base_target);
 }

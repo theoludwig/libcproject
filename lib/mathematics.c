@@ -1,23 +1,23 @@
 #include "mathematics.h"
 
-bool mathematics_equals(const double number1, const double number2) {
+bool mathematics_equals(const float64_t number1, const float64_t number2) {
   return (number1 - number2) < MATHEMATICS_DOUBLE_PRECISION;
 }
 
-unsigned long long mathematics_absolute_value(const long long number) {
+uint64_t mathematics_absolute_value(const int64_t number) {
   if (number >= 0) {
     return number;
   }
   return -number;
 }
 
-unsigned long long mathematics_pow(unsigned long long base, unsigned long long exponent) {
+uint64_t mathematics_pow(uint64_t base, uint64_t exponent) {
   return exponent == 0 ? 1 : base * mathematics_pow(base, exponent - 1);
 }
 
-double mathematics_root(double number, unsigned int nth_root) {
-  double result = number;
-  double previous_result = 0;
+float64_t mathematics_root(float64_t number, uint64_t nth_root) {
+  float64_t result = number;
+  float64_t previous_result = 0;
   while (!mathematics_equals(result, previous_result)) {
     result = (((nth_root - 1) * previous_result) + (number / mathematics_pow(result, nth_root - 1))) / nth_root;
     previous_result = result;
@@ -25,11 +25,11 @@ double mathematics_root(double number, unsigned int nth_root) {
   return result;
 }
 
-double mathematics_square_root(double number) {
+float64_t mathematics_square_root(float64_t number) {
   return mathematics_root(number, 2);
 }
 
-unsigned long long mathematics_factorial(unsigned long long number) {
+uint64_t mathematics_factorial(uint64_t number) {
   return number == 0 ? 1 : number * mathematics_factorial(number - 1);
 }
 

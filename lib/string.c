@@ -296,7 +296,7 @@ bool string_get_is_substring(const string_t string, const string_t substring) {
   return is_substring;
 }
 
-string_t string_get_formatted_number(const long long number, string_t separator) {
+string_t string_get_formatted_number(const int64_t number, string_t separator) {
   string_t number_string_temp = convert_number_to_string(number);
   string_t number_string = number_string_temp;
   bool is_negative = number_string_temp[0] == '-';
@@ -433,7 +433,7 @@ string_t string_pad_start(const string_t string, const string_t pad_string, size
 }
 
 string_t string_zero_pad(uint64_t number, size_t places) {
-  string_t number_string = convert_number_to_string((long long)number);
+  string_t number_string = convert_number_to_string((int64_t)number);
   string_t pad_string = string_copy("0");
   string_t result = string_pad_start(number_string, pad_string, places);
   free(pad_string);

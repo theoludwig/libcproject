@@ -32,9 +32,9 @@ bool character_get_is_digit(const char character) {
   return character >= '0' && character <= '9';
 }
 
-unsigned char character_get_alphabet_position(const char character) {
+uint8_t character_get_alphabet_position(const char character) {
   const char letter = character_to_lower(character);
-  unsigned char position = 0;
+  uint8_t position = 0;
   if (letter >= 'a' && letter <= 'z') {
     position = (letter - 'a') + 1;
   }

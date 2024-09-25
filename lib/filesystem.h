@@ -24,7 +24,7 @@
  * @return int
  * @since v1.0.0
  */
-int filesystem_read(string_t path, byte_t **file_content, off_t *file_size);
+int filesystem_read(string_t path, byte_t **file_content, size_t *file_size);
 
 /**
  * @brief Write the content to a file.
@@ -37,7 +37,7 @@ int filesystem_read(string_t path, byte_t **file_content, off_t *file_size);
  * @return int
  * @since v1.0.0
  */
-int filesystem_write(string_t path, byte_t *file_content, off_t file_size);
+int filesystem_write(string_t path, byte_t *file_content, size_t file_size);
 
 /**
  * @brief Check if a path exists.

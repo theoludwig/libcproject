@@ -59,9 +59,9 @@ bool character_get_is_digit(const char character);
  * Return 0 if the character is not a letter.
  *
  * @param character
- * @return unsigned char
+ * @return uint8_t
  * @since v1.0.0
  */
-unsigned char character_get_alphabet_position(const char character);
+uint8_t character_get_alphabet_position(const char character);
 
 #endif

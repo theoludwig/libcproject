@@ -18,54 +18,54 @@
  * @return false
  * @since v1.0.0
  */
-bool mathematics_equals(const double number1, const double number2);
+bool mathematics_equals(const float64_t number1, const float64_t number2);
 
 /**
  * @brief Get the absolute value of a number.
  *
  * @param number
- * @return unsigned long long
+ * @return uint64_t
  * @since v1.0.0
  */
-unsigned long long mathematics_absolute_value(const long long number);
+uint64_t mathematics_absolute_value(const int64_t number);
 
 /**
  * @brief Calculates the power of a number.
  *
  * @param base
  * @param exponent
- * @return unsigned long long
+ * @return uint64_t
  * @since v1.0.0
  */
-unsigned long long mathematics_pow(unsigned long long base, unsigned long long exponent);
+uint64_t mathematics_pow(uint64_t base, uint64_t exponent);
 
 /**
  * @brief Calculates the nth root of a number.
  *
  * @param number
  * @param nth_root
- * @return double
+ * @return float64_t
  * @since v1.0.0
  */
-double mathematics_root(double number, unsigned int nth_root);
+float64_t mathematics_root(float64_t number, uint64_t nth_root);
 
 /**
  * @brief Calculates the square root of a number using Heron's method.
  *
  * @param number
- * @return double
+ * @return float64_t
  * @since v1.0.0
  */
-double mathematics_square_root(double number);
+float64_t mathematics_square_root(float64_t number);
 
 /**
  * @brief Calculates the factorial of a number.
  *
  * @param number
- * @return unsigned long long
+ * @return uint64_t
  * @since v1.0.0
  */
-unsigned long long mathematics_factorial(unsigned long long number);
+uint64_t mathematics_factorial(uint64_t number);
 
 /**
  * @brief Calulcates the opposite number (additive inverse).
