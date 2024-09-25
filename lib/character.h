@@ -48,8 +48,7 @@ char character_to_lower(const char character);
  * @brief Check if the character is a digit ('0', '1', '2', '3', '4', '5', '6', '7, '8' or '9').
  *
  * @param character
- * @return true
- * @return false
+ * @return bool
  * @since v1.0.0
  */
 bool character_get_is_digit(const char character);

@@ -2,6 +2,7 @@
 #define __LIBCPROJECT__
 
 #include "lib/array_list.h"
+#include "lib/assert.h"
 #include "lib/character.h"
 #include "lib/convert.h"
 #include "lib/date.h"

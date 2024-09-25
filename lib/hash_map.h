@@ -85,8 +85,7 @@ void *hash_map_get(struct hash_map *hash_map, string_t key);
  *
  * @param hash_map
  * @param key
- * @return true
- * @return false
+ * @return bool
  * @since v2.0.0
  */
 bool hash_map_contains_key(struct hash_map *hash_map, string_t key);

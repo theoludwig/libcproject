@@ -43,8 +43,7 @@ int filesystem_write(string_t path, byte_t *file_content, size_t file_size);
  * @brief Check if a path exists.
  *
  * @param path
- * @return true
- * @return false
+ * @return bool
  * @since v3.1.0
  */
 bool filesystem_exists(string_t path);

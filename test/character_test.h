@@ -6,7 +6,6 @@
 #include <stdlib.h>
 
 #include "libcproject.h"
-#include "test.h"
 
 void character_test();
 

@@ -14,8 +14,7 @@
  *
  * @param number1
  * @param number2
- * @return true
- * @return false
+ * @return bool
  * @since v1.0.0
  */
 bool mathematics_equals(const float64_t number1, const float64_t number2);

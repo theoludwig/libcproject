@@ -1,7 +1,7 @@
-#include "test.h"
+#include "assert.h"
 
 bool assert_string_equal(const string_t actual, const string_t expected) {
-  if (strcmp(expected, actual) != 0) {
+  if (!string_equals(actual, expected)) {
     printf("FAIL: expected = \"%s\" ; actual = \"%s\"\n", expected, actual);
     return false;
   }
@@ -9,7 +9,7 @@ bool assert_string_equal(const string_t actual, const string_t expected) {
 }
 
 bool assert_string_not_equal(const string_t actual, const string_t expected) {
-  if (strcmp(expected, actual) == 0) {
+  if (string_equals(actual, expected)) {
     printf("FAIL: expected = \"%s\" ; actual = \"%s\"\n", expected, actual);
     return false;
   }
