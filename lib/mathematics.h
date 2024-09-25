@@ -1,7 +1,7 @@
 #ifndef __LIBCPROJECT_MATHEMATICS__
 #define __LIBCPROJECT_MATHEMATICS__
 
-#define MATHEMATICS_FLOAT_PRECISION 0.00000001
+#define MATHEMATICS_DOUBLE_PRECISION 0.0000000001
 
 #include <errno.h>
 #include <stdbool.h>
@@ -18,7 +18,7 @@
  * @return false
  * @since v1.0.0
  */
-bool mathematics_equals(const float number1, const float number2);
+bool mathematics_equals(const double number1, const double number2);
 
 /**
  * @brief Get the absolute value of a number.
@@ -44,19 +44,19 @@ unsigned long long mathematics_pow(unsigned long long base, unsigned long long e
  *
  * @param number
  * @param nth_root
- * @return float
+ * @return double
  * @since v1.0.0
  */
-float mathematics_root(float number, unsigned int nth_root);
+double mathematics_root(double number, unsigned int nth_root);
 
 /**
  * @brief Calculates the square root of a number using Heron's method.
  *
  * @param number
- * @return float
+ * @return double
  * @since v1.0.0
  */
-float mathematics_square_root(float number);
+double mathematics_square_root(double number);
 
 /**
  * @brief Calculates the factorial of a number.

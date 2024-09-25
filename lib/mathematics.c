@@ -1,7 +1,7 @@
 #include "mathematics.h"
 
-bool mathematics_equals(const float number1, const float number2) {
-  return (number1 - number2) < MATHEMATICS_FLOAT_PRECISION;
+bool mathematics_equals(const double number1, const double number2) {
+  return (number1 - number2) < MATHEMATICS_DOUBLE_PRECISION;
 }
 
 unsigned long long mathematics_absolute_value(const long long number) {
@@ -15,9 +15,9 @@ unsigned long long mathematics_pow(unsigned long long base, unsigned long long e
   return exponent == 0 ? 1 : base * mathematics_pow(base, exponent - 1);
 }
 
-float mathematics_root(float number, unsigned int nth_root) {
-  float result = number;
-  float previous_result = 0;
+double mathematics_root(double number, unsigned int nth_root) {
+  double result = number;
+  double previous_result = 0;
   while (!mathematics_equals(result, previous_result)) {
     result = (((nth_root - 1) * previous_result) + (number / mathematics_pow(result, nth_root - 1))) / nth_root;
     previous_result = result;
@@ -25,7 +25,7 @@ float mathematics_root(float number, unsigned int nth_root) {
   return result;
 }
 
-float mathematics_square_root(float number) {
+double mathematics_square_root(double number) {
   return mathematics_root(number, 2);
 }
 
