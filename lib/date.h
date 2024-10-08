@@ -330,4 +330,12 @@ void date_to_utc(struct date *date);
  */
 struct date *date_get_now_utc();
 
+/**
+ * @brief Get the current date in local time.
+ *
+ * @return struct date*
+ * @since v5.1.0
+ */
+struct date *date_get_now_local();
+
 #endif

@@ -128,5 +128,11 @@ int main() {
   free(iso_string);
   free(date);
 
+  date = date_get_now_local();
+  iso_string = date_to_iso_string(date);
+  printf("date_get_now_local = %s\n", iso_string);
+  free(iso_string);
+  free(date);
+
   return EXIT_SUCCESS;
 }
