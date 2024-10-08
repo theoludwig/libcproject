@@ -338,4 +338,13 @@ struct date *date_get_now_utc();
  */
 struct date *date_get_now_local();
 
+/**
+ * @brief Calculates the age of a person based on their birth date.
+ *
+ * @param birth_date
+ * @return uint16_t
+ * @since v5.1.0
+ */
+uint16_t date_get_age(struct date *birth_date, struct date *current_date);
+
 #endif

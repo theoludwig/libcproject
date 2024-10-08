@@ -329,3 +329,11 @@ struct date *date_get_now_local() {
 
   return date;
 }
+
+uint16_t date_get_age(struct date *birth_date, struct date *current_date) {
+  uint16_t age = current_date->year - birth_date->year;
+  if (current_date->month < birth_date->month || (current_date->month == birth_date->month && current_date->day < birth_date->day)) {
+    age--;
+  }
+  return age;
+}

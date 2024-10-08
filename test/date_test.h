@@ -21,4 +21,6 @@ void date_duration_seconds_between_2_dates_test();
 
 void date_to_utc_test();
 
+void date_get_age_test();
+
 #endif

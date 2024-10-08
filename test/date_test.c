@@ -8,6 +8,7 @@ void date_test() {
   date_get_is_leap_year_test();
   date_duration_seconds_between_2_dates_test();
   date_to_utc_test();
+  date_get_age_test();
 }
 
 void date_copy_test() {
@@ -161,4 +162,30 @@ void date_to_utc_test() {
   assert(assert_string_equal(iso_string, "2024-01-01T01:00:00.000Z"));
   free(iso_string);
   free(date);
+}
+
+void date_get_age_test() {
+  struct date *birth_date = date_from_iso_string("1980-02-20T00:00:00.000Z");
+  struct date *current_date = date_from_iso_string("2018-03-20T00:00:00.000Z");
+  assert(date_get_age(birth_date, current_date) == 38);
+  free(birth_date);
+  free(current_date);
+
+  birth_date = date_from_iso_string("1980-07-20T00:00:00.000Z");
+  current_date = date_from_iso_string("2018-03-20T00:00:00.000Z");
+  assert(date_get_age(birth_date, current_date) == 37);
+  free(birth_date);
+  free(current_date);
+
+  birth_date = date_from_iso_string("1980-03-20T00:00:00.000Z");
+  current_date = date_from_iso_string("2018-03-20T00:00:00.000Z");
+  assert(date_get_age(birth_date, current_date) == 38);
+  free(birth_date);
+  free(current_date);
+
+  birth_date = date_from_iso_string("1980-03-25T00:00:00.000Z");
+  current_date = date_from_iso_string("2018-03-20T00:00:00.000Z");
+  assert(date_get_age(birth_date, current_date) == 37);
+  free(birth_date);
+  free(current_date);
 }
