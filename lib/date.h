@@ -6,6 +6,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 #include "convert.h"
 #include "mathematics.h"
@@ -320,5 +321,13 @@ void date_add_days(struct date *date, int64_t days);
  * @since v4.3.0
  */
 void date_to_utc(struct date *date);
+
+/**
+ * @brief Get the current date in UTC.
+ *
+ * @return struct date*
+ * @since v5.1.0
+ */
+struct date *date_get_now_utc();
 
 #endif

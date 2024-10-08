@@ -285,3 +285,25 @@ void date_to_utc(struct date *date) {
   date->timezone_utc_offset = 0;
   date_add_hours(date, mathematics_opposite(timezone_utc_offset));
 }
+
+struct date *date_get_now_utc() {
+  struct date *date = malloc(sizeof(struct date));
+  if (date == NULL) {
+    perror("Error (date_get_now_utc)");
+    exit(EXIT_FAILURE);
+  }
+
+  time_t current_time = time(NULL);
+  struct tm *current_time_tm = gmtime(&current_time);
+
+  date->year = (uint16_t)(current_time_tm->tm_year + 1900);
+  date->month = (uint8_t)(current_time_tm->tm_mon + 1);
+  date->day = (uint8_t)current_time_tm->tm_mday;
+  date->hours = (uint8_t)current_time_tm->tm_hour;
+  date->minutes = (uint8_t)current_time_tm->tm_min;
+  date->seconds = (uint8_t)current_time_tm->tm_sec;
+  date->milliseconds = 0;
+  date->timezone_utc_offset = 0;
+
+  return date;
+}

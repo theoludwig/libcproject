@@ -122,5 +122,11 @@ int main() {
   terminal_print_array_list(array_list, terminal_print_int);
   array_list_free(array_list);
 
+  struct date* date = date_get_now_utc();
+  string_t iso_string = date_to_iso_string(date);
+  printf("date_get_now_utc = %s\n", iso_string);
+  free(iso_string);
+  free(date);
+
   return EXIT_SUCCESS;
 }
